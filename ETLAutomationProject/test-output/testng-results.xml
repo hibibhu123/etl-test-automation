@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-10-13T00:57:26 IST" name="Suite" finished-at="2023-10-13T00:57:28 IST" duration-ms="1114">
+    <groups>
+    </groups>
+    <test started-at="2023-10-13T00:57:26 IST" name="Test" finished-at="2023-10-13T00:57:28 IST" duration-ms="1114">
+      <class name="etl.QueryComparisonTestNG">
+        <test-method is-config="true" signature="setup()[pri:0, instance:etl.QueryComparisonTestNG@3d5c822d]" started-at="2023-10-13T00:57:26 IST" name="setup" finished-at="2023-10-13T00:57:26 IST" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:etl.QueryComparisonTestNG@3d5c822d]" started-at="2023-10-13T00:57:26 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-10-13T00:57:27 IST" duration-ms="1006" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Validate_Count]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testListsEquality -->
+        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:etl.QueryComparisonTestNG@3d5c822d]" started-at="2023-10-13T00:57:27 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-10-13T00:57:27 IST" duration-ms="72" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Validate_Data]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testListsEquality -->
+      </class> <!-- etl.QueryComparisonTestNG -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
