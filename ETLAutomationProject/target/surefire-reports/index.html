@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Suite" class="navigator-link ">
-                    <span>D:\ETLAutomation\ETLAutomationProject\testng.xml</span>
+                    <span>D:\GITRepos\ETLAutomation\ETLAutomationProject\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,12 +103,17 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="etl.QueryComparisonTestNG" class="method navigator-link" hash-for-method="testListsEquality(Validate_Data)">testListsEquality(Validate_Data)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="etl.QueryComparisonTestNG" class="method navigator-link" hash-for-method="testListsEquality(Validate_Count)">testListsEquality(Validate_Count)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="etl.QueryComparisonTestNG" class="method navigator-link" hash-for-method="testListsEquality(Validate_Data)">testListsEquality(Validate_Data)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="etl.QueryComparisonTestNG" class="method navigator-link" hash-for-method="testListsEquality(Validate_Metadata)">testListsEquality(Validate_Metadata)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -131,6 +136,14 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="testListsEquality(Validate_Data)">
+                  </a> <!-- testListsEquality(Validate_Data) -->
+                  <span class="method-name">testListsEquality</span>
+                  <span class="parameters">(Validate_Data)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="testListsEquality(Validate_Count)">
                   </a> <!-- testListsEquality(Validate_Count) -->
                   <span class="method-name">testListsEquality</span>
@@ -139,10 +152,10 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testListsEquality(Validate_Data)">
-                  </a> <!-- testListsEquality(Validate_Data) -->
+                  <a name="testListsEquality(Validate_Metadata)">
+                  </a> <!-- testListsEquality(Validate_Metadata) -->
                   <span class="method-name">testListsEquality</span>
-                  <span class="parameters">(Validate_Data)</span>
+                  <span class="parameters">(Validate_Metadata)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -150,7 +163,7 @@
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">D:\ETLAutomation\ETLAutomationProject\testng.xml</span>
+            <span class="header-content">D:\GITRepos\ETLAutomation\ETLAutomationProject\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -199,20 +212,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testListsEquality')
 data.setCell(0, 2, 'etl.QueryComparisonTestNG')
-data.setCell(0, 3, 906);
+data.setCell(0, 3, 2800);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'testListsEquality')
 data.setCell(1, 2, 'etl.QueryComparisonTestNG')
-data.setCell(1, 3, 74);
+data.setCell(1, 3, 203);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testListsEquality')
+data.setCell(2, 2, 'etl.QueryComparisonTestNG')
+data.setCell(2, 3, 184);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 980 ms</span>
+              <span class="suite-total-time">Total running time: 3 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -245,11 +262,15 @@ return data;
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">testListsEquality(Validate_Count)</span>
-                <span class="method-start">49 ms</span>
+                <span class="method-start">142 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testListsEquality(Validate_Data)</span>
-                <span class="method-start">956 ms</span>
+                <span class="method-start">2946 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testListsEquality(Validate_Metadata)</span>
+                <span class="method-start">3151 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
