@@ -1,1 +1,1 @@
-SELECT count(*) from sample_table where rownum<=5 order by ID
+SELECT count(*) from sample_table order by ID
