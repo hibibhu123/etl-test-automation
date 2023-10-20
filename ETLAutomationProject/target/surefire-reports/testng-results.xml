@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-16T22:33:43 IST" name="Suite" finished-at="2023-10-16T22:33:47 IST" duration-ms="3374">
+  <suite started-at="2023-10-20T23:50:16 IST" name="Suite" finished-at="2023-10-20T23:50:17 IST" duration-ms="693">
     <groups>
     </groups>
-    <test started-at="2023-10-16T22:33:43 IST" name="Test" finished-at="2023-10-16T22:33:47 IST" duration-ms="3374">
-      <class name="etl.QueryComparisonTestNG">
-        <test-method is-config="true" signature="setup()[pri:0, instance:etl.QueryComparisonTestNG@290222c1]" started-at="2023-10-16T22:33:43 IST" name="setup" finished-at="2023-10-16T22:33:43 IST" duration-ms="53" status="PASS">
+    <test started-at="2023-10-20T23:50:16 IST" name="Test" finished-at="2023-10-20T23:50:17 IST" duration-ms="693">
+      <class name="testCases.QueryComparisonTestNG">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.QueryComparisonTestNG@201a4587]" started-at="2023-10-20T23:50:16 IST" name="setup" finished-at="2023-10-20T23:50:17 IST" duration-ms="410" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:etl.QueryComparisonTestNG@290222c1]" started-at="2023-10-16T22:33:43 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-10-16T22:33:46 IST" duration-ms="2800" status="PASS">
+        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:testCases.QueryComparisonTestNG@201a4587]" started-at="2023-10-20T23:50:17 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-10-20T23:50:17 IST" duration-ms="153" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -22,7 +22,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testListsEquality -->
-        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:etl.QueryComparisonTestNG@290222c1]" started-at="2023-10-16T22:33:46 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-10-16T22:33:46 IST" duration-ms="203" status="PASS">
+        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:testCases.QueryComparisonTestNG@201a4587]" started-at="2023-10-20T23:50:17 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-10-20T23:50:17 IST" duration-ms="5" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -33,7 +33,18 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testListsEquality -->
-        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:etl.QueryComparisonTestNG@290222c1]" started-at="2023-10-16T22:33:46 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-10-16T22:33:47 IST" duration-ms="184" status="PASS">
+        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:testCases.QueryComparisonTestNG@201a4587]" started-at="2023-10-20T23:50:17 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-10-20T23:50:17 IST" duration-ms="74" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Validate_Duplicate]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testListsEquality -->
+        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:testCases.QueryComparisonTestNG@201a4587]" started-at="2023-10-20T23:50:17 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-10-20T23:50:17 IST" duration-ms="5" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -44,7 +55,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testListsEquality -->
-      </class> <!-- etl.QueryComparisonTestNG -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.QueryComparisonTestNG@201a4587]" started-at="2023-10-20T23:50:17 IST" name="close" finished-at="2023-10-20T23:50:17 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- testCases.QueryComparisonTestNG -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

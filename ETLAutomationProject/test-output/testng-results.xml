@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-16T19:42:08 IST" name="Suite" finished-at="2023-10-16T19:42:09 IST" duration-ms="772">
+  <suite started-at="2023-10-20T23:55:55 IST" name="Suite" finished-at="2023-10-20T23:55:55 IST" duration-ms="744">
     <groups>
     </groups>
-    <test started-at="2023-10-16T19:42:08 IST" name="Test" finished-at="2023-10-16T19:42:09 IST" duration-ms="772">
-      <class name="etl.QueryComparisonTestNG">
-        <test-method is-config="true" signature="setup()[pri:0, instance:etl.QueryComparisonTestNG@3d5c822d]" started-at="2023-10-16T19:42:08 IST" name="setup" finished-at="2023-10-16T19:42:08 IST" duration-ms="5" status="PASS">
+    <test started-at="2023-10-20T23:55:55 IST" name="Test" finished-at="2023-10-20T23:55:55 IST" duration-ms="744">
+      <class name="testCases.QueryComparisonTestNG">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.QueryComparisonTestNG@73700b80]" started-at="2023-10-20T23:55:55 IST" name="setup" finished-at="2023-10-20T23:55:55 IST" duration-ms="493" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:etl.QueryComparisonTestNG@3d5c822d]" started-at="2023-10-16T19:42:08 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-10-16T19:42:09 IST" duration-ms="598" status="FAIL">
+        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:testCases.QueryComparisonTestNG@73700b80]" started-at="2023-10-20T23:55:55 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-10-20T23:55:55 IST" duration-ms="130" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -19,57 +19,10 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Details of Differences:
-Row 1:
-   Column 1: List1 = COUNT(*): 5, List2 = COUNT(*): 100000
- expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Details of Differences:
-Row 1:
-   Column 1: List1 = COUNT(*): 5, List2 = COUNT(*): 100000
- expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:99)
-at org.testng.Assert.failNotEquals(Assert.java:1037)
-at org.testng.Assert.assertTrue(Assert.java:45)
-at etl.QueryComparisonTestNG.testListsEquality(QueryComparisonTestNG.java:86)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testListsEquality -->
-        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:etl.QueryComparisonTestNG@3d5c822d]" started-at="2023-10-16T19:42:09 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-10-16T19:42:09 IST" duration-ms="74" status="PASS">
+        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:testCases.QueryComparisonTestNG@73700b80]" started-at="2023-10-20T23:55:55 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-10-20T23:55:55 IST" duration-ms="5" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -80,7 +33,18 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testListsEquality -->
-        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:etl.QueryComparisonTestNG@3d5c822d]" started-at="2023-10-16T19:42:09 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-10-16T19:42:09 IST" duration-ms="61" status="PASS">
+        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:testCases.QueryComparisonTestNG@73700b80]" started-at="2023-10-20T23:55:55 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-10-20T23:55:55 IST" duration-ms="74" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Validate_Duplicate]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testListsEquality -->
+        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:testCases.QueryComparisonTestNG@73700b80]" started-at="2023-10-20T23:55:55 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-10-20T23:55:55 IST" duration-ms="5" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -91,7 +55,11 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testListsEquality -->
-      </class> <!-- etl.QueryComparisonTestNG -->
+        <test-method is-config="true" signature="close()[pri:0, instance:testCases.QueryComparisonTestNG@73700b80]" started-at="2023-10-20T23:55:55 IST" name="close" finished-at="2023-10-20T23:55:55 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- close -->
+      </class> <!-- testCases.QueryComparisonTestNG -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>
