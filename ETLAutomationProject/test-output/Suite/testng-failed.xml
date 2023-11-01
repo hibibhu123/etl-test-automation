@@ -3,12 +3,13 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="etl.QueryComparisonTestNG">
+      <class name="testCases.TableMetadataComparator">
         <methods>
-          <include name="testListsEquality" invocation-numbers="0"/>
-          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="testMetadataComparison"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- etl.QueryComparisonTestNG -->
+      </class> <!-- testCases.TableMetadataComparator -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

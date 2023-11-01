@@ -9,13 +9,21 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Test</a></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">906</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Test</a></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">1,535</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">testCases.QueryComparisonTestNG</td><td><a href="#m0">testListsEquality</a></td><td rowspan="4">1698336653381</td><td rowspan="4">186</td></tr><tr class="passedeven"><td><a href="#m1">testListsEquality</a></td></tr><tr class="passedeven"><td><a href="#m2">testListsEquality</a></td></tr><tr class="passedeven"><td><a href="#m3">testListsEquality</a></td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">testCases.TableMetadataComparator</td><td><a href="#m0">testMetadataComparison</a></td><td rowspan="1">1698827126318</td><td rowspan="1">227</td></tr><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">testCases.DataCompletenessValidation</td><td><a href="#m1">testListsEquality</a></td><td rowspan="4">1698827126637</td><td rowspan="4">3</td></tr><tr class="passedeven"><td><a href="#m2">testListsEquality</a></td></tr><tr class="passedeven"><td><a href="#m3">testListsEquality</a></td></tr><tr class="passedeven"><td><a href="#m4">testListsEquality</a></td></tr></tbody>
 </table>
-<h2>Test</h2><h3 id="m0">testCases.QueryComparisonTestNG#testListsEquality</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>Validate_Count</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">testCases.QueryComparisonTestNG#testListsEquality</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>Validate_Duplicate</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">testCases.QueryComparisonTestNG#testListsEquality</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>Validate_Data</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">testCases.QueryComparisonTestNG#testListsEquality</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>Validate_Metadata</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Test</h2><h3 id="m0">testCases.TableMetadataComparator#testMetadataComparison</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Mismatch in column: HIREDATE
+Source: ColumnMetadata{columnName=&apos;HIREDATE&apos;, dataType=&apos;DATE2&apos;, dataLength=0}
+Target: ColumnMetadata{columnName=&apos;HIREDATE&apos;, dataType=&apos;DATE&apos;, dataLength=7}
+	at testCases.TableMetadataComparator.isEqual(TableMetadataComparator.java:225)
+	at testCases.TableMetadataComparator.compareMetadata(TableMetadataComparator.java:206)
+	at testCases.TableMetadataComparator.testMetadataComparison(TableMetadataComparator.java:62)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 28 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">testCases.DataCompletenessValidation#testListsEquality</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>Validate_Data</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">testCases.DataCompletenessValidation#testListsEquality</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>Validate_Metadata</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">testCases.DataCompletenessValidation#testListsEquality</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>Validate_Duplicate</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">testCases.DataCompletenessValidation#testListsEquality</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>Validate_Count</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

@@ -20,7 +20,7 @@ import queryFunction.sqlFunction;
 import util.Constants;
 import util.PropertyFileReader;
 
-public class QueryComparisonTestNG {
+public class DataCompletenessValidation {
 
 	private String jdbcUrl;
 	private String username;

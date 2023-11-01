@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Suite" class="navigator-link">
-              <span class="suite-name border-passed">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -93,7 +93,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods,   4 passed</span>
+                    <span class="method-stats">5 methods, 1 failed,   4 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="testCases.TableMetadataComparator" class="method navigator-link" hash-for-method="testMetadataComparison">testMetadataComparison</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,22 +118,22 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testCases.QueryComparisonTestNG" class="method navigator-link" hash-for-method="testListsEquality(Validate_Count)">testListsEquality(Validate_Count)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="testListsEquality(Validate_Data)">testListsEquality(Validate_Data)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testCases.QueryComparisonTestNG" class="method navigator-link" hash-for-method="testListsEquality(Validate_Duplicate)">testListsEquality(Validate_Duplicate)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="testListsEquality(Validate_Metadata)">testListsEquality(Validate_Metadata)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testCases.QueryComparisonTestNG" class="method navigator-link" hash-for-method="testListsEquality(Validate_Data)">testListsEquality(Validate_Data)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="testListsEquality(Validate_Duplicate)">testListsEquality(Validate_Duplicate)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testCases.QueryComparisonTestNG" class="method navigator-link" hash-for-method="testListsEquality(Validate_Metadata)">testListsEquality(Validate_Metadata)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="testListsEquality(Validate_Count)">testListsEquality(Validate_Count)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -134,28 +148,36 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-passed">
+          <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">testCases.QueryComparisonTestNG</span>
+              <img src="failed.png"/>
+              <span class="class-name">testCases.TableMetadataComparator</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testListsEquality(Validate_Count)">
-                  </a> <!-- testListsEquality(Validate_Count) -->
-                  <span class="method-name">testListsEquality</span>
-                  <span class="parameters">(Validate_Count)</span>
+                  <a name="testMetadataComparison">
+                  </a> <!-- testMetadataComparison -->
+                  <span class="method-name">testMetadataComparison</span>
+                  <div class="stack-trace">java.lang.AssertionError: Mismatch in column: HIREDATE
+Source: ColumnMetadata{columnName=&apos;HIREDATE&apos;, dataType=&apos;DATE2&apos;, dataLength=0}
+Target: ColumnMetadata{columnName=&apos;HIREDATE&apos;, dataType=&apos;DATE&apos;, dataLength=7}
+	at testCases.TableMetadataComparator.isEqual(TableMetadataComparator.java:225)
+	at testCases.TableMetadataComparator.compareMetadata(TableMetadataComparator.java:206)
+	at testCases.TableMetadataComparator.testMetadataComparison(TableMetadataComparator.java:62)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 28 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testListsEquality(Validate_Duplicate)">
-                  </a> <!-- testListsEquality(Validate_Duplicate) -->
-                  <span class="method-name">testListsEquality</span>
-                  <span class="parameters">(Validate_Duplicate)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">testCases.DataCompletenessValidation</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
                   <a name="testListsEquality(Validate_Data)">
@@ -172,6 +194,22 @@
                   <span class="parameters">(Validate_Metadata)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testListsEquality(Validate_Duplicate)">
+                  </a> <!-- testListsEquality(Validate_Duplicate) -->
+                  <span class="method-name">testListsEquality</span>
+                  <span class="parameters">(Validate_Duplicate)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testListsEquality(Validate_Count)">
+                  </a> <!-- testListsEquality(Validate_Count) -->
+                  <span class="method-name">testListsEquality</span>
+                  <span class="parameters">(Validate_Count)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Suite-class-passed -->
         </div> <!-- panel Suite -->
@@ -186,7 +224,8 @@
 &lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;testCases.QueryComparisonTestNG&quot;/&gt;
+      &lt;class name=&quot;testCases.TableMetadataComparator&quot;/&gt;
+      &lt;class name=&quot;testCases.DataCompletenessValidation&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
@@ -200,7 +239,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test (1 class)</span>
+                <span class="test-name">Test (2 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -226,28 +265,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testListsEquality')
-data.setCell(0, 2, 'testCases.QueryComparisonTestNG')
-data.setCell(0, 3, 186);
+data.setCell(0, 1, 'testMetadataComparison')
+data.setCell(0, 2, 'testCases.TableMetadataComparator')
+data.setCell(0, 3, 227);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'testListsEquality')
-data.setCell(1, 2, 'testCases.QueryComparisonTestNG')
-data.setCell(1, 3, 97);
+data.setCell(1, 2, 'testCases.DataCompletenessValidation')
+data.setCell(1, 3, 11);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'testListsEquality')
-data.setCell(2, 2, 'testCases.QueryComparisonTestNG')
+data.setCell(2, 2, 'testCases.DataCompletenessValidation')
 data.setCell(2, 3, 6);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'testListsEquality')
-data.setCell(3, 2, 'testCases.QueryComparisonTestNG')
+data.setCell(3, 2, 'testCases.DataCompletenessValidation')
 data.setCell(3, 3, 5);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'testListsEquality')
+data.setCell(4, 2, 'testCases.DataCompletenessValidation')
+data.setCell(4, 3, 3);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 294 ms</span>
+              <span class="suite-total-time">Total running time: 252 ms</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -273,30 +316,50 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">testCases.QueryComparisonTestNG</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">testCases.DataCompletenessValidation</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">setup</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testCases.TableMetadataComparator</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">635 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testMetadataComparison</span>
+                <span class="method-start">1195 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">1426 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">testCases.DataCompletenessValidation</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">testListsEquality(Validate_Count)</span>
-                <span class="method-start">596 ms</span>
+                <span class="method-start">1501 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testListsEquality(Validate_Data)</span>
-                <span class="method-start">784 ms</span>
+                <span class="method-start">1514 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testListsEquality(Validate_Duplicate)</span>
-                <span class="method-start">792 ms</span>
+                <span class="method-start">1518 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testListsEquality(Validate_Metadata)</span>
-                <span class="method-start">890 ms</span>
+                <span class="method-start">1525 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">close</span>
-                <span class="method-start">899 ms</span>
+                <span class="method-start">1530 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
