@@ -6,8 +6,8 @@
       <class name="testCases.TableMetadataComparator">
         <methods>
           <include name="tearDown"/>
-          <include name="testMetadataComparison"/>
           <include name="setUp"/>
+          <include name="testMetadataComparison"/>
         </methods>
       </class> <!-- testCases.TableMetadataComparator -->
     </classes>

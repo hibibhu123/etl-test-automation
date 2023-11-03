@@ -3,8 +3,8 @@
 <suite name="Suite">
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="testCases.TableMetadataComparator" />
 			<class name="testCases.DataCompletenessValidation" />
+			<class name="testCases.MetadataValidation" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -2,52 +2,24 @@ package testCases;
 
 import java.io.File;
 import java.io.FilenameFilter;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.yaml.snakeyaml.scanner.Constant;
-
-import queryFunction.DatabaseConn;
+import base.TestBase;
 import queryFunction.sqlFunction;
 import util.Constants;
-import util.PropertyFileReader;
 
-public class DataCompletenessValidation {
+public class DataCompletenessValidation extends TestBase{
 
-	private String jdbcUrl;
-	private String username;
-	private String password;
 	private String query1;
 	private String query2;
 	private String queryFilePath1;
 	private String queryFilePath2;
 	private List<List<String>> result1;
 	private List<List<String>> result2;
-	private Properties prop;
-	private Connection connection;
 
-	@BeforeTest
-	public void setup() {
-		try {
-			prop = PropertyFileReader.readPropertiesFile(Constants.propertyFilePath);
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-		jdbcUrl = prop.getProperty("jdbcUrl");
-		username = prop.getProperty("username");
-		password = prop.getProperty("password");
-		connection = DatabaseConn.createConnection(jdbcUrl, username, password);
-
-	}
 
 	@Test(dataProvider = "getFolderPath")
 	public void testListsEquality(String testCasePath) {
@@ -66,11 +38,6 @@ public class DataCompletenessValidation {
 		// Assert that the lists are equal
 		Assert.assertTrue(differingRows.isEmpty(), sqlFunction.getDifferencesAsString(result1, result2, differingRows));
 
-	}
-
-	@AfterTest
-	public void close() {
-		DatabaseConn.closeConnection(connection);
 	}
 
 	@DataProvider

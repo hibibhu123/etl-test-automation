@@ -3,13 +3,13 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testCases.TableMetadataComparator">
+      <class name="testCases.MetadataValidation">
         <methods>
-          <include name="tearDown"/>
           <include name="testMetadataComparison"/>
+          <include name="tearDown"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- testCases.TableMetadataComparator -->
+      </class> <!-- testCases.MetadataValidation -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

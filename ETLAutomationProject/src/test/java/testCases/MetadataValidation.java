@@ -1,56 +1,31 @@
 package testCases;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Properties;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class TableMetadataComparator {
+import base.TestBase;
+import util.Constants;
 
-	private static final String JDBC_URL = "jdbc:oracle:thin:@//localhost:1521/orcl";
-	private static final String USERNAME = "scott";
-	private static final String PASSWORD = "tiger";
-	private XSSFWorkbook workbook;
-	private Connection connection;
-
-	@BeforeClass
-	public void setUp() throws Exception {
-		
-		
-		// Load workbook and establish JDBC connection before all tests
-		String excelFilePath = "./TableMetadata/Metadata.xlsx";
-		workbook = new XSSFWorkbook(excelFilePath);
-		connection = getConnection();
-	}
-
-	@AfterClass
-	public void tearDown() throws Exception {
-		// Close workbook and JDBC connection after all tests
-		if (workbook != null) {
-			workbook.close();
-		}
-		if (connection != null) {
-			connection.close();
-		}
-	}
+public class MetadataValidation extends TestBase {
 
 	@Test
 	public void testMetadataComparison() {
 		try {
+			// Load workbook and establish JDBC connection before all tests
+			String metadatExcelFilePath = Constants.metaDataFilePath;
+			workbook = new XSSFWorkbook(metadatExcelFilePath);
 			List<String> tableNames = getTableNames(workbook);
 
 			for (String tableName : tableNames) {
@@ -74,35 +49,12 @@ public class TableMetadataComparator {
 		}
 	}
 
-	private static Connection getConnection() {
-		Connection connection = null;
-
-		try {
-			// Register the Oracle JDBC driver
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-
-			// Create properties for the connection
-			Properties properties = new Properties();
-			properties.setProperty("user", USERNAME);
-			properties.setProperty("password", PASSWORD);
-
-			// Establish the connection
-			connection = DriverManager.getConnection(JDBC_URL, properties);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return connection;
-	}
-
 	private static List<ColumnMetadata> getTableMetadataFromDatabase(String tableName, Connection connection) {
 		List<ColumnMetadata> metadataList = new ArrayList<>();
 
 		try {
 			// Build the custom query
-			String query = "SELECT COLUMN_NAME, DATA_TYPE, DATA_LENGTH " + "FROM ALL_TAB_COLUMNS "
-					+ "WHERE TABLE_NAME = '" + tableName + "'";
+			String query = Constants.metaDataQuery+"'" + tableName + "'";
 
 			// Create a statement and execute the query
 			Statement statement = connection.createStatement();

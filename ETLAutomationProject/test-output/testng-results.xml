@@ -2,16 +2,94 @@
 <testng-results ignored="0" total="5" passed="4" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-11-01T13:55:25 IST" name="Suite" finished-at="2023-11-01T13:55:26 IST" duration-ms="1535">
+  <suite started-at="2023-11-03T18:54:15 IST" name="Suite" finished-at="2023-11-03T18:54:16 IST" duration-ms="1095">
     <groups>
     </groups>
-    <test started-at="2023-11-01T13:55:25 IST" name="Test" finished-at="2023-11-01T13:55:26 IST" duration-ms="1535">
-      <class name="testCases.TableMetadataComparator">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.TableMetadataComparator@4310d43]" started-at="2023-11-01T13:55:25 IST" name="setUp" finished-at="2023-11-01T13:55:26 IST" duration-ms="554" status="PASS">
+    <test started-at="2023-11-03T18:54:15 IST" name="Test" finished-at="2023-11-03T18:54:16 IST" duration-ms="1095">
+      <class name="testCases.DataCompletenessValidation">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.DataCompletenessValidation@7c24b813]" started-at="2023-11-03T18:54:15 IST" name="setUp" finished-at="2023-11-03T18:54:15 IST" duration-ms="378" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testMetadataComparison()[pri:0, instance:testCases.TableMetadataComparator@4310d43]" started-at="2023-11-01T13:55:26 IST" name="testMetadataComparison" finished-at="2023-11-01T13:55:26 IST" duration-ms="227" status="FAIL">
+        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@7c24b813]" started-at="2023-11-03T18:54:15 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-11-03T18:54:15 IST" duration-ms="106" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Validate_Count]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testListsEquality -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.DataCompletenessValidation@7c24b813]" started-at="2023-11-03T18:54:15 IST" name="tearDown" finished-at="2023-11-03T18:54:15 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.DataCompletenessValidation@7c24b813]" started-at="2023-11-03T18:54:15 IST" name="setUp" finished-at="2023-11-03T18:54:16 IST" duration-ms="31" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@7c24b813]" started-at="2023-11-03T18:54:16 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-11-03T18:54:16 IST" duration-ms="4" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Validate_Data]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testListsEquality -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.DataCompletenessValidation@7c24b813]" started-at="2023-11-03T18:54:16 IST" name="tearDown" finished-at="2023-11-03T18:54:16 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.DataCompletenessValidation@7c24b813]" started-at="2023-11-03T18:54:16 IST" name="setUp" finished-at="2023-11-03T18:54:16 IST" duration-ms="25" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@7c24b813]" started-at="2023-11-03T18:54:16 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-11-03T18:54:16 IST" duration-ms="68" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Validate_Duplicate]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testListsEquality -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.DataCompletenessValidation@7c24b813]" started-at="2023-11-03T18:54:16 IST" name="tearDown" finished-at="2023-11-03T18:54:16 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.DataCompletenessValidation@7c24b813]" started-at="2023-11-03T18:54:16 IST" name="setUp" finished-at="2023-11-03T18:54:16 IST" duration-ms="23" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@7c24b813]" started-at="2023-11-03T18:54:16 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-11-03T18:54:16 IST" duration-ms="4" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Validate_Metadata]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testListsEquality -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.DataCompletenessValidation@7c24b813]" started-at="2023-11-03T18:54:16 IST" name="tearDown" finished-at="2023-11-03T18:54:16 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- testCases.DataCompletenessValidation -->
+      <class name="testCases.MetadataValidation">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.MetadataValidation@2dc54ad4]" started-at="2023-11-03T18:54:16 IST" name="setUp" finished-at="2023-11-03T18:54:16 IST" duration-ms="24" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testMetadataComparison()[pri:0, instance:testCases.MetadataValidation@2dc54ad4]" started-at="2023-11-03T18:54:16 IST" name="testMetadataComparison" finished-at="2023-11-03T18:54:16 IST" duration-ms="336" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[Mismatch in column: HIREDATE
@@ -23,9 +101,9 @@ Target: ColumnMetadata{columnName='HIREDATE', dataType='DATE', dataLength=7}]]>
 Source: ColumnMetadata{columnName='HIREDATE', dataType='DATE2', dataLength=0}
 Target: ColumnMetadata{columnName='HIREDATE', dataType='DATE', dataLength=7}
 at org.testng.Assert.fail(Assert.java:99)
-at testCases.TableMetadataComparator.isEqual(TableMetadataComparator.java:225)
-at testCases.TableMetadataComparator.compareMetadata(TableMetadataComparator.java:206)
-at testCases.TableMetadataComparator.testMetadataComparison(TableMetadataComparator.java:62)
+at testCases.MetadataValidation.isEqual(MetadataValidation.java:177)
+at testCases.MetadataValidation.compareMetadata(MetadataValidation.java:158)
+at testCases.MetadataValidation.testMetadataComparison(MetadataValidation.java:37)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -60,65 +138,11 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testMetadataComparison -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.TableMetadataComparator@4310d43]" started-at="2023-11-01T13:55:26 IST" name="tearDown" finished-at="2023-11-01T13:55:26 IST" duration-ms="73" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.MetadataValidation@2dc54ad4]" started-at="2023-11-03T18:54:16 IST" name="tearDown" finished-at="2023-11-03T18:54:16 IST" duration-ms="47" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- testCases.TableMetadataComparator -->
-      <class name="testCases.DataCompletenessValidation">
-        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.DataCompletenessValidation@2dc54ad4]" started-at="2023-11-01T13:55:25 IST" name="setup" finished-at="2023-11-01T13:55:25 IST" duration-ms="625" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@2dc54ad4]" started-at="2023-11-01T13:55:26 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-11-01T13:55:26 IST" duration-ms="11" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Validate_Count]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testListsEquality -->
-        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@2dc54ad4]" started-at="2023-11-01T13:55:26 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-11-01T13:55:26 IST" duration-ms="3" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Validate_Data]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testListsEquality -->
-        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@2dc54ad4]" started-at="2023-11-01T13:55:26 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-11-01T13:55:26 IST" duration-ms="6" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Validate_Duplicate]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testListsEquality -->
-        <test-method signature="testListsEquality(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@2dc54ad4]" started-at="2023-11-01T13:55:26 IST" name="testListsEquality" data-provider="getFolderPath" finished-at="2023-11-01T13:55:26 IST" duration-ms="5" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Validate_Metadata]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testListsEquality -->
-        <test-method is-config="true" signature="close()[pri:0, instance:testCases.DataCompletenessValidation@2dc54ad4]" started-at="2023-11-01T13:55:26 IST" name="close" finished-at="2023-11-01T13:55:26 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- close -->
-      </class> <!-- testCases.DataCompletenessValidation -->
+      </class> <!-- testCases.MetadataValidation -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>
