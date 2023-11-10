@@ -32,7 +32,7 @@ public class sqlFunction {
 	}
 
 	public static List<List<String>> executeQuery(String jdbcUrl, String username, String password, String query,
-			Connection connection) {
+			Connection connection) throws SQLException {
 		List<List<String>> resultList = new ArrayList<>();
 
 		// try (Connection connection = DriverManager.getConnection(jdbcUrl, username,

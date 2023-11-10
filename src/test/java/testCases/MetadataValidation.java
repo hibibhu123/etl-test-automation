@@ -5,8 +5,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
@@ -16,7 +18,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import util.Constants;
 
 public class MetadataValidation extends TestBase {
 
@@ -24,14 +25,13 @@ public class MetadataValidation extends TestBase {
 	public void testMetadataComparison() {
 		try {
 			// Load workbook and establish JDBC connection before all tests
-			String metadatExcelFilePath = Constants.metaDataFilePath;
-			workbook = new XSSFWorkbook(metadatExcelFilePath);
+			workbook = new XSSFWorkbook(metaDataExcelPath);
 			List<String> tableNames = getTableNames(workbook);
 
 			for (String tableName : tableNames) {
 				System.out.println("Processing Table: " + tableName);
-				List<ColumnMetadata> sourceMetadata = getTableMetadata(workbook, tableName);
-				List<ColumnMetadata> targetMetadata = getTableMetadataFromDatabase(tableName, connection);
+				List<Map<String, Object>> sourceMetadata = getTableMetadata(workbook, tableName);
+				List<Map<String, Object>> targetMetadata = getTableMetadataFrom(tableName, targetConnection);
 
 				// Compare source and target metadata
 				boolean isMetadataEqual = compareMetadata(sourceMetadata, targetMetadata);
@@ -49,23 +49,23 @@ public class MetadataValidation extends TestBase {
 		}
 	}
 
-	private static List<ColumnMetadata> getTableMetadataFromDatabase(String tableName, Connection connection) {
-		List<ColumnMetadata> metadataList = new ArrayList<>();
+	private static List<Map<String, Object>> getTableMetadataFrom(String tableName, Connection connection) {
+		List<Map<String, Object>> metadataList = new ArrayList<>();
 
 		try {
 			// Build the custom query
-			String query = Constants.metaDataQuery+"'" + tableName + "'";
+			String query = tableMetaDataQuery + "'" + tableName + "'";
 
 			// Create a statement and execute the query
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(query);
 
 			while (resultSet.next()) {
-				String columnName = resultSet.getString("COLUMN_NAME");
-				String dataType = resultSet.getString("DATA_TYPE");
-				int dataLength = resultSet.getInt("DATA_LENGTH");
+				Map<String, Object> columnMetadata = new HashMap<>();
+				columnMetadata.put("COLUMN_NAME", resultSet.getString("COLUMN_NAME"));
+				columnMetadata.put("DATA_TYPE", resultSet.getString("DATA_TYPE"));
+				columnMetadata.put("COLUMN_TYPE", resultSet.getString("COLUMN_TYPE"));
 
-				ColumnMetadata columnMetadata = new ColumnMetadata(columnName, dataType, dataLength);
 				metadataList.add(columnMetadata);
 			}
 		} catch (SQLException e) {
@@ -101,8 +101,8 @@ public class MetadataValidation extends TestBase {
 		return tableNames;
 	}
 
-	private static List<ColumnMetadata> getTableMetadata(XSSFWorkbook workbook, String tableName) {
-		List<ColumnMetadata> metadataList = new ArrayList<>();
+	private static List<Map<String, Object>> getTableMetadata(XSSFWorkbook workbook, String tableName) {
+		List<Map<String, Object>> metadataList = new ArrayList<>();
 		Sheet sheet = workbook.getSheet(tableName);
 
 		if (sheet == null) {
@@ -125,15 +125,17 @@ public class MetadataValidation extends TestBase {
 			if (columnNameCell != null && columnNameCell.getCellType() == CellType.STRING && dataTypeCell != null
 					&& dataTypeCell.getCellType() == CellType.STRING) {
 
-				String columnName = columnNameCell.getStringCellValue();
-				String dataType = dataTypeCell.getStringCellValue();
-				int dataLength = 0; // Default to 0 if the cell is empty
+				Map<String, Object> columnMetadata = new HashMap<>();
+				columnMetadata.put("COLUMN_NAME", columnNameCell.getStringCellValue());
+				columnMetadata.put("DATA_TYPE", dataTypeCell.getStringCellValue());
 
-				if (dataLengthCell != null && dataLengthCell.getCellType() == CellType.NUMERIC) {
-					dataLength = (int) dataLengthCell.getNumericCellValue();
+				// Convert DATA_LENGTH to String
+				String dataLength = "";
+				if (dataLengthCell != null) {
+					dataLength = dataLengthCell.toString();
 				}
+				columnMetadata.put("COLUMN_TYPE", dataLength);
 
-				ColumnMetadata columnMetadata = new ColumnMetadata(columnName, dataType, dataLength);
 				metadataList.add(columnMetadata);
 			} else {
 				System.out
@@ -144,15 +146,16 @@ public class MetadataValidation extends TestBase {
 		return metadataList;
 	}
 
-	private static boolean compareMetadata(List<ColumnMetadata> sourceMetadata, List<ColumnMetadata> targetMetadata) {
+	private static boolean compareMetadata(List<Map<String, Object>> sourceMetadata,
+			List<Map<String, Object>> targetMetadata) {
 		// Compare the structure (number of columns)
 		if (sourceMetadata.size() != targetMetadata.size()) {
 			return false;
 		}
 
 		for (int i = 0; i < sourceMetadata.size(); i++) {
-			ColumnMetadata sourceColumn = sourceMetadata.get(i);
-			ColumnMetadata targetColumn = targetMetadata.get(i);
+			Map<String, Object> sourceColumn = sourceMetadata.get(i);
+			Map<String, Object> targetColumn = targetMetadata.get(i);
 
 			// Compare each element within the row, excluding DATA_LENGTH for DATE data type
 			if (!isEqual(sourceColumn, targetColumn)) {
@@ -163,52 +166,22 @@ public class MetadataValidation extends TestBase {
 		return true;
 	}
 
-	private static boolean isEqual(ColumnMetadata sourceColumn, ColumnMetadata targetColumn) {
+	private static boolean isEqual(Map<String, Object> sourceColumn, Map<String, Object> targetColumn) {
 		// Compare ignoring leading/trailing whitespaces
-		boolean columnNameMatch = sourceColumn.getColumnName().trim().equals(targetColumn.getColumnName().trim());
-		boolean dataTypeMatch = sourceColumn.getDataType().trim().equals(targetColumn.getDataType().trim());
-		boolean dataLengthMatch = sourceColumn.getDataType().equalsIgnoreCase("DATE")
-				|| sourceColumn.getDataLength() == targetColumn.getDataLength();
+		boolean columnNameMatch = sourceColumn.get("COLUMN_NAME").toString().trim()
+				.equals(targetColumn.get("COLUMN_NAME").toString().trim());
+		boolean dataTypeMatch = sourceColumn.get("DATA_TYPE").toString().trim()
+				.equals(targetColumn.get("DATA_TYPE").toString().trim());
+		boolean dataLengthMatch = sourceColumn.get("DATA_TYPE").toString().equalsIgnoreCase("DATE")
+				|| sourceColumn.get("COLUMN_TYPE").toString().equals(targetColumn.get("COLUMN_TYPE").toString());
 
 		if (!columnNameMatch || !dataTypeMatch || !dataLengthMatch) {
-			String errorMessage = "Mismatch in column: " + sourceColumn.getColumnName() + "\nSource: " + sourceColumn
+			String errorMessage = "Mismatch in column: " + sourceColumn.get("COLUMN_NAME") + "\nSource: " + sourceColumn
 					+ "\nTarget: " + targetColumn;
 
 			Assert.fail(errorMessage);
 		}
 
 		return true;
-	}
-
-	private static class ColumnMetadata {
-		private String columnName;
-		private String dataType;
-		private int dataLength;
-
-		public ColumnMetadata(String columnName, String dataType, int dataLength) {
-			this.columnName = columnName;
-			this.dataType = dataType;
-			this.dataLength = dataLength;
-		}
-
-		// Getters and setters (if needed)
-
-		public String getColumnName() {
-			return columnName;
-		}
-
-		public String getDataType() {
-			return dataType;
-		}
-
-		public int getDataLength() {
-			return dataLength;
-		}
-
-		@Override
-		public String toString() {
-			return "ColumnMetadata{" + "columnName='" + columnName + '\'' + ", dataType='" + dataType + '\''
-					+ ", dataLength=" + dataLength + '}';
-		}
 	}
 }

@@ -1,1 +1,1 @@
-SELECT count(*) from sample_table 
+SELECT * from employees order by employee_id 

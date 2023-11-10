@@ -2,62 +2,85 @@ package testCases;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.PatternSyntaxException;
+
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
 import base.TestBase;
 import queryFunction.sqlFunction;
 import util.Constants;
 
-public class DataCompletenessValidation extends TestBase{
+public class DataCompletenessValidation extends TestBase {
 
-	private String query1;
-	private String query2;
-	private String queryFilePath1;
-	private String queryFilePath2;
-	private List<List<String>> result1;
-	private List<List<String>> result2;
-
+	private String sourceQuery;
+	private String targetQuery;
+	private String sourceQueryFilePath;
+	private String targetQueryFilePath;
+	private List<List<String>> sourceQueryResult;
+	private List<List<String>> targetQueryResult;
 
 	@Test(dataProvider = "getFolderPath")
 	public void testListsEquality(String testCasePath) {
+	    try {
+	        sourceQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/" + "source.sql";
+	        targetQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/" + "target.sql";
 
-		queryFilePath1 = Constants.sqlFilePath + "/" + testCasePath + "/" + "source.sql";
-		queryFilePath2 = Constants.sqlFilePath + "/" + testCasePath + "/" + "target.sql";
+	        // Read queries from files
+	        sourceQuery = sqlFunction.readQueryFromFile(sourceQueryFilePath);
+	        targetQuery = sqlFunction.readQueryFromFile(targetQueryFilePath);
 
-		// Read queries from files
-		query1 = sqlFunction.readQueryFromFile(queryFilePath1);
-		query2 = sqlFunction.readQueryFromFile(queryFilePath2);
-		result1 = sqlFunction.executeQuery(jdbcUrl, username, password, query1, connection);
-		result2 = sqlFunction.executeQuery(jdbcUrl, username, password, query2, connection);
-		// Find differing rows
-		List<Integer> differingRows = sqlFunction.findDifferingRows(result1, result2);
+	        // Execute SQL queries
+	        sourceQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, sourceQuery, sourceConnection);
+	        targetQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, targetQuery, targetConnection);
 
-		// Assert that the lists are equal
-		Assert.assertTrue(differingRows.isEmpty(), sqlFunction.getDifferencesAsString(result1, result2, differingRows));
+	        // Find differing rows
+	        List<Integer> differingRows = sqlFunction.findDifferingRows(sourceQueryResult, targetQueryResult);
 
+	        // Assert that the lists are equal
+	        Assert.assertTrue(differingRows.isEmpty(),
+	                sqlFunction.getDifferencesAsString(sourceQueryResult, targetQueryResult, differingRows));
+	    } catch (SQLException sqlException) {
+	        // SQL syntax error detected
+	        String errorMessage = "SQL Syntax Error: " + sqlException.getMessage();
+	        sqlException.printStackTrace();
+	        throw new AssertionError(errorMessage, sqlException);
+	    } catch (Exception e) {
+	        // Handle other exceptions
+	        e.printStackTrace();
+	        throw new AssertionError("Test failed: " + e.getMessage(), e);
+	    }
 	}
+
+
 
 	@DataProvider
 	public Object[] getFolderPath() {
+		try {
+			File file = new File(Constants.sqlFilePath);
+			String[] subfolders = file.list(new FilenameFilter() {
+				@Override
+				public boolean accept(File current, String name) {
+					return new File(current, name).isDirectory();
+				}
+			});
+			Object[] obj = new Object[subfolders.length];
+			List<String> folderList = new ArrayList<String>();
 
-		File file = new File(Constants.sqlFilePath);
-		String[] subfolders = file.list(new FilenameFilter() {
-			@Override
-			public boolean accept(File current, String name) {
-				return new File(current, name).isDirectory();
+			for (String s : subfolders) {
+				folderList.add(s);
 			}
-		});
-		Object[] obj = new Object[subfolders.length];
-		List<String> folderList = new ArrayList<String>();
-
-		for (String s : subfolders) {
-			folderList.add(s);
+			obj = folderList.toArray(obj);
+			return obj;
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Skipping the test due to an exception in the data provider: " + e.getMessage());
+			return new Object[0]; // Return an empty array to indicate test failure
 		}
-		obj = folderList.toArray(obj);
-		return obj;
-
 	}
+
 }

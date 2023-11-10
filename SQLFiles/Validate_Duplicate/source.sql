@@ -1,1 +1,1 @@
-select * from emp where 1=2
+select * from employees where 1=2

@@ -1,1 +1,1 @@
-select count(*) from target_table
+SELECT * from employees order by employee_id
