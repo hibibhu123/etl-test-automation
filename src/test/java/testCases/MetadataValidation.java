@@ -1,14 +1,12 @@
 package testCases;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
@@ -18,6 +16,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import queryFunction.DatabaseMetadataRetrieval;
+import queryFunction.MySqlMetadataRetrieval;
+import queryFunction.OracleMetadataRetrieval;
 
 public class MetadataValidation extends TestBase {
 
@@ -30,11 +31,17 @@ public class MetadataValidation extends TestBase {
 
 			for (String tableName : tableNames) {
 				System.out.println("Processing Table: " + tableName);
+
+				// Update this line to get the appropriate implementation based on your
+				// configuration
+				DatabaseMetadataRetrieval metadataRetrieval = getMetadataRetrievalForCurrentDatabase(prop);
+
 				List<Map<String, Object>> sourceMetadata = getTableMetadata(workbook, tableName);
-				List<Map<String, Object>> targetMetadata = getTableMetadataFrom(tableName, targetConnection);
+				List<Map<String, Object>> targetMetadata = metadataRetrieval.getTableMetadata(tableName,
+						targetConnection);
 
 				// Compare source and target metadata
-				boolean isMetadataEqual = compareMetadata(sourceMetadata, targetMetadata);
+				boolean isMetadataEqual = compareMetadata(sourceMetadata, targetMetadata, metadataRetrieval);
 
 				if (isMetadataEqual) {
 					System.out.println("Metadata Match for Table: " + tableName);
@@ -49,31 +56,18 @@ public class MetadataValidation extends TestBase {
 		}
 	}
 
-	private static List<Map<String, Object>> getTableMetadataFrom(String tableName, Connection connection) {
-		List<Map<String, Object>> metadataList = new ArrayList<>();
+	private static DatabaseMetadataRetrieval getMetadataRetrievalForCurrentDatabase(Properties prop) {
+		String databaseType = prop.getProperty("targetDB");
 
-		try {
-			// Build the custom query
-			String query = tableMetaDataQuery + "'" + tableName + "'";
-
-			// Create a statement and execute the query
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery(query);
-
-			while (resultSet.next()) {
-				Map<String, Object> columnMetadata = new HashMap<>();
-				columnMetadata.put("COLUMN_NAME", resultSet.getString("COLUMN_NAME"));
-				columnMetadata.put("DATA_TYPE", resultSet.getString("DATA_TYPE"));
-				columnMetadata.put("COLUMN_TYPE", resultSet.getString("COLUMN_TYPE"));
-
-				metadataList.add(columnMetadata);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+		switch (databaseType.toLowerCase()) {
+		case "mysql":
+			return new MySqlMetadataRetrieval();
+		case "oracle":
+			return new OracleMetadataRetrieval();
+		// Add more cases for other databases as needed
+		default:
+			throw new IllegalArgumentException("Unsupported database type: " + databaseType);
 		}
-
-		System.out.println(metadataList);
-		return metadataList;
 	}
 
 	private static List<String> getTableNames(XSSFWorkbook workbook) {
@@ -129,25 +123,39 @@ public class MetadataValidation extends TestBase {
 				columnMetadata.put("COLUMN_NAME", columnNameCell.getStringCellValue());
 				columnMetadata.put("DATA_TYPE", dataTypeCell.getStringCellValue());
 
-				// Convert DATA_LENGTH to String
-				String dataLength = "";
+				// Check the cell type for DATA_LENGTH
 				if (dataLengthCell != null) {
-					dataLength = dataLengthCell.toString();
+					switch (dataLengthCell.getCellType()) {
+					case NUMERIC:
+						// If it's a numeric cell, get the numeric value
+						columnMetadata.put("DATA_LENGTH", String.valueOf((int) dataLengthCell.getNumericCellValue()));
+						break;
+					case STRING:
+						// If it's a string cell, get the string value
+						columnMetadata.put("DATA_LENGTH", dataLengthCell.getStringCellValue().trim());
+						break;
+					default:
+						// Handle other cell types if needed
+						columnMetadata.put("DATA_LENGTH", "");
+						break;
+					}
+				} else {
+					columnMetadata.put("DATA_LENGTH", "");
 				}
-				columnMetadata.put("COLUMN_TYPE", dataLength);
 
 				metadataList.add(columnMetadata);
 			} else {
 				System.out
 						.println("Unexpected cell format for table: " + tableName + ", Row: " + currentRow.getRowNum());
 			}
+
 		}
-		System.out.println(metadataList);
+		System.out.println("Metadata from Mapping Sheet:" + metadataList);
 		return metadataList;
 	}
 
 	private static boolean compareMetadata(List<Map<String, Object>> sourceMetadata,
-			List<Map<String, Object>> targetMetadata) {
+			List<Map<String, Object>> targetMetadata, DatabaseMetadataRetrieval metadataRetrieval) {
 		// Compare the structure (number of columns)
 		if (sourceMetadata.size() != targetMetadata.size()) {
 			return false;
@@ -157,8 +165,11 @@ public class MetadataValidation extends TestBase {
 			Map<String, Object> sourceColumn = sourceMetadata.get(i);
 			Map<String, Object> targetColumn = targetMetadata.get(i);
 
-			// Compare each element within the row, excluding DATA_LENGTH for DATE data type
-			if (!isEqual(sourceColumn, targetColumn)) {
+			// Pass metadataRetrieval to isEqual method
+			if (!isEqual(sourceColumn, targetColumn, metadataRetrieval)) {
+				System.out.println("Mismatch details:");
+				System.out.println("Source Column: " + sourceColumn);
+				System.out.println("Target Column: " + targetColumn);
 				return false;
 			}
 		}
@@ -166,22 +177,10 @@ public class MetadataValidation extends TestBase {
 		return true;
 	}
 
-	private static boolean isEqual(Map<String, Object> sourceColumn, Map<String, Object> targetColumn) {
-		// Compare ignoring leading/trailing whitespaces
-		boolean columnNameMatch = sourceColumn.get("COLUMN_NAME").toString().trim()
-				.equals(targetColumn.get("COLUMN_NAME").toString().trim());
-		boolean dataTypeMatch = sourceColumn.get("DATA_TYPE").toString().trim()
-				.equals(targetColumn.get("DATA_TYPE").toString().trim());
-		boolean dataLengthMatch = sourceColumn.get("DATA_TYPE").toString().equalsIgnoreCase("DATE")
-				|| sourceColumn.get("COLUMN_TYPE").toString().equals(targetColumn.get("COLUMN_TYPE").toString());
-
-		if (!columnNameMatch || !dataTypeMatch || !dataLengthMatch) {
-			String errorMessage = "Mismatch in column: " + sourceColumn.get("COLUMN_NAME") + "\nSource: " + sourceColumn
-					+ "\nTarget: " + targetColumn;
-
-			Assert.fail(errorMessage);
-		}
-
-		return true;
+	private static boolean isEqual(Map<String, Object> sourceColumn, Map<String, Object> targetColumn,
+			DatabaseMetadataRetrieval databaseMetadataRetrieval) {
+		// Use the provided database-specific logic for metadata comparison
+		return databaseMetadataRetrieval.isEqual(sourceColumn, targetColumn);
 	}
+
 }
