@@ -40,9 +40,9 @@ public class MySqlMetadataRetrieval implements DatabaseMetadataRetrieval {
     public boolean isEqual(Map<String, Object> sourceColumn, Map<String, Object> targetColumn) {
         // Compare ignoring leading/trailing whitespaces
         boolean columnNameMatch = sourceColumn.get("COLUMN_NAME").toString().trim()
-                .equals(targetColumn.get("COLUMN_NAME").toString().trim());
+                .equalsIgnoreCase(targetColumn.get("COLUMN_NAME").toString().trim());
         boolean dataTypeMatch = sourceColumn.get("DATA_TYPE").toString().trim()
-                .equals(targetColumn.get("DATA_TYPE").toString().trim());
+                .equalsIgnoreCase(targetColumn.get("DATA_TYPE").toString().trim());
         boolean dataLengthMatch = sourceColumn.get("DATA_LENGTH").toString().trim()
                 .equals(targetColumn.get("DATA_LENGTH").toString().trim());
 

@@ -86,7 +86,7 @@ public class sqlFunction {
 				String value2 = row2.get(j);
 
 				// if (!value1.equals(value2)) {
-				if (!value1.equals(value2)) {
+				if (!value1.equalsIgnoreCase(value2)) {
 					rowDiffers = true;
 					result.append("   Column ").append(j + 1).append(": List1 = ").append(value1).append(", List2 = ")
 							.append(value2).append("\n");

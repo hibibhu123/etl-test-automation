@@ -1,1 +1,1 @@
-SELECT * from employees order by employee_id
+SELECT empno from emp order by empno

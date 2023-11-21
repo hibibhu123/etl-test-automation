@@ -1,1 +1,1 @@
-SELECT count(*) from departments
+SELECT count(*) from dept
