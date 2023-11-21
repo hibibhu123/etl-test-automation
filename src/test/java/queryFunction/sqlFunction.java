@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -48,8 +47,10 @@ public class sqlFunction {
 				List<String> rowValues = new ArrayList<>();
 
 				for (int i = 1; i <= columnCount; i++) {
-					String columnName = metaData.getColumnName(i);
+					String columnName = metaData.getColumnName(i).toUpperCase();
 					String columnValue = resultSet.getString(i);
+					
+					//System.out.println(columnName+ "    "+columnValue);
 
 					// Handle null values if needed
 					if (resultSet.wasNull()) {
@@ -83,10 +84,15 @@ public class sqlFunction {
 			boolean rowDiffers = false;
 			for (int j = 0; j < row1.size(); j++) {
 				String value1 = row1.get(j);
+				
+			
 				String value2 = row2.get(j);
+				
+				//System.out.println(value1);
+				//System.out.println(value2);
 
 				// if (!value1.equals(value2)) {
-				if (!value1.equalsIgnoreCase(value2)) {
+				if (!value1.trim().equals(value2.trim())) {
 					rowDiffers = true;
 					result.append("   Column ").append(j + 1).append(": List1 = ").append(value1).append(", List2 = ")
 							.append(value2).append("\n");

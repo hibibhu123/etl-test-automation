@@ -1,1 +1,1 @@
-SELECT empno from emp order by empno
+SELECT empno,ename from emp order by empno

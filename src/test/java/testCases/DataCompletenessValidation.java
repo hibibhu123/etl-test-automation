@@ -54,8 +54,6 @@ public class DataCompletenessValidation extends TestBase {
 	    }
 	}
 
-
-
 	@DataProvider
 	public Object[] getFolderPath() {
 		try {
