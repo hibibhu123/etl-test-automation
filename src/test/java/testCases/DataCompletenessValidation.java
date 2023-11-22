@@ -24,34 +24,40 @@ public class DataCompletenessValidation extends TestBase {
 
 	@Test(dataProvider = "getFolderPath")
 	public void testListsEquality(String testCasePath) {
-	    try {
-	        sourceQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/" + "source.sql";
-	        targetQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/" + "target.sql";
+		try {
+			// Determine the source and target database types
+			String sourceDBType = prop.getProperty("sourceDB");
+			String targetDBType = prop.getProperty("targetDB");
 
-	        // Read queries from files
-	        sourceQuery = sqlFunction.readQueryFromFile(sourceQueryFilePath);
-	        targetQuery = sqlFunction.readQueryFromFile(targetQueryFilePath);
+			// Construct the file paths for source and target queries based on the selected
+			// database types
+			sourceQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/" + sourceDBType + "/source.sql";
+			targetQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/" + targetDBType + "/target.sql";
 
-	        // Execute SQL queries
-	        sourceQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, sourceQuery, sourceConnection);
-	        targetQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, targetQuery, targetConnection);
+			// Read queries from files
+			sourceQuery = sqlFunction.readQueryFromFile(sourceQueryFilePath);
+			targetQuery = sqlFunction.readQueryFromFile(targetQueryFilePath);
 
-	        // Find differing rows
-	        List<Integer> differingRows = sqlFunction.findDifferingRows(sourceQueryResult, targetQueryResult);
+			// Execute SQL queries
+			sourceQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, sourceQuery, sourceConnection);
+			targetQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, targetQuery, targetConnection);
 
-	        // Assert that the lists are equal
-	        Assert.assertTrue(differingRows.isEmpty(),
-	                sqlFunction.getDifferencesAsString(sourceQueryResult, targetQueryResult, differingRows));
-	    } catch (SQLException sqlException) {
-	        // SQL syntax error detected
-	        String errorMessage = "SQL Syntax Error: " + sqlException.getMessage();
-	        sqlException.printStackTrace();
-	        throw new AssertionError(errorMessage, sqlException);
-	    } catch (Exception e) {
-	        // Handle other exceptions
-	        e.printStackTrace();
-	        throw new AssertionError("Test failed: " + e.getMessage(), e);
-	    }
+			// Find differing rows
+			List<Integer> differingRows = sqlFunction.findDifferingRows(sourceQueryResult, targetQueryResult);
+
+			// Assert that the lists are equal
+			Assert.assertTrue(differingRows.isEmpty(),
+					sqlFunction.getDifferencesAsString(sourceQueryResult, targetQueryResult, differingRows));
+		} catch (SQLException sqlException) {
+			// SQL syntax error detected
+			String errorMessage = "SQL Syntax Error: " + sqlException.getMessage();
+			sqlException.printStackTrace();
+			throw new AssertionError(errorMessage, sqlException);
+		} catch (Exception e) {
+			// Handle other exceptions
+			e.printStackTrace();
+			throw new AssertionError("Test failed: " + e.getMessage(), e);
+		}
 	}
 
 	@DataProvider

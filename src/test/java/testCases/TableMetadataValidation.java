@@ -20,7 +20,7 @@ import queryFunction.DatabaseMetadataRetrieval;
 import queryFunction.MySqlMetadataRetrieval;
 import queryFunction.OracleMetadataRetrieval;
 
-public class MetadataValidation extends TestBase {
+public class TableMetadataValidation extends TestBase {
 
 	@Test
 	public void testMetadataComparison() {

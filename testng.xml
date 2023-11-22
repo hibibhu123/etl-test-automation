@@ -4,7 +4,7 @@
 	<test thread-count="5" name="Test">
 		<classes>
 			<class name="testCases.DataCompletenessValidation" />
-			<class name="testCases.MetadataValidation" />
+			<class name="testCases.TableMetadataValidation" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
