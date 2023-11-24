@@ -31,8 +31,7 @@ public class DataCompletenessValidation extends TestBase {
 
 			// Construct the file paths for source and target queries based on the selected
 			// database types
-			//sourceQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/" + sourceDBType + "/source.sql";
-			//targetQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/" + targetDBType + "/target.sql";
+
 			sourceQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/" + sourceDBType + ".sql";
 			targetQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/" + targetDBType + ".sql";
 

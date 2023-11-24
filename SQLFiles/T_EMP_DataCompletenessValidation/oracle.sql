@@ -15,7 +15,7 @@ SELECT
         WHEN e1.sal + NVL(e1.comm, 0) BETWEEN 2000 AND 3000 THEN 'MID' 
         ELSE 'HIGH' 
     END AS SALARY_GRADE
-FROM emp e1 
-INNER JOIN dept d1 ON e1.deptno = d1.deptno
-INNER JOIN emp e2 on e2.empno=e1.mgr
+FROM s_emp e1 
+INNER JOIN s_dept d1 ON e1.deptno = d1.deptno
+INNER JOIN s_emp e2 on e2.empno=e1.mgr
 order by EMP_ID
