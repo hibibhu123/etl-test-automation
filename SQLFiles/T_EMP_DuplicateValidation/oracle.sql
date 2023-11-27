@@ -1,0 +1,1 @@
+select 0 as No_Of_Duplicate_Rows from dual
