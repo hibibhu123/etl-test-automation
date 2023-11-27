@@ -1,5 +1,6 @@
 package testCases;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -13,6 +14,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.TestBase;
@@ -22,38 +24,52 @@ import queryFunction.OracleMetadataRetrieval;
 
 public class TableMetadataValidation extends TestBase {
 
-	@Test
-	public void testMetadataComparison() {
+	@Test(dataProvider = "tableSheetDataProvider")
+	public void testMetadataComparison(String tableName) {
 		try {
 			// Load workbook and establish JDBC connection before all tests
-			workbook = new XSSFWorkbook(metaDataExcelPath);
-			List<String> tableNames = getTableNames(workbook);
+			System.out.println("Processing Table: " + tableName);
 
-			for (String tableName : tableNames) {
-				System.out.println("Processing Table: " + tableName);
+			// Update this line to get the appropriate implementation based on the database configuration
+			DatabaseMetadataRetrieval metadataRetrieval = getMetadataRetrievalForCurrentDatabase(prop);
 
-				// Update this line to get the appropriate implementation based on your
-				// configuration
-				DatabaseMetadataRetrieval metadataRetrieval = getMetadataRetrievalForCurrentDatabase(prop);
+			List<Map<String, Object>> sourceMetadata = getTableMetadata(workbook, tableName);
+			List<Map<String, Object>> targetMetadata = metadataRetrieval.getTableMetadata(tableName, targetConnection);
 
-				List<Map<String, Object>> sourceMetadata = getTableMetadata(workbook, tableName);
-				List<Map<String, Object>> targetMetadata = metadataRetrieval.getTableMetadata(tableName,
-						targetConnection);
+			// Compare source and target metadata
+			boolean isMetadataEqual = compareMetadata(sourceMetadata, targetMetadata, metadataRetrieval);
 
-				// Compare source and target metadata
-				boolean isMetadataEqual = compareMetadata(sourceMetadata, targetMetadata, metadataRetrieval);
-
-				if (isMetadataEqual) {
-					System.out.println("Metadata Match for Table: " + tableName);
-				} else {
-					System.out.println("Metadata Mismatch for Table: " + tableName);
-					Assert.fail("Metadata Mismatch for Table: " + tableName);
-				}
+			if (isMetadataEqual) {
+				System.out.println("Metadata Match for Table: " + tableName);
+			} else {
+				System.out.println("Metadata Mismatch for Table: " + tableName);
+				Assert.fail("Metadata Mismatch for Table: " + tableName);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			Assert.fail("An exception occurred: " + e.getMessage());
 		}
+	}
+
+	@DataProvider(name = "tableSheetDataProvider")
+	public Iterator<Object[]> tableSheetDataProvider() {
+		List<Object[]> data = new ArrayList<>();
+
+		try {
+			// Load workbook and establish JDBC connection before all tests
+			workbook = new XSSFWorkbook(metaDataExcelPath);
+
+			// Use the list of table names obtained from getTableNames method
+			List<String> tableNames = getTableNames(workbook);
+
+			for (String tableName : tableNames) {
+				data.add(new Object[] { tableName });
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return data.iterator();
 	}
 
 	private static DatabaseMetadataRetrieval getMetadataRetrievalForCurrentDatabase(Properties prop) {
@@ -148,8 +164,8 @@ public class TableMetadataValidation extends TestBase {
 				System.out
 						.println("Unexpected cell format for table: " + tableName + ", Row: " + currentRow.getRowNum());
 			}
-
 		}
+
 		System.out.println("Metadata from Mapping Sheet:" + metadataList);
 		return metadataList;
 	}

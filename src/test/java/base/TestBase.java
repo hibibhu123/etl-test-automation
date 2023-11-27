@@ -4,14 +4,20 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
+
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 
 import queryFunction.Database;
 import queryFunction.DatabaseConn;
 import util.Constants;
+import util.CustomTestListener;
 import util.PropertyFileReader;
+
+
+@Listeners(CustomTestListener.class)
 
 public class TestBase {
 
@@ -23,10 +29,10 @@ public class TestBase {
 	public String username;
 	public String password;
 	public String metaDataExcelPath;
-	public static String tableMetaDataQuery;
+	public String tableMetaDataQuery;
 	public Database database;
 
-	@BeforeMethod
+	@BeforeClass
 	public void setUp() {
 		try {
 			prop = PropertyFileReader.readPropertiesFile(Constants.propertyFilePath);
@@ -79,7 +85,7 @@ public class TestBase {
 		}
 	}
 
-	@AfterMethod
+	@AfterClass
 	public void tearDown() throws SQLException {
 		if (workbook != null) {
 			try {
