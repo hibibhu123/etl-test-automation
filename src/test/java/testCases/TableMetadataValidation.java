@@ -25,9 +25,10 @@ import queryFunction.OracleMetadataRetrieval;
 public class TableMetadataValidation extends TestBase {
 
 	@Test(dataProvider = "tableSheetDataProvider")
-	public void testMetadataComparison(String tableName) {
+	public void tableMetadataComparison(String tableName) {
 		try {
 			// Load workbook and establish JDBC connection before all tests
+
 			System.out.println("Processing Table: " + tableName);
 
 			// Update this line to get the appropriate implementation based on the database configuration
