@@ -12,6 +12,7 @@ import org.testng.annotations.Listeners;
 
 import queryFunction.Database;
 import queryFunction.DatabaseConn;
+import queryFunction.MetadataExcelGenerator;
 import util.Constants;
 import util.CustomTestListener;
 import util.PropertyFileReader;
@@ -39,9 +40,11 @@ public class TestBase {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		MetadataExcelGenerator.generateMetadataExcel(Constants.mappingSheetPath, Constants.metaDataFilePath);
 
 		if (prop.getProperty("targetDB").equalsIgnoreCase("oracle")) {
-			metaDataExcelPath = Constants.metaDataFilePath_oracle;
+			//metaDataExcelPath = Constants.metaDataFilePath_oracle;
+			metaDataExcelPath = Constants.metaDataFilePath;
 			tableMetaDataQuery = Constants.metaDataQuery_oracle;
 			jdbcUrl = prop.getProperty("jdbcUrl_oracle");
 			username = prop.getProperty("username_oracle");
@@ -52,7 +55,8 @@ public class TestBase {
 				e.printStackTrace();
 			}
 		} else if (prop.getProperty("targetDB").equalsIgnoreCase("mysql")) {
-			metaDataExcelPath = Constants.metaDataFilePath_mysql;
+			//metaDataExcelPath = Constants.metaDataFilePath_mysql;
+			metaDataExcelPath = Constants.metaDataFilePath;
 			tableMetaDataQuery = Constants.metaDataQuery_mysql;
 			jdbcUrl = prop.getProperty("jdbcUrl_mysql");
 			username = prop.getProperty("username_mysql");

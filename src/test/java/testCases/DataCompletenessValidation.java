@@ -23,7 +23,7 @@ public class DataCompletenessValidation extends TestBase {
 	private List<List<String>> targetQueryResult;
 
 	@Test(dataProvider = "getFolderPath", testName = "testFolderBasedTest")
-	public void dataCompletenessValidation(String testCasePath) {
+	public void dataCompleteness(String testCasePath) {
 		try {
 			// Determine the source and target database types
 			String sourceDBType = prop.getProperty("sourceDB");

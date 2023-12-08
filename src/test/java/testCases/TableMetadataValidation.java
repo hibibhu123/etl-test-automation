@@ -2,11 +2,12 @@ package testCases;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.TreeMap;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -25,19 +26,15 @@ import queryFunction.OracleMetadataRetrieval;
 public class TableMetadataValidation extends TestBase {
 
 	@Test(dataProvider = "tableSheetDataProvider")
-	public void tableMetadataComparison(String tableName) {
+	public void tableMetadataValidation(String tableName) {
 		try {
-			// Load workbook and establish JDBC connection before all tests
-
 			System.out.println("Processing Table: " + tableName);
 
-			// Update this line to get the appropriate implementation based on the database configuration
 			DatabaseMetadataRetrieval metadataRetrieval = getMetadataRetrievalForCurrentDatabase(prop);
 
 			List<Map<String, Object>> sourceMetadata = getTableMetadata(workbook, tableName);
 			List<Map<String, Object>> targetMetadata = metadataRetrieval.getTableMetadata(tableName, targetConnection);
 
-			// Compare source and target metadata
 			boolean isMetadataEqual = compareMetadata(sourceMetadata, targetMetadata, metadataRetrieval);
 
 			if (isMetadataEqual) {
@@ -57,10 +54,8 @@ public class TableMetadataValidation extends TestBase {
 		List<Object[]> data = new ArrayList<>();
 
 		try {
-			// Load workbook and establish JDBC connection before all tests
 			workbook = new XSSFWorkbook(metaDataExcelPath);
 
-			// Use the list of table names obtained from getTableNames method
 			List<String> tableNames = getTableNames(workbook);
 
 			for (String tableName : tableNames) {
@@ -81,7 +76,6 @@ public class TableMetadataValidation extends TestBase {
 			return new MySqlMetadataRetrieval();
 		case "oracle":
 			return new OracleMetadataRetrieval();
-		// Add more cases for other databases as needed
 		default:
 			throw new IllegalArgumentException("Unsupported database type: " + databaseType);
 		}
@@ -89,10 +83,9 @@ public class TableMetadataValidation extends TestBase {
 
 	private static List<String> getTableNames(XSSFWorkbook workbook) {
 		List<String> tableNames = new ArrayList<>();
-		Sheet sheet = workbook.getSheetAt(0); // Assuming table names are in the first sheet
+		Sheet sheet = workbook.getSheetAt(0);
 
 		Iterator<Row> iterator = sheet.iterator();
-		// Skip the header row
 		if (iterator.hasNext()) {
 			iterator.next();
 		}
@@ -113,67 +106,59 @@ public class TableMetadataValidation extends TestBase {
 	}
 
 	private static List<Map<String, Object>> getTableMetadata(XSSFWorkbook workbook, String tableName) {
-		List<Map<String, Object>> metadataList = new ArrayList<>();
-		Sheet sheet = workbook.getSheet(tableName);
+	    List<Map<String, Object>> metadataList = new ArrayList<>();
+	    Sheet sheet = workbook.getSheet(tableName);
 
-		if (sheet == null) {
-			System.out.println("Sheet not found for table: " + tableName);
-			return metadataList;
-		}
+	    if (sheet == null) {
+	        System.out.println("Sheet not found for table: " + tableName);
+	        return metadataList;
+	    }
 
-		Iterator<Row> iterator = sheet.iterator();
-		// Skip the header row
-		if (iterator.hasNext()) {
-			iterator.next();
-		}
+	    Iterator<Row> iterator = sheet.iterator();
+	    if (iterator.hasNext()) {
+	        iterator.next(); // Skip the header row
+	    }
 
-		while (iterator.hasNext()) {
-			Row currentRow = iterator.next();
-			Cell columnNameCell = currentRow.getCell(0);
-			Cell dataTypeCell = currentRow.getCell(1);
-			Cell dataLengthCell = currentRow.getCell(2);
+	    while (iterator.hasNext()) {
+	        Row currentRow = iterator.next();
+	        Cell columnNameCell = currentRow.getCell(0);
+	        Cell dataLengthCell = currentRow.getCell(1);
 
-			if (columnNameCell != null && columnNameCell.getCellType() == CellType.STRING && dataTypeCell != null
-					&& dataTypeCell.getCellType() == CellType.STRING) {
+	        if (columnNameCell != null && columnNameCell.getCellType() == CellType.STRING && dataLengthCell != null
+	                && dataLengthCell.getCellType() == CellType.STRING) {
 
-				Map<String, Object> columnMetadata = new HashMap<>();
-				columnMetadata.put("COLUMN_NAME", columnNameCell.getStringCellValue());
-				columnMetadata.put("DATA_TYPE", dataTypeCell.getStringCellValue());
+	            Map<String, Object> columnMetadata = new TreeMap<>();
+	            columnMetadata.put("COLUMN_NAME", columnNameCell.getStringCellValue());
 
-				// Check the cell type for DATA_LENGTH
-				if (dataLengthCell != null) {
-					switch (dataLengthCell.getCellType()) {
-					case NUMERIC:
-						// If it's a numeric cell, get the numeric value
-						columnMetadata.put("DATA_LENGTH", String.valueOf((int) dataLengthCell.getNumericCellValue()));
-						break;
-					case STRING:
-						// If it's a string cell, get the string value
-						columnMetadata.put("DATA_LENGTH", dataLengthCell.getStringCellValue().trim());
-						break;
-					default:
-						// Handle other cell types if needed
-						columnMetadata.put("DATA_LENGTH", "");
-						break;
-					}
-				} else {
-					columnMetadata.put("DATA_LENGTH", "");
+	            switch (dataLengthCell.getCellType()) {
+				    case NUMERIC:
+				        columnMetadata.put("DATA_TYPE", String.valueOf((int) dataLengthCell.getNumericCellValue()));
+				        break;
+				    case STRING:
+				        columnMetadata.put("DATA_TYPE", dataLengthCell.getStringCellValue().trim());
+				        break;
+				    default:
+				        columnMetadata.put("DATA_TYPE", "");
+				        break;
 				}
 
-				metadataList.add(columnMetadata);
-			} else {
-				System.out
-						.println("Unexpected cell format for table: " + tableName + ", Row: " + currentRow.getRowNum());
-			}
-		}
+	            metadataList.add(columnMetadata);
+	        } else {
+	            System.out.println("Unexpected cell format for table: " + tableName + ", Row: " + currentRow.getRowNum());
+	        }
+	    }
 
-		System.out.println("Metadata from Mapping Sheet:" + metadataList);
-		return metadataList;
+	    // Sort metadataList based on COLUMN_NAME
+	    Collections.sort(metadataList, (a, b) ->
+        String.valueOf(a.get("COLUMN_NAME")).compareToIgnoreCase(String.valueOf(b.get("COLUMN_NAME"))));
+
+System.out.println("Sorted Metadata from Mapping Sheet:" + metadataList);
+return metadataList;
 	}
+
 
 	private static boolean compareMetadata(List<Map<String, Object>> sourceMetadata,
 			List<Map<String, Object>> targetMetadata, DatabaseMetadataRetrieval metadataRetrieval) {
-		// Compare the structure (number of columns)
 		if (sourceMetadata.size() != targetMetadata.size()) {
 			return false;
 		}
@@ -182,7 +167,6 @@ public class TableMetadataValidation extends TestBase {
 			Map<String, Object> sourceColumn = sourceMetadata.get(i);
 			Map<String, Object> targetColumn = targetMetadata.get(i);
 
-			// Pass metadataRetrieval to isEqual method
 			if (!isEqual(sourceColumn, targetColumn, metadataRetrieval)) {
 				System.out.println("Mismatch details:");
 				System.out.println("Source Column: " + sourceColumn);
