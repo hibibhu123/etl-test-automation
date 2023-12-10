@@ -1,0 +1,1 @@
+select * from student order by student_id
