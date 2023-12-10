@@ -4,6 +4,12 @@
 	<artifactId>ETLAutomationProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<dependencies>
+				<!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>5.9</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 		<dependency>
 			<groupId>com.aventstack</groupId>

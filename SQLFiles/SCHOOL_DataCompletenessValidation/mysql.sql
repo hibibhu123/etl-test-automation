@@ -1,1 +1,0 @@
-select * from t_school order by roll_no

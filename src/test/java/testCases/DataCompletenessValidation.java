@@ -4,12 +4,18 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import queryFunction.CSVFileReader;
 import queryFunction.sqlFunction;
 import util.Constants;
 
@@ -22,40 +28,67 @@ public class DataCompletenessValidation extends TestBase {
 	private List<List<String>> sourceQueryResult;
 	private List<List<String>> targetQueryResult;
 
+	private <T> Future<T> submitTask(Callable<T> task) {
+		return TestBase.threadPool.submit(task);
+	}
+
 	@Test(dataProvider = "getFolderPath", testName = "testFolderBasedTest")
 	public void dataCompleteness(String testCasePath) {
 		try {
-			// Determine the source and target database types
-			String sourceDBType = prop.getProperty("sourceDB");
-			String targetDBType = prop.getProperty("targetDB");
 
-			// Construct the file paths for source and target queries based on the selected
-			// database types
+			// Create a task (implementing Callable) for parallel execution
+			Callable<Void> dataCompletenessTask = () -> {
+				// Your existing test case logic goes here
+				try {
+					File subfolder = new File(Constants.sqlFilePath + "/" + testCasePath);
 
-			sourceQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/" + sourceDBType + ".sql";
-			targetQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/" + targetDBType + ".sql";
+					// Check if there's a CSV file and no source.sql
+					File[] csvFiles = subfolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".csv"));
+					File sourceSqlFile = new File(subfolder, "source.sql");
 
-			// Read queries from files
-			sourceQuery = sqlFunction.readQueryFromFile(sourceQueryFilePath);
-			targetQuery = sqlFunction.readQueryFromFile(targetQueryFilePath);
+					if (csvFiles != null && csvFiles.length > 0 && !sourceSqlFile.exists()) {
+						// Read data from the CSV file
+						List<List<String>> fileData = CSVFileReader.readCSVFile(csvFiles[0].getPath());
+						sourceQueryResult = fileData;
+					} else {
+						// Read queries from files
+						sourceQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/" + "source" + ".sql";
+						sourceQuery = sqlFunction.readQueryFromFile(sourceQueryFilePath);
+						sourceQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, sourceQuery,
+								sourceConnection);
+					}
 
-			// Execute SQL queries
-			sourceQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, sourceQuery, sourceConnection);
-			targetQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, targetQuery, targetConnection);
+					targetQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/" + "target" + ".sql";
+					targetQuery = sqlFunction.readQueryFromFile(targetQueryFilePath);
+					// Execute SQL queries
+					targetQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, targetQuery,
+							targetConnection);
 
-			// Find differing rows
-			List<Integer> differingRows = sqlFunction.findDifferingRows(sourceQueryResult, targetQueryResult);
+					// Find differing rows
+					List<Integer> differingRows = sqlFunction.findDifferingRows(sourceQueryResult, targetQueryResult);
 
-			// Assert that the lists are equal
-			Assert.assertTrue(differingRows.isEmpty(),
-					sqlFunction.getDifferencesAsString(sourceQueryResult, targetQueryResult, differingRows));
-		} catch (SQLException sqlException) {
-			// SQL syntax error detected
-			String errorMessage = "SQL Syntax Error: " + sqlException.getMessage();
-			sqlException.printStackTrace();
-			throw new AssertionError(errorMessage, sqlException);
+					// Assert that the lists are equal
+					Assert.assertTrue(differingRows.isEmpty(),
+							sqlFunction.getDifferencesAsString(sourceQueryResult, targetQueryResult, differingRows));
+				} catch (SQLException sqlException) {
+					// SQL syntax error detected
+					String errorMessage = "SQL Syntax Error: " + sqlException.getMessage();
+					sqlException.printStackTrace();
+					throw new AssertionError(errorMessage, sqlException);
+				} catch (Exception e) {
+					// Handle other exceptions
+					e.printStackTrace();
+					throw new AssertionError("Test failed: " + e.getMessage(), e);
+				}
+				return null;
+			};
+
+			// Submit the task to the thread pool
+			Future<Void> futureResult = submitTask(dataCompletenessTask);
+
+			// Wait for the task to complete
+			futureResult.get();
 		} catch (Exception e) {
-			// Handle other exceptions
 			e.printStackTrace();
 			throw new AssertionError("Test failed: " + e.getMessage(), e);
 		}

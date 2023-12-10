@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.AfterClass;
@@ -17,9 +19,7 @@ import util.Constants;
 import util.CustomTestListener;
 import util.PropertyFileReader;
 
-
 @Listeners(CustomTestListener.class)
-
 public class TestBase {
 
 	public Connection targetConnection;
@@ -32,6 +32,7 @@ public class TestBase {
 	public String metaDataExcelPath;
 	public String tableMetaDataQuery;
 	public Database database;
+	public static ExecutorService threadPool;
 
 	@BeforeClass
 	public void setUp() {
@@ -40,11 +41,18 @@ public class TestBase {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		MetadataExcelGenerator.generateMetadataExcel(Constants.mappingSheetPath, Constants.metaDataFilePath);
+
+		threadPool = Executors.newFixedThreadPool(Constants.THREAD_POOL_SIZE);
 
 		if (prop.getProperty("targetDB").equalsIgnoreCase("oracle")) {
-			//metaDataExcelPath = Constants.metaDataFilePath_oracle;
-			metaDataExcelPath = Constants.metaDataFilePath;
+			if (prop.getProperty("autoGenerateMetadata").equalsIgnoreCase("yes")) {
+				MetadataExcelGenerator.generateMetadataExcel(Constants.mappingSheetPath_oracle,
+						Constants.metaDataFilePath);
+				metaDataExcelPath = Constants.metaDataFilePath;
+			} else {
+				metaDataExcelPath = Constants.metaDataFilePath_oracle;
+			}
+			// metaDataExcelPath = Constants.metaDataFilePath;
 			tableMetaDataQuery = Constants.metaDataQuery_oracle;
 			jdbcUrl = prop.getProperty("jdbcUrl_oracle");
 			username = prop.getProperty("username_oracle");
@@ -55,8 +63,14 @@ public class TestBase {
 				e.printStackTrace();
 			}
 		} else if (prop.getProperty("targetDB").equalsIgnoreCase("mysql")) {
-			//metaDataExcelPath = Constants.metaDataFilePath_mysql;
-			metaDataExcelPath = Constants.metaDataFilePath;
+
+			if (prop.getProperty("autoGenerateMetadata").equalsIgnoreCase("yes")) {
+				MetadataExcelGenerator.generateMetadataExcel(Constants.mappingSheetPath_mysql,
+						Constants.metaDataFilePath);
+				metaDataExcelPath = Constants.metaDataFilePath;
+			} else {
+				metaDataExcelPath = Constants.metaDataFilePath_mysql;
+			}
 			tableMetaDataQuery = Constants.metaDataQuery_mysql;
 			jdbcUrl = prop.getProperty("jdbcUrl_mysql");
 			username = prop.getProperty("username_mysql");
@@ -104,6 +118,8 @@ public class TestBase {
 		if (targetConnection != null) {
 			DatabaseConn.closeConnection(targetConnection);
 		}
-	}
 
+		// Shutdown the thread pool
+		threadPool.shutdown();
+	}
 }

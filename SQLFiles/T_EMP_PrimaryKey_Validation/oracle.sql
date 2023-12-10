@@ -1,1 +1,0 @@
-select 0 as Null_and_Duplicates from dual
