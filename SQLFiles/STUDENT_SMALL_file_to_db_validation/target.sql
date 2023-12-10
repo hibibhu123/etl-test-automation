@@ -1,1 +1,0 @@
-select * from student_small order by student_id

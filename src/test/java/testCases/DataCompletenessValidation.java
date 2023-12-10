@@ -40,30 +40,44 @@ public class DataCompletenessValidation extends TestBase {
 			Callable<Void> dataCompletenessTask = () -> {
 				// Your existing test case logic goes here
 				try {
-					File subfolder = new File(Constants.sqlFilePath + "/" + testCasePath);
-
+					File source_subfolder = new File(Constants.sqlFilePath + "/" + testCasePath+"/source");
+					File target_subfolder = new File(Constants.sqlFilePath + "/" + testCasePath+"/target");
+					
 					// Check if there's a CSV file and no source.sql
-					File[] csvFiles = subfolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".csv"));
-					File sourceSqlFile = new File(subfolder, "source.sql");
+					File[] source_csvFiles = source_subfolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".csv"));
+					File sourceSqlFile = new File(source_subfolder, "source.sql");
+					
+					// Check if there's a CSV file and no source.sql
+					File[] target_csvFiles = target_subfolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".csv"));
+					File targetSqlFile = new File(target_subfolder, "target.sql");
 
-					if (csvFiles != null && csvFiles.length > 0 && !sourceSqlFile.exists()) {
+					if (source_csvFiles != null && source_csvFiles.length > 0 && !sourceSqlFile.exists()) {
 						// Read data from the CSV file
-						List<List<String>> fileData = CSVFileReader.readCSVFile(csvFiles[0].getPath());
+						List<List<String>> fileData = CSVFileReader.readCSVFile(source_csvFiles[0].getPath());
 						sourceQueryResult = fileData;
+						
 					} else {
-						// Read queries from files
-						sourceQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/" + "source" + ".sql";
+						// Read queries from SQL files
+						sourceQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/source/" + "source" + ".sql";
 						sourceQuery = sqlFunction.readQueryFromFile(sourceQueryFilePath);
 						sourceQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, sourceQuery,
 								sourceConnection);
 					}
-
-					targetQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/" + "target" + ".sql";
+					
+					
+					if (target_csvFiles != null && target_csvFiles.length > 0 && !targetSqlFile.exists()) {
+						// Read data from the CSV file
+						List<List<String>> fileData = CSVFileReader.readCSVFile(target_csvFiles[0].getPath());
+						targetQueryResult = fileData;
+						
+					} else {
+					
+					targetQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/target/" + "target" + ".sql";
 					targetQuery = sqlFunction.readQueryFromFile(targetQueryFilePath);
 					// Execute SQL queries
 					targetQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, targetQuery,
 							targetConnection);
-
+					}
 					// Find differing rows
 					List<Integer> differingRows = sqlFunction.findDifferingRows(sourceQueryResult, targetQueryResult);
 
