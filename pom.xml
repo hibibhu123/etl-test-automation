@@ -4,7 +4,7 @@
 	<artifactId>ETLAutomationProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<dependencies>
-				<!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+		<!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
 		<dependency>
 			<groupId>com.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
@@ -14,9 +14,10 @@
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
-			<version>5.0.9</version>
+			<version>4.1.5</version>
 			<scope>test</scope>
 		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
