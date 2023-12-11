@@ -1,1 +1,0 @@
-select ItemId, ItemName  from items  order by itemid
