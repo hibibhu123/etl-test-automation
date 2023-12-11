@@ -7,7 +7,9 @@ import org.testng.ITestResult;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+//import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 
 public class CustomTestListener implements ITestListener {
 
@@ -17,7 +19,8 @@ public class CustomTestListener implements ITestListener {
     @Override
     public void onStart(ITestContext context) {
         String reportPath = "./test-output/ExtentReport.html";
-        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(reportPath);
+        //ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(reportPath);
+        ExtentSparkReporter htmlReporter=new ExtentSparkReporter(reportPath) ;
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
     }
