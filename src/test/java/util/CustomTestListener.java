@@ -18,7 +18,7 @@ public class CustomTestListener implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-        String reportPath = "./test-output/ExtentReport.html";
+        String reportPath = "./Reports/ExtentReport.html";
         //ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(reportPath);
         ExtentSparkReporter htmlReporter=new ExtentSparkReporter(reportPath) ;
         extent = new ExtentReports();
