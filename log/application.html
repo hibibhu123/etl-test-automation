@@ -1,0 +1,1041 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Application log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue Dec 26 00:45:57 IST 2023<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>0</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="util.Log4jConfigurator category">util.Log4jConfigurator</td>
+<td>Log4jConfigurator.java:16</td>
+<td title="Message">Log4j configuration loaded successfully.</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:42</td>
+<td title="Message">Log4j configured successfully.</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:48</td>
+<td title="Message">Properties file loaded successfully.</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:52</td>
+<td title="Message">Test setup started.</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.MetadataExcelGenerator category">queryFunction.MetadataExcelGenerator</td>
+<td>MetadataExcelGenerator.java:21</td>
+<td title="Message">Starting metadata Excel generation...</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.MetadataExcelGenerator category">queryFunction.MetadataExcelGenerator</td>
+<td>MetadataExcelGenerator.java:28</td>
+<td title="Message">Existing Metadata Excel deleted: ./TableMetadata/metadata_excel.xlsx</td>
+</tr>
+
+<tr>
+<td>968</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.MetadataExcelGenerator category">queryFunction.MetadataExcelGenerator</td>
+<td>MetadataExcelGenerator.java:98</td>
+<td title="Message">Metadata Excel auto-generated successfully at: ./TableMetadata/metadata_excel.xlsx</td>
+</tr>
+
+<tr>
+<td>1684</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.DatabaseConn category">queryFunction.DatabaseConn</td>
+<td>DatabaseConn.java:29</td>
+<td title="Message">Database is Connected</td>
+</tr>
+
+<tr>
+<td>1684</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:89</td>
+<td title="Message">Target database connection established successfully.</td>
+</tr>
+
+<tr>
+<td>2042</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.DatabaseConn category">queryFunction.DatabaseConn</td>
+<td>DatabaseConn.java:29</td>
+<td title="Message">Database is Connected</td>
+</tr>
+
+<tr>
+<td>2043</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:101</td>
+<td title="Message">Source database connection established successfully.</td>
+</tr>
+
+<tr>
+<td>2072</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:37</td>
+<td title="Message">Executing dataCompleteness for testCasePath: ITEMS_10L_Record_Validation</td>
+</tr>
+
+<tr>
+<td>2075</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:57</td>
+<td title="Message">Reading source SQL query from file</td>
+</tr>
+
+<tr>
+<td>2080</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:30</td>
+<td title="Message">Query read from file: ./SQLFiles/ITEMS_10L_Record_Validation/source/source.sql</td>
+</tr>
+
+<tr>
+<td>5066</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:71</td>
+<td title="Message">Query executed successfully: select ItemId, ItemName  from items  order by itemid
+</td>
+</tr>
+
+<tr>
+<td>5069</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:70</td>
+<td title="Message">Reading target SQL query from file</td>
+</tr>
+
+<tr>
+<td>5070</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:30</td>
+<td title="Message">Query read from file: ./SQLFiles/ITEMS_10L_Record_Validation/target/target.sql</td>
+</tr>
+
+<tr>
+<td>6931</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:71</td>
+<td title="Message">Query executed successfully: SELECT ItemId, ItemName FROM items order by itemid
+</td>
+</tr>
+
+<tr>
+<td>6931</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:77</td>
+<td title="Message">Finding differing rows</td>
+</tr>
+
+<tr>
+<td>6989</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:80</td>
+<td title="Message">Asserting that the lists are equal</td>
+</tr>
+
+<tr>
+<td>6997</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:37</td>
+<td title="Message">Executing dataCompleteness for testCasePath: ITEMS_CountValidation</td>
+</tr>
+
+<tr>
+<td>6998</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:57</td>
+<td title="Message">Reading source SQL query from file</td>
+</tr>
+
+<tr>
+<td>6999</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:30</td>
+<td title="Message">Query read from file: ./SQLFiles/ITEMS_CountValidation/source/source.sql</td>
+</tr>
+
+<tr>
+<td>7018</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:71</td>
+<td title="Message">Query executed successfully: SELECT count(*) FROM items
+</td>
+</tr>
+
+<tr>
+<td>7018</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:70</td>
+<td title="Message">Reading target SQL query from file</td>
+</tr>
+
+<tr>
+<td>7019</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:30</td>
+<td title="Message">Query read from file: ./SQLFiles/ITEMS_CountValidation/target/target.sql</td>
+</tr>
+
+<tr>
+<td>7091</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:71</td>
+<td title="Message">Query executed successfully: SELECT count(*) FROM items
+</td>
+</tr>
+
+<tr>
+<td>7092</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:77</td>
+<td title="Message">Finding differing rows</td>
+</tr>
+
+<tr>
+<td>7092</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:80</td>
+<td title="Message">Asserting that the lists are equal</td>
+</tr>
+
+<tr>
+<td>7095</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:37</td>
+<td title="Message">Executing dataCompleteness for testCasePath: STUDENT_5L_Record_Validation</td>
+</tr>
+
+<tr>
+<td>7097</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:57</td>
+<td title="Message">Reading source SQL query from file</td>
+</tr>
+
+<tr>
+<td>7098</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:30</td>
+<td title="Message">Query read from file: ./SQLFiles/STUDENT_5L_Record_Validation/source/source.sql</td>
+</tr>
+
+<tr>
+<td>8617</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:71</td>
+<td title="Message">Query executed successfully: select * from student order by student_id
+</td>
+</tr>
+
+<tr>
+<td>8617</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:70</td>
+<td title="Message">Reading target SQL query from file</td>
+</tr>
+
+<tr>
+<td>8618</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:30</td>
+<td title="Message">Query read from file: ./SQLFiles/STUDENT_5L_Record_Validation/target/target.sql</td>
+</tr>
+
+<tr>
+<td>10550</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:71</td>
+<td title="Message">Query executed successfully: select * from student order by student_id
+</td>
+</tr>
+
+<tr>
+<td>10551</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:77</td>
+<td title="Message">Finding differing rows</td>
+</tr>
+
+<tr>
+<td>10614</td>
+<td title="pool-1-thread-3 thread">pool-1-thread-3</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:80</td>
+<td title="Message">Asserting that the lists are equal</td>
+</tr>
+
+<tr>
+<td>10616</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:37</td>
+<td title="Message">Executing dataCompleteness for testCasePath: STUDENT_CountValidation</td>
+</tr>
+
+<tr>
+<td>10618</td>
+<td title="pool-1-thread-4 thread">pool-1-thread-4</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:57</td>
+<td title="Message">Reading source SQL query from file</td>
+</tr>
+
+<tr>
+<td>10619</td>
+<td title="pool-1-thread-4 thread">pool-1-thread-4</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:30</td>
+<td title="Message">Query read from file: ./SQLFiles/STUDENT_CountValidation/source/source.sql</td>
+</tr>
+
+<tr>
+<td>10626</td>
+<td title="pool-1-thread-4 thread">pool-1-thread-4</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:71</td>
+<td title="Message">Query executed successfully: SELECT count(*) from student
+</td>
+</tr>
+
+<tr>
+<td>10626</td>
+<td title="pool-1-thread-4 thread">pool-1-thread-4</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:70</td>
+<td title="Message">Reading target SQL query from file</td>
+</tr>
+
+<tr>
+<td>10627</td>
+<td title="pool-1-thread-4 thread">pool-1-thread-4</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:30</td>
+<td title="Message">Query read from file: ./SQLFiles/STUDENT_CountValidation/target/target.sql</td>
+</tr>
+
+<tr>
+<td>10683</td>
+<td title="pool-1-thread-4 thread">pool-1-thread-4</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:71</td>
+<td title="Message">Query executed successfully: select count(*) from student
+</td>
+</tr>
+
+<tr>
+<td>10684</td>
+<td title="pool-1-thread-4 thread">pool-1-thread-4</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:77</td>
+<td title="Message">Finding differing rows</td>
+</tr>
+
+<tr>
+<td>10684</td>
+<td title="pool-1-thread-4 thread">pool-1-thread-4</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:80</td>
+<td title="Message">Asserting that the lists are equal</td>
+</tr>
+
+<tr>
+<td>10686</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:37</td>
+<td title="Message">Executing dataCompleteness for testCasePath: STUDENT_SMALL_db_to_file_validation</td>
+</tr>
+
+<tr>
+<td>10689</td>
+<td title="pool-1-thread-5 thread">pool-1-thread-5</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:57</td>
+<td title="Message">Reading source SQL query from file</td>
+</tr>
+
+<tr>
+<td>10690</td>
+<td title="pool-1-thread-5 thread">pool-1-thread-5</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:30</td>
+<td title="Message">Query read from file: ./SQLFiles/STUDENT_SMALL_db_to_file_validation/source/source.sql</td>
+</tr>
+
+<tr>
+<td>10692</td>
+<td title="pool-1-thread-5 thread">pool-1-thread-5</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:71</td>
+<td title="Message">Query executed successfully: select * from student_small order by student_id
+</td>
+</tr>
+
+<tr>
+<td>10692</td>
+<td title="pool-1-thread-5 thread">pool-1-thread-5</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:65</td>
+<td title="Message">Reading data from target CSV file</td>
+</tr>
+
+<tr>
+<td>10718</td>
+<td title="pool-1-thread-5 thread">pool-1-thread-5</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.CSVFileReader category">queryFunction.CSVFileReader</td>
+<td>CSVFileReader.java:25</td>
+<td title="Message">Reading CSV file: .\SQLFiles\STUDENT_SMALL_db_to_file_validation\target\student_small.csv</td>
+</tr>
+
+<tr>
+<td>10720</td>
+<td title="pool-1-thread-5 thread">pool-1-thread-5</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.CSVFileReader category">queryFunction.CSVFileReader</td>
+<td>CSVFileReader.java:38</td>
+<td title="Message">CSV file read successfully. Number of rows: 10</td>
+</tr>
+
+<tr>
+<td>10720</td>
+<td title="pool-1-thread-5 thread">pool-1-thread-5</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:77</td>
+<td title="Message">Finding differing rows</td>
+</tr>
+
+<tr>
+<td>10720</td>
+<td title="pool-1-thread-5 thread">pool-1-thread-5</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:80</td>
+<td title="Message">Asserting that the lists are equal</td>
+</tr>
+
+<tr>
+<td>10724</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:37</td>
+<td title="Message">Executing dataCompleteness for testCasePath: STUDENT_SMALL_file_to_db_validation</td>
+</tr>
+
+<tr>
+<td>10727</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:52</td>
+<td title="Message">Reading data from source CSV file</td>
+</tr>
+
+<tr>
+<td>10728</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.CSVFileReader category">queryFunction.CSVFileReader</td>
+<td>CSVFileReader.java:25</td>
+<td title="Message">Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_db_validation\source\student_small.csv</td>
+</tr>
+
+<tr>
+<td>10728</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.CSVFileReader category">queryFunction.CSVFileReader</td>
+<td>CSVFileReader.java:38</td>
+<td title="Message">CSV file read successfully. Number of rows: 10</td>
+</tr>
+
+<tr>
+<td>10729</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:70</td>
+<td title="Message">Reading target SQL query from file</td>
+</tr>
+
+<tr>
+<td>10729</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:30</td>
+<td title="Message">Query read from file: ./SQLFiles/STUDENT_SMALL_file_to_db_validation/target/target.sql</td>
+</tr>
+
+<tr>
+<td>10732</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.sqlFunction category">queryFunction.sqlFunction</td>
+<td>sqlFunction.java:71</td>
+<td title="Message">Query executed successfully: select * from student_small order by student_id
+</td>
+</tr>
+
+<tr>
+<td>10732</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:77</td>
+<td title="Message">Finding differing rows</td>
+</tr>
+
+<tr>
+<td>10732</td>
+<td title="pool-1-thread-1 thread">pool-1-thread-1</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:80</td>
+<td title="Message">Asserting that the lists are equal</td>
+</tr>
+
+<tr>
+<td>10736</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:37</td>
+<td title="Message">Executing dataCompleteness for testCasePath: STUDENT_SMALL_file_to_file_validation</td>
+</tr>
+
+<tr>
+<td>10737</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:52</td>
+<td title="Message">Reading data from source CSV file</td>
+</tr>
+
+<tr>
+<td>10738</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.CSVFileReader category">queryFunction.CSVFileReader</td>
+<td>CSVFileReader.java:25</td>
+<td title="Message">Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_file_validation\source\student_small.csv</td>
+</tr>
+
+<tr>
+<td>10739</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.CSVFileReader category">queryFunction.CSVFileReader</td>
+<td>CSVFileReader.java:38</td>
+<td title="Message">CSV file read successfully. Number of rows: 10</td>
+</tr>
+
+<tr>
+<td>10739</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:65</td>
+<td title="Message">Reading data from target CSV file</td>
+</tr>
+
+<tr>
+<td>10740</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.CSVFileReader category">queryFunction.CSVFileReader</td>
+<td>CSVFileReader.java:25</td>
+<td title="Message">Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_file_validation\target\student_small.csv</td>
+</tr>
+
+<tr>
+<td>10740</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.CSVFileReader category">queryFunction.CSVFileReader</td>
+<td>CSVFileReader.java:38</td>
+<td title="Message">CSV file read successfully. Number of rows: 10</td>
+</tr>
+
+<tr>
+<td>10740</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:77</td>
+<td title="Message">Finding differing rows</td>
+</tr>
+
+<tr>
+<td>10741</td>
+<td title="pool-1-thread-2 thread">pool-1-thread-2</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>DataCompletenessValidation.java:80</td>
+<td title="Message">Asserting that the lists are equal</td>
+</tr>
+
+<tr>
+<td>10744</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:120</td>
+<td title="Message">Test teardown started.</td>
+</tr>
+
+<tr>
+<td>10748</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.DatabaseConn category">queryFunction.DatabaseConn</td>
+<td>DatabaseConn.java:18</td>
+<td title="Message">Database Connection Closed</td>
+</tr>
+
+<tr>
+<td>10748</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:131</td>
+<td title="Message">Source database connection closed successfully.</td>
+</tr>
+
+<tr>
+<td>10753</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.DatabaseConn category">queryFunction.DatabaseConn</td>
+<td>DatabaseConn.java:18</td>
+<td title="Message">Database Connection Closed</td>
+</tr>
+
+<tr>
+<td>10753</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:135</td>
+<td title="Message">Target database connection closed successfully.</td>
+</tr>
+
+<tr>
+<td>10757</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:140</td>
+<td title="Message">Thread pool shut down successfully.</td>
+</tr>
+</table>
+<br>
+</body></html><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Application log</title>
+<style type="text/css">
+<!--
+body, table {font-family: arial,sans-serif; font-size: x-small;}
+th {background: #336699; color: #FFFFFF; text-align: left;}
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" topmargin="6" leftmargin="6">
+<hr size="1" noshade>
+Log session start time Tue Dec 26 00:46:07 IST 2023<br>
+<br>
+<table cellspacing="0" cellpadding="4" border="1" bordercolor="#224466" width="100%">
+<tr>
+<th>Time</th>
+<th>Thread</th>
+<th>Level</th>
+<th>Category</th>
+<th>File:Line</th>
+<th>Message</th>
+</tr>
+
+<tr>
+<td>10769</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="util.Log4jConfigurator category">util.Log4jConfigurator</td>
+<td>Log4jConfigurator.java:16</td>
+<td title="Message">Log4j configuration loaded successfully.</td>
+</tr>
+
+<tr>
+<td>10769</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:42</td>
+<td title="Message">Log4j configured successfully.</td>
+</tr>
+
+<tr>
+<td>10769</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:48</td>
+<td title="Message">Properties file loaded successfully.</td>
+</tr>
+
+<tr>
+<td>10770</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:52</td>
+<td title="Message">Test setup started.</td>
+</tr>
+
+<tr>
+<td>10770</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.MetadataExcelGenerator category">queryFunction.MetadataExcelGenerator</td>
+<td>MetadataExcelGenerator.java:21</td>
+<td title="Message">Starting metadata Excel generation...</td>
+</tr>
+
+<tr>
+<td>10772</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.MetadataExcelGenerator category">queryFunction.MetadataExcelGenerator</td>
+<td>MetadataExcelGenerator.java:28</td>
+<td title="Message">Existing Metadata Excel deleted: ./TableMetadata/metadata_excel.xlsx</td>
+</tr>
+
+<tr>
+<td>10922</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.MetadataExcelGenerator category">queryFunction.MetadataExcelGenerator</td>
+<td>MetadataExcelGenerator.java:98</td>
+<td title="Message">Metadata Excel auto-generated successfully at: ./TableMetadata/metadata_excel.xlsx</td>
+</tr>
+
+<tr>
+<td>10951</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.DatabaseConn category">queryFunction.DatabaseConn</td>
+<td>DatabaseConn.java:29</td>
+<td title="Message">Database is Connected</td>
+</tr>
+
+<tr>
+<td>10952</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:89</td>
+<td title="Message">Target database connection established successfully.</td>
+</tr>
+
+<tr>
+<td>10994</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.DatabaseConn category">queryFunction.DatabaseConn</td>
+<td>DatabaseConn.java:29</td>
+<td title="Message">Database is Connected</td>
+</tr>
+
+<tr>
+<td>10994</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:101</td>
+<td title="Message">Source database connection established successfully.</td>
+</tr>
+
+<tr>
+<td>11012</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TableMetadataValidation.java:58</td>
+<td title="Message">Workbook loaded successfully.</td>
+</tr>
+
+<tr>
+<td>11013</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TableMetadataValidation.java:31</td>
+<td title="Message">Processing Table: T_EMP</td>
+</tr>
+
+<tr>
+<td>11015</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TableMetadataValidation.java:156</td>
+<td title="Message">Sorted Metadata from Mapping Sheet:[{COLUMN_NAME=COMMISSION, DATA_TYPE=int}, {COLUMN_NAME=DEPT_NAME, DATA_TYPE=varchar(20)}, {COLUMN_NAME=EMP_ID, DATA_TYPE=int}, {COLUMN_NAME=EMP_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=HIRE_DATE, DATA_TYPE=date}, {COLUMN_NAME=JOB_TYPE, DATA_TYPE=varchar(20)}, {COLUMN_NAME=LOCATION, DATA_TYPE=varchar(30)}, {COLUMN_NAME=MANAGER_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=SALARY, DATA_TYPE=int}, {COLUMN_NAME=SALARY_GRADE, DATA_TYPE=varchar(10)}, {COLUMN_NAME=T_EMP_ID, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_EXP_IN_COMPANY, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_SALARY, DATA_TYPE=int}]</td>
+</tr>
+
+<tr>
+<td>11021</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.MySqlMetadataRetrieval category">queryFunction.MySqlMetadataRetrieval</td>
+<td>MySqlMetadataRetrieval.java:35</td>
+<td title="Message">Metadata retrieval from MySQL table completed for table: T_EMP</td>
+</tr>
+
+<tr>
+<td>11021</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.MySqlMetadataRetrieval category">queryFunction.MySqlMetadataRetrieval</td>
+<td>MySqlMetadataRetrieval.java:45</td>
+<td title="Message">Metadata from MySQL Table:[{COLUMN_NAME=COMMISSION, DATA_TYPE=int}, {COLUMN_NAME=DEPT_NAME, DATA_TYPE=varchar(20)}, {COLUMN_NAME=EMP_ID, DATA_TYPE=int}, {COLUMN_NAME=EMP_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=HIRE_DATE, DATA_TYPE=date}, {COLUMN_NAME=JOB_TYPE, DATA_TYPE=varchar(20)}, {COLUMN_NAME=LOCATION, DATA_TYPE=varchar(30)}, {COLUMN_NAME=MANAGER_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=SALARY, DATA_TYPE=int}, {COLUMN_NAME=SALARY_GRADE, DATA_TYPE=varchar(10)}, {COLUMN_NAME=T_EMP_ID, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_EXP_IN_COMPANY, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_SALARY, DATA_TYPE=int}]</td>
+</tr>
+
+<tr>
+<td>11022</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TableMetadataValidation.java:41</td>
+<td title="Message">Metadata Match for Table: T_EMP</td>
+</tr>
+
+<tr>
+<td>11024</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TableMetadataValidation.java:31</td>
+<td title="Message">Processing Table: T_DEPT</td>
+</tr>
+
+<tr>
+<td>11025</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TableMetadataValidation.java:156</td>
+<td title="Message">Sorted Metadata from Mapping Sheet:[{COLUMN_NAME=DEPTNO, DATA_TYPE=int}, {COLUMN_NAME=DNAME, DATA_TYPE=varchar(14)}, {COLUMN_NAME=LOC, DATA_TYPE=varchar(13)}, {COLUMN_NAME=T_DEPT_ID, DATA_TYPE=int}]</td>
+</tr>
+
+<tr>
+<td>11027</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.MySqlMetadataRetrieval category">queryFunction.MySqlMetadataRetrieval</td>
+<td>MySqlMetadataRetrieval.java:35</td>
+<td title="Message">Metadata retrieval from MySQL table completed for table: T_DEPT</td>
+</tr>
+
+<tr>
+<td>11028</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.MySqlMetadataRetrieval category">queryFunction.MySqlMetadataRetrieval</td>
+<td>MySqlMetadataRetrieval.java:45</td>
+<td title="Message">Metadata from MySQL Table:[{COLUMN_NAME=DEPTNO, DATA_TYPE=int}, {COLUMN_NAME=DNAME, DATA_TYPE=varchar(14)}, {COLUMN_NAME=LOC, DATA_TYPE=varchar(13)}, {COLUMN_NAME=T_DEPT_ID, DATA_TYPE=int}]</td>
+</tr>
+
+<tr>
+<td>11028</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TableMetadataValidation.java:41</td>
+<td title="Message">Metadata Match for Table: T_DEPT</td>
+</tr>
+
+<tr>
+<td>11029</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:120</td>
+<td title="Message">Test teardown started.</td>
+</tr>
+
+<tr>
+<td>11043</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:124</td>
+<td title="Message">Workbook closed successfully.</td>
+</tr>
+
+<tr>
+<td>11044</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.DatabaseConn category">queryFunction.DatabaseConn</td>
+<td>DatabaseConn.java:18</td>
+<td title="Message">Database Connection Closed</td>
+</tr>
+
+<tr>
+<td>11045</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:131</td>
+<td title="Message">Source database connection closed successfully.</td>
+</tr>
+
+<tr>
+<td>11045</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="queryFunction.DatabaseConn category">queryFunction.DatabaseConn</td>
+<td>DatabaseConn.java:18</td>
+<td title="Message">Database Connection Closed</td>
+</tr>
+
+<tr>
+<td>11046</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:135</td>
+<td title="Message">Target database connection closed successfully.</td>
+</tr>
+
+<tr>
+<td>11046</td>
+<td title="main thread">main</td>
+<td title="Level">INFO</td>
+<td title="base.TestBase category">base.TestBase</td>
+<td>TestBase.java:140</td>
+<td title="Message">Thread pool shut down successfully.</td>
+</tr>

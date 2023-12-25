@@ -7,42 +7,45 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger; // Import the Logger class
 import util.Constants;
 
 public class OracleMetadataRetrieval implements DatabaseMetadataRetrieval {
 
-	@Override
-	public List<Map<String, Object>> getTableMetadata(String tableName, Connection connection) throws SQLException {
-	    List<Map<String, Object>> metadataList = new ArrayList<>();
+    private static final Logger l = Logger.getLogger(OracleMetadataRetrieval.class); // Create a Logger instance
 
-	    try {
-	        // Build the custom query using the Constants class
-	        String query = Constants.metaDataQuery_oracle + "'" + tableName + "'";
+    @Override
+    public List<Map<String, Object>> getTableMetadata(String tableName, Connection connection) throws SQLException {
+        List<Map<String, Object>> metadataList = new ArrayList<>();
 
-	        // Create a statement and execute the query
-	        Statement statement = connection.createStatement();
-	        ResultSet resultSet = statement.executeQuery(query);
+        try {
+            // Build the custom query using the Constants class
+            String query = Constants.metaDataQuery_oracle + "'" + tableName + "'";
+            l.info("Executing Oracle metadata retrieval query: " + query);
 
-	        while (resultSet.next()) {
-	            Map<String, Object> columnMetadata = new HashMap<>();
-	            columnMetadata.put("COLUMN_NAME", resultSet.getString("COLUMN_NAME"));
-	            columnMetadata.put("DATA_TYPE", getOracleColumnType(resultSet));
+            // Create a statement and execute the query
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
 
-	            metadataList.add(columnMetadata);
-	        }
+            while (resultSet.next()) {
+                Map<String, Object> columnMetadata = new HashMap<>();
+                columnMetadata.put("COLUMN_NAME", resultSet.getString("COLUMN_NAME"));
+                columnMetadata.put("DATA_TYPE", getOracleColumnType(resultSet));
 
-	        // Sort the metadataList based on COLUMN_NAME
-	        //metadataList.sort(Comparator.comparing(m -> m.get("COLUMN_NAME").toString()));
-	     // Sort the metadataList based on COLUMN_NAME (case-insensitive)
-	        metadataList.sort(Comparator.comparing(m -> m.get("COLUMN_NAME").toString(), String.CASE_INSENSITIVE_ORDER));
+                metadataList.add(columnMetadata);
+            }
 
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
+            // Sort the metadataList based on COLUMN_NAME (case-insensitive)
+            metadataList.sort(Comparator.comparing(m -> m.get("COLUMN_NAME").toString(), String.CASE_INSENSITIVE_ORDER));
+            l.info("Oracle metadata retrieval completed successfully. Sorted metadataList: " + metadataList);
 
-	    System.out.println("Metadata from Oracle Table:" + metadataList);
-	    return metadataList;
-	}
+        } catch (SQLException e) {
+            l.error("Error during Oracle metadata retrieval: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return metadataList;
+    }
 
     @Override
     public boolean isEqual(Map<String, Object> sourceColumn, Map<String, Object> targetColumn) {
@@ -79,7 +82,4 @@ public class OracleMetadataRetrieval implements DatabaseMetadataRetrieval {
         // Default case (if no specific handling is implemented)
         return resultSet.getString("DATA_LENGTH");
     }
-
-
-
 }

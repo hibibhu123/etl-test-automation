@@ -1,0 +1,119 @@
+2023-12-26 00:45:57,146 - util.Log4jConfigurator - INFO - Log4j configuration loaded successfully.
+2023-12-26 00:45:57,150 - base.TestBase - INFO - Log4j configured successfully.
+2023-12-26 00:45:57,152 - base.TestBase - INFO - Properties file loaded successfully.
+2023-12-26 00:45:57,152 - base.TestBase - INFO - Test setup started.
+2023-12-26 00:45:57,154 - queryFunction.MetadataExcelGenerator - INFO - Starting metadata Excel generation...
+2023-12-26 00:45:57,155 - queryFunction.MetadataExcelGenerator - INFO - Existing Metadata Excel deleted: ./TableMetadata/metadata_excel.xlsx
+2023-12-26 00:45:58,114 - queryFunction.MetadataExcelGenerator - INFO - Metadata Excel auto-generated successfully at: ./TableMetadata/metadata_excel.xlsx
+2023-12-26 00:45:58,830 - queryFunction.DatabaseConn - INFO - Database is Connected
+2023-12-26 00:45:58,830 - base.TestBase - INFO - Target database connection established successfully.
+2023-12-26 00:45:59,188 - queryFunction.DatabaseConn - INFO - Database is Connected
+2023-12-26 00:45:59,189 - base.TestBase - INFO - Source database connection established successfully.
+2023-12-26 00:45:59,218 - base.TestBase - INFO - Executing dataCompleteness for testCasePath: ITEMS_10L_Record_Validation
+2023-12-26 00:45:59,221 - base.TestBase - INFO - Reading source SQL query from file
+2023-12-26 00:45:59,226 - queryFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/ITEMS_10L_Record_Validation/source/source.sql
+2023-12-26 00:46:02,212 - queryFunction.sqlFunction - INFO - Query executed successfully: select ItemId, ItemName  from items  order by itemid
+
+2023-12-26 00:46:02,215 - base.TestBase - INFO - Reading target SQL query from file
+2023-12-26 00:46:02,216 - queryFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/ITEMS_10L_Record_Validation/target/target.sql
+2023-12-26 00:46:04,077 - queryFunction.sqlFunction - INFO - Query executed successfully: SELECT ItemId, ItemName FROM items order by itemid
+
+2023-12-26 00:46:04,077 - base.TestBase - INFO - Finding differing rows
+2023-12-26 00:46:04,135 - base.TestBase - INFO - Asserting that the lists are equal
+2023-12-26 00:46:04,143 - base.TestBase - INFO - Executing dataCompleteness for testCasePath: ITEMS_CountValidation
+2023-12-26 00:46:04,144 - base.TestBase - INFO - Reading source SQL query from file
+2023-12-26 00:46:04,145 - queryFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/ITEMS_CountValidation/source/source.sql
+2023-12-26 00:46:04,164 - queryFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) FROM items
+
+2023-12-26 00:46:04,164 - base.TestBase - INFO - Reading target SQL query from file
+2023-12-26 00:46:04,165 - queryFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/ITEMS_CountValidation/target/target.sql
+2023-12-26 00:46:04,237 - queryFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) FROM items
+
+2023-12-26 00:46:04,238 - base.TestBase - INFO - Finding differing rows
+2023-12-26 00:46:04,238 - base.TestBase - INFO - Asserting that the lists are equal
+2023-12-26 00:46:04,241 - base.TestBase - INFO - Executing dataCompleteness for testCasePath: STUDENT_5L_Record_Validation
+2023-12-26 00:46:04,243 - base.TestBase - INFO - Reading source SQL query from file
+2023-12-26 00:46:04,244 - queryFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_5L_Record_Validation/source/source.sql
+2023-12-26 00:46:05,763 - queryFunction.sqlFunction - INFO - Query executed successfully: select * from student order by student_id
+
+2023-12-26 00:46:05,763 - base.TestBase - INFO - Reading target SQL query from file
+2023-12-26 00:46:05,764 - queryFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_5L_Record_Validation/target/target.sql
+2023-12-26 00:46:07,696 - queryFunction.sqlFunction - INFO - Query executed successfully: select * from student order by student_id
+
+2023-12-26 00:46:07,697 - base.TestBase - INFO - Finding differing rows
+2023-12-26 00:46:07,760 - base.TestBase - INFO - Asserting that the lists are equal
+2023-12-26 00:46:07,762 - base.TestBase - INFO - Executing dataCompleteness for testCasePath: STUDENT_CountValidation
+2023-12-26 00:46:07,764 - base.TestBase - INFO - Reading source SQL query from file
+2023-12-26 00:46:07,765 - queryFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_CountValidation/source/source.sql
+2023-12-26 00:46:07,772 - queryFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) from student
+
+2023-12-26 00:46:07,772 - base.TestBase - INFO - Reading target SQL query from file
+2023-12-26 00:46:07,773 - queryFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_CountValidation/target/target.sql
+2023-12-26 00:46:07,829 - queryFunction.sqlFunction - INFO - Query executed successfully: select count(*) from student
+
+2023-12-26 00:46:07,830 - base.TestBase - INFO - Finding differing rows
+2023-12-26 00:46:07,830 - base.TestBase - INFO - Asserting that the lists are equal
+2023-12-26 00:46:07,832 - base.TestBase - INFO - Executing dataCompleteness for testCasePath: STUDENT_SMALL_db_to_file_validation
+2023-12-26 00:46:07,835 - base.TestBase - INFO - Reading source SQL query from file
+2023-12-26 00:46:07,836 - queryFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_db_to_file_validation/source/source.sql
+2023-12-26 00:46:07,838 - queryFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2023-12-26 00:46:07,838 - base.TestBase - INFO - Reading data from target CSV file
+2023-12-26 00:46:07,864 - queryFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_db_to_file_validation\target\student_small.csv
+2023-12-26 00:46:07,866 - queryFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2023-12-26 00:46:07,866 - base.TestBase - INFO - Finding differing rows
+2023-12-26 00:46:07,866 - base.TestBase - INFO - Asserting that the lists are equal
+2023-12-26 00:46:07,870 - base.TestBase - INFO - Executing dataCompleteness for testCasePath: STUDENT_SMALL_file_to_db_validation
+2023-12-26 00:46:07,873 - base.TestBase - INFO - Reading data from source CSV file
+2023-12-26 00:46:07,874 - queryFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_db_validation\source\student_small.csv
+2023-12-26 00:46:07,874 - queryFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2023-12-26 00:46:07,875 - base.TestBase - INFO - Reading target SQL query from file
+2023-12-26 00:46:07,875 - queryFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_file_to_db_validation/target/target.sql
+2023-12-26 00:46:07,878 - queryFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2023-12-26 00:46:07,878 - base.TestBase - INFO - Finding differing rows
+2023-12-26 00:46:07,878 - base.TestBase - INFO - Asserting that the lists are equal
+2023-12-26 00:46:07,882 - base.TestBase - INFO - Executing dataCompleteness for testCasePath: STUDENT_SMALL_file_to_file_validation
+2023-12-26 00:46:07,883 - base.TestBase - INFO - Reading data from source CSV file
+2023-12-26 00:46:07,884 - queryFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_file_validation\source\student_small.csv
+2023-12-26 00:46:07,885 - queryFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2023-12-26 00:46:07,885 - base.TestBase - INFO - Reading data from target CSV file
+2023-12-26 00:46:07,886 - queryFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_file_validation\target\student_small.csv
+2023-12-26 00:46:07,886 - queryFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2023-12-26 00:46:07,886 - base.TestBase - INFO - Finding differing rows
+2023-12-26 00:46:07,887 - base.TestBase - INFO - Asserting that the lists are equal
+2023-12-26 00:46:07,890 - base.TestBase - INFO - Test teardown started.
+2023-12-26 00:46:07,894 - queryFunction.DatabaseConn - INFO - Database Connection Closed
+2023-12-26 00:46:07,894 - base.TestBase - INFO - Source database connection closed successfully.
+2023-12-26 00:46:07,899 - queryFunction.DatabaseConn - INFO - Database Connection Closed
+2023-12-26 00:46:07,899 - base.TestBase - INFO - Target database connection closed successfully.
+2023-12-26 00:46:07,903 - base.TestBase - INFO - Thread pool shut down successfully.
+2023-12-26 00:46:07,915 - util.Log4jConfigurator - INFO - Log4j configuration loaded successfully.
+2023-12-26 00:46:07,915 - base.TestBase - INFO - Log4j configured successfully.
+2023-12-26 00:46:07,915 - base.TestBase - INFO - Properties file loaded successfully.
+2023-12-26 00:46:07,916 - base.TestBase - INFO - Test setup started.
+2023-12-26 00:46:07,916 - queryFunction.MetadataExcelGenerator - INFO - Starting metadata Excel generation...
+2023-12-26 00:46:07,918 - queryFunction.MetadataExcelGenerator - INFO - Existing Metadata Excel deleted: ./TableMetadata/metadata_excel.xlsx
+2023-12-26 00:46:08,068 - queryFunction.MetadataExcelGenerator - INFO - Metadata Excel auto-generated successfully at: ./TableMetadata/metadata_excel.xlsx
+2023-12-26 00:46:08,097 - queryFunction.DatabaseConn - INFO - Database is Connected
+2023-12-26 00:46:08,098 - base.TestBase - INFO - Target database connection established successfully.
+2023-12-26 00:46:08,140 - queryFunction.DatabaseConn - INFO - Database is Connected
+2023-12-26 00:46:08,140 - base.TestBase - INFO - Source database connection established successfully.
+2023-12-26 00:46:08,158 - base.TestBase - INFO - Workbook loaded successfully.
+2023-12-26 00:46:08,159 - base.TestBase - INFO - Processing Table: T_EMP
+2023-12-26 00:46:08,161 - base.TestBase - INFO - Sorted Metadata from Mapping Sheet:[{COLUMN_NAME=COMMISSION, DATA_TYPE=int}, {COLUMN_NAME=DEPT_NAME, DATA_TYPE=varchar(20)}, {COLUMN_NAME=EMP_ID, DATA_TYPE=int}, {COLUMN_NAME=EMP_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=HIRE_DATE, DATA_TYPE=date}, {COLUMN_NAME=JOB_TYPE, DATA_TYPE=varchar(20)}, {COLUMN_NAME=LOCATION, DATA_TYPE=varchar(30)}, {COLUMN_NAME=MANAGER_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=SALARY, DATA_TYPE=int}, {COLUMN_NAME=SALARY_GRADE, DATA_TYPE=varchar(10)}, {COLUMN_NAME=T_EMP_ID, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_EXP_IN_COMPANY, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_SALARY, DATA_TYPE=int}]
+2023-12-26 00:46:08,167 - queryFunction.MySqlMetadataRetrieval - INFO - Metadata retrieval from MySQL table completed for table: T_EMP
+2023-12-26 00:46:08,167 - queryFunction.MySqlMetadataRetrieval - INFO - Metadata from MySQL Table:[{COLUMN_NAME=COMMISSION, DATA_TYPE=int}, {COLUMN_NAME=DEPT_NAME, DATA_TYPE=varchar(20)}, {COLUMN_NAME=EMP_ID, DATA_TYPE=int}, {COLUMN_NAME=EMP_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=HIRE_DATE, DATA_TYPE=date}, {COLUMN_NAME=JOB_TYPE, DATA_TYPE=varchar(20)}, {COLUMN_NAME=LOCATION, DATA_TYPE=varchar(30)}, {COLUMN_NAME=MANAGER_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=SALARY, DATA_TYPE=int}, {COLUMN_NAME=SALARY_GRADE, DATA_TYPE=varchar(10)}, {COLUMN_NAME=T_EMP_ID, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_EXP_IN_COMPANY, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_SALARY, DATA_TYPE=int}]
+2023-12-26 00:46:08,168 - base.TestBase - INFO - Metadata Match for Table: T_EMP
+2023-12-26 00:46:08,170 - base.TestBase - INFO - Processing Table: T_DEPT
+2023-12-26 00:46:08,171 - base.TestBase - INFO - Sorted Metadata from Mapping Sheet:[{COLUMN_NAME=DEPTNO, DATA_TYPE=int}, {COLUMN_NAME=DNAME, DATA_TYPE=varchar(14)}, {COLUMN_NAME=LOC, DATA_TYPE=varchar(13)}, {COLUMN_NAME=T_DEPT_ID, DATA_TYPE=int}]
+2023-12-26 00:46:08,173 - queryFunction.MySqlMetadataRetrieval - INFO - Metadata retrieval from MySQL table completed for table: T_DEPT
+2023-12-26 00:46:08,174 - queryFunction.MySqlMetadataRetrieval - INFO - Metadata from MySQL Table:[{COLUMN_NAME=DEPTNO, DATA_TYPE=int}, {COLUMN_NAME=DNAME, DATA_TYPE=varchar(14)}, {COLUMN_NAME=LOC, DATA_TYPE=varchar(13)}, {COLUMN_NAME=T_DEPT_ID, DATA_TYPE=int}]
+2023-12-26 00:46:08,174 - base.TestBase - INFO - Metadata Match for Table: T_DEPT
+2023-12-26 00:46:08,175 - base.TestBase - INFO - Test teardown started.
+2023-12-26 00:46:08,189 - base.TestBase - INFO - Workbook closed successfully.
+2023-12-26 00:46:08,190 - queryFunction.DatabaseConn - INFO - Database Connection Closed
+2023-12-26 00:46:08,191 - base.TestBase - INFO - Source database connection closed successfully.
+2023-12-26 00:46:08,191 - queryFunction.DatabaseConn - INFO - Database Connection Closed
+2023-12-26 00:46:08,192 - base.TestBase - INFO - Target database connection closed successfully.
+2023-12-26 00:46:08,192 - base.TestBase - INFO - Thread pool shut down successfully.

@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 
+import org.apache.log4j.Logger; // Import the Logger class
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -14,101 +15,105 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class MetadataExcelGenerator {
 
-	public static void generateMetadataExcel(String mappingSheetPath, String metadataExcelPath) {
-		File metadataFile = new File(metadataExcelPath);
+    private static final Logger l = Logger.getLogger(MetadataExcelGenerator.class); // Create a Logger instance
 
-		// Check if the metadata file already exists
-		if (metadataFile.exists()) {
-			if (metadataFile.delete()) {
-				System.out.println("Existing Metadata Excel deleted: " + metadataExcelPath);
-			} else {
-				System.out.println("Failed to delete existing Metadata Excel: " + metadataExcelPath);
-				return;
-			}
-		}
+    public static void generateMetadataExcel(String mappingSheetPath, String metadataExcelPath) {
+        l.info("Starting metadata Excel generation...");
 
-		try {
-			Workbook mappingWorkbook = WorkbookFactory.create(new File(mappingSheetPath));
-			Workbook metadataWorkbook = new XSSFWorkbook();
+        File metadataFile = new File(metadataExcelPath);
 
-			// Create the first sheet in the metadata workbook
-			Sheet metadataMainSheet = metadataWorkbook.createSheet("TABLE_NAMES");
-			Row metadataHeaderRow = metadataMainSheet.createRow(0);
-			metadataHeaderRow.createCell(0).setCellValue("TABLE_NAMES");
+        // Check if the metadata file already exists
+        if (metadataFile.exists()) {
+            if (metadataFile.delete()) {
+                l.info("Existing Metadata Excel deleted: " + metadataExcelPath);
+            } else {
+                l.warn("Failed to delete existing Metadata Excel: " + metadataExcelPath);
+                return;
+            }
+        }
 
-			int targetTableRowIndex = 1;
+        try {
+            Workbook mappingWorkbook = WorkbookFactory.create(new File(mappingSheetPath));
+            Workbook metadataWorkbook = new XSSFWorkbook();
 
-			// Iterate through the sheets in the mapping workbook
-			for (int i = 0; i < mappingWorkbook.getNumberOfSheets(); i++) {
-				Sheet mappingSheet = mappingWorkbook.getSheetAt(i);
-				String targetTable = mappingSheet.getSheetName();
+            // Create the first sheet in the metadata workbook
+            Sheet metadataMainSheet = metadataWorkbook.createSheet("TABLE_NAMES");
+            Row metadataHeaderRow = metadataMainSheet.createRow(0);
+            metadataHeaderRow.createCell(0).setCellValue("TABLE_NAMES");
 
-				// Add the target table to the Metadata sheet
-				Row metadataTableRow = metadataMainSheet.createRow(targetTableRowIndex);
-				metadataTableRow.createCell(0).setCellValue(targetTable);
-				targetTableRowIndex++;
+            int targetTableRowIndex = 1;
 
-				// Create a new sheet for each target table in the metadata workbook
-				Sheet metadataTableSheet = metadataWorkbook.createSheet(targetTable);
+            // Iterate through the sheets in the mapping workbook
+            for (int i = 0; i < mappingWorkbook.getNumberOfSheets(); i++) {
+                Sheet mappingSheet = mappingWorkbook.getSheetAt(i);
+                String targetTable = mappingSheet.getSheetName();
 
-				// Find the indices dynamically
-				int columnNameIndex = findColumnIndex(mappingSheet, "Target Column");
-				int dataTypeIndex = findColumnIndex(mappingSheet, "Target Type");
+                // Add the target table to the Metadata sheet
+                Row metadataTableRow = metadataMainSheet.createRow(targetTableRowIndex);
+                metadataTableRow.createCell(0).setCellValue(targetTable);
+                targetTableRowIndex++;
 
-				if (columnNameIndex == -1 || dataTypeIndex == -1) {
-					System.out
-							.println("Error: Could not find column name or data type headers in sheet: " + targetTable);
-					continue; // Skip this sheet and move on to the next one
-				}
+                // Create a new sheet for each target table in the metadata workbook
+                Sheet metadataTableSheet = metadataWorkbook.createSheet(targetTable);
 
-				Row metadataTableHeaderRow = metadataTableSheet.createRow(0);
-				metadataTableHeaderRow.createCell(0).setCellValue("COLUMN_NAME");
-				metadataTableHeaderRow.createCell(1).setCellValue("DATA_TYPE");
+                // Find the indices dynamically
+                int columnNameIndex = findColumnIndex(mappingSheet, "Target Column");
+                int dataTypeIndex = findColumnIndex(mappingSheet, "Target Type");
 
-				// Iterate through rows in the mapping sheet
-				Iterator<Row> rowIterator = mappingSheet.iterator();
-				// Skip the header row
-				rowIterator.next();
+                if (columnNameIndex == -1 || dataTypeIndex == -1) {
+                    l.error("Could not find column name or data type headers in sheet: " + targetTable);
+                    continue; // Skip this sheet and move on to the next one
+                }
 
-				while (rowIterator.hasNext()) {
-					Row mappingRow = rowIterator.next();
-					String columnName = mappingRow.getCell(columnNameIndex).getStringCellValue();
-					String dataType = mappingRow.getCell(dataTypeIndex).getStringCellValue();
+                Row metadataTableHeaderRow = metadataTableSheet.createRow(0);
+                metadataTableHeaderRow.createCell(0).setCellValue("COLUMN_NAME");
+                metadataTableHeaderRow.createCell(1).setCellValue("DATA_TYPE");
 
-					// Add column information to the metadata table sheet
-					Row metadataTableRowInner = metadataTableSheet.createRow(metadataTableSheet.getLastRowNum() + 1);
-					metadataTableRowInner.createCell(0).setCellValue(columnName);
-					metadataTableRowInner.createCell(1).setCellValue(dataType);
-				}
-			}
+                // Iterate through rows in the mapping sheet
+                Iterator<Row> rowIterator = mappingSheet.iterator();
+                // Skip the header row
+                rowIterator.next();
 
-			// Write the metadata workbook to a file
-			try (FileOutputStream fileOut = new FileOutputStream(metadataExcelPath)) {
-				metadataWorkbook.write(fileOut);
-			}
+                while (rowIterator.hasNext()) {
+                    Row mappingRow = rowIterator.next();
+                    String columnName = mappingRow.getCell(columnNameIndex).getStringCellValue();
+                    String dataType = mappingRow.getCell(dataTypeIndex).getStringCellValue();
 
-			// Close the workbooks
-			mappingWorkbook.close();
-			metadataWorkbook.close();
+                    // Add column information to the metadata table sheet
+                    Row metadataTableRowInner = metadataTableSheet.createRow(metadataTableSheet.getLastRowNum() + 1);
+                    metadataTableRowInner.createCell(0).setCellValue(columnName);
+                    metadataTableRowInner.createCell(1).setCellValue(dataType);
+                }
+            }
 
-			System.out.println("Metadata Excel auto-generated successfully at: " + metadataExcelPath);
+            // Write the metadata workbook to a file
+            try (FileOutputStream fileOut = new FileOutputStream(metadataExcelPath)) {
+                metadataWorkbook.write(fileOut);
+            }
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+            // Close the workbooks
+            mappingWorkbook.close();
+            metadataWorkbook.close();
 
-	private static int findColumnIndex(Sheet sheet, String targetString) {
-		Row headerRow = sheet.getRow(sheet.getFirstRowNum());
-		if (headerRow != null) {
-			Iterator<Cell> cellIterator = headerRow.cellIterator();
-			while (cellIterator.hasNext()) {
-				Cell cell = cellIterator.next();
-				if (cell.getStringCellValue().toLowerCase().contains(targetString.toLowerCase())) {
-					return cell.getColumnIndex();
-				}
-			}
-		}
-		return -1; // Header not found
-	}
+            l.info("Metadata Excel auto-generated successfully at: " + metadataExcelPath);
+
+        } catch (IOException e) {
+            l.error("Error during metadata Excel generation: " + e.getMessage(), e);
+            e.printStackTrace();
+        }
+    }
+
+    private static int findColumnIndex(Sheet sheet, String targetString) {
+        Row headerRow = sheet.getRow(sheet.getFirstRowNum());
+        if (headerRow != null) {
+            Iterator<Cell> cellIterator = headerRow.cellIterator();
+            while (cellIterator.hasNext()) {
+                Cell cell = cellIterator.next();
+                if (cell.getStringCellValue().toLowerCase().contains(targetString.toLowerCase())) {
+                    return cell.getColumnIndex();
+                }
+            }
+        }
+        return -1; // Header not found
+    }
 }
