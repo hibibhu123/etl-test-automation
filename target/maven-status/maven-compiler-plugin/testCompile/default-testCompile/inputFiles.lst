@@ -13,6 +13,7 @@ C:\Bibhu\etl-test-automation\src\test\java\queryFunction\MetadataExcelGenerator.
 C:\Bibhu\etl-test-automation\src\test\java\testCases\DataCompletenessValidation.java
 C:\Bibhu\etl-test-automation\src\test\java\util\PropertyFileReader.java
 C:\Bibhu\etl-test-automation\src\test\java\working\SQLFileExecution.java
+C:\Bibhu\etl-test-automation\src\test\java\runner\TestNGRunner.java
 C:\Bibhu\etl-test-automation\src\test\java\queryFunction\OracleMetadataRetrieval.java
 C:\Bibhu\etl-test-automation\src\test\java\queryFunction\CSVFileReader.java
 C:\Bibhu\etl-test-automation\src\test\java\queryFunction\DatabaseMetadataRetrieval.java

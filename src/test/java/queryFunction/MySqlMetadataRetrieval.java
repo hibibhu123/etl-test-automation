@@ -2,6 +2,8 @@ package queryFunction;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +32,9 @@ public class MySqlMetadataRetrieval implements DatabaseMetadataRetrieval {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		// Sort metadataList based on COLUMN_NAME
+		Collections.sort(metadataList, (a, b) -> String.valueOf(a.get("COLUMN_NAME"))
+				.compareToIgnoreCase(String.valueOf(b.get("COLUMN_NAME"))));
 
 		System.out.println("Metadata from MySQL Table:" + metadataList);
 		return metadataList;

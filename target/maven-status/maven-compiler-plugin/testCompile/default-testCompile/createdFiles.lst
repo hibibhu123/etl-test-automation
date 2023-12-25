@@ -24,6 +24,7 @@ working\test$1.class
 testCases\DataCompletenessValidation.class
 queryFunction\MetadataExcelGenerator.class
 queryFunction\OracleDatabase.class
+runner\TestNGRunner.class
 working\SQLFileExecution.class
 queryFunction\DatabaseMetadataRetrieval.class
 working\DynamicSqlQueryComparison.class

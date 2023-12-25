@@ -106,56 +106,56 @@ public class TableMetadataValidation extends TestBase {
 	}
 
 	private static List<Map<String, Object>> getTableMetadata(XSSFWorkbook workbook, String tableName) {
-	    List<Map<String, Object>> metadataList = new ArrayList<>();
-	    Sheet sheet = workbook.getSheet(tableName);
+		List<Map<String, Object>> metadataList = new ArrayList<>();
+		Sheet sheet = workbook.getSheet(tableName);
 
-	    if (sheet == null) {
-	        System.out.println("Sheet not found for table: " + tableName);
-	        return metadataList;
-	    }
+		if (sheet == null) {
+			System.out.println("Sheet not found for table: " + tableName);
+			return metadataList;
+		}
 
-	    Iterator<Row> iterator = sheet.iterator();
-	    if (iterator.hasNext()) {
-	        iterator.next(); // Skip the header row
-	    }
+		Iterator<Row> iterator = sheet.iterator();
+		if (iterator.hasNext()) {
+			iterator.next(); // Skip the header row
+		}
 
-	    while (iterator.hasNext()) {
-	        Row currentRow = iterator.next();
-	        Cell columnNameCell = currentRow.getCell(0);
-	        Cell dataLengthCell = currentRow.getCell(1);
+		while (iterator.hasNext()) {
+			Row currentRow = iterator.next();
+			Cell columnNameCell = currentRow.getCell(0);
+			Cell dataLengthCell = currentRow.getCell(1);
 
-	        if (columnNameCell != null && columnNameCell.getCellType() == CellType.STRING && dataLengthCell != null
-	                && dataLengthCell.getCellType() == CellType.STRING) {
+			if (columnNameCell != null && columnNameCell.getCellType() == CellType.STRING && dataLengthCell != null
+					&& dataLengthCell.getCellType() == CellType.STRING) {
 
-	            Map<String, Object> columnMetadata = new TreeMap<>();
-	            columnMetadata.put("COLUMN_NAME", columnNameCell.getStringCellValue());
+				Map<String, Object> columnMetadata = new TreeMap<>();
+				columnMetadata.put("COLUMN_NAME", columnNameCell.getStringCellValue());
 
-	            switch (dataLengthCell.getCellType()) {
-				    case NUMERIC:
-				        columnMetadata.put("DATA_TYPE", String.valueOf((int) dataLengthCell.getNumericCellValue()));
-				        break;
-				    case STRING:
-				        columnMetadata.put("DATA_TYPE", dataLengthCell.getStringCellValue().trim());
-				        break;
-				    default:
-				        columnMetadata.put("DATA_TYPE", "");
-				        break;
+				switch (dataLengthCell.getCellType()) {
+				case NUMERIC:
+					columnMetadata.put("DATA_TYPE", String.valueOf((int) dataLengthCell.getNumericCellValue()));
+					break;
+				case STRING:
+					columnMetadata.put("DATA_TYPE", dataLengthCell.getStringCellValue().trim());
+					break;
+				default:
+					columnMetadata.put("DATA_TYPE", "");
+					break;
 				}
 
-	            metadataList.add(columnMetadata);
-	        } else {
-	            System.out.println("Unexpected cell format for table: " + tableName + ", Row: " + currentRow.getRowNum());
-	        }
-	    }
+				metadataList.add(columnMetadata);
+			} else {
+				System.out
+						.println("Unexpected cell format for table: " + tableName + ", Row: " + currentRow.getRowNum());
+			}
+		}
 
-	    // Sort metadataList based on COLUMN_NAME
-	    Collections.sort(metadataList, (a, b) ->
-        String.valueOf(a.get("COLUMN_NAME")).compareToIgnoreCase(String.valueOf(b.get("COLUMN_NAME"))));
+		// Sort metadataList based on COLUMN_NAME
+		Collections.sort(metadataList, (a, b) -> String.valueOf(a.get("COLUMN_NAME"))
+				.compareToIgnoreCase(String.valueOf(b.get("COLUMN_NAME"))));
 
-System.out.println("Sorted Metadata from Mapping Sheet:" + metadataList);
-return metadataList;
+		System.out.println("Sorted Metadata from Mapping Sheet:" + metadataList);
+		return metadataList;
 	}
-
 
 	private static boolean compareMetadata(List<Map<String, Object>> sourceMetadata,
 			List<Map<String, Object>> targetMetadata, DatabaseMetadataRetrieval metadataRetrieval) {
