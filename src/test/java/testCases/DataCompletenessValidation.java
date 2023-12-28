@@ -19,112 +19,141 @@ import util.Constants;
 
 public class DataCompletenessValidation extends TestBase {
 
-    private String sourceQuery;
-    private String targetQuery;
-    private String sourceQueryFilePath;
-    private String targetQueryFilePath;
-    private List<List<String>> sourceQueryResult;
-    private List<List<String>> targetQueryResult;
+	private String sourceQuery;
+	private String targetQuery;
+	private String sourceQueryFilePath;
+	private String targetQueryFilePath;
+	private List<List<String>> sourceQueryResult;
+	private List<List<String>> targetQueryResult;
 
-    private <T> Future<T> submitTask(Callable<T> task) {
-        return TestBase.threadPool.submit(task);
-    }
+	private <T> Future<T> submitTask(Callable<T> task) {
+		return TestBase.threadPool.submit(task);
+	}
 
-    @Test(dataProvider = "getFolderPath", testName = "testFolderBasedTest")
-    public void dataCompleteness(String testCasePath) {
-        try {
+	@Test(dataProvider = "getFolderPath", testName = "testFolderBasedTest")
+	public void dataCompleteness(String testCasePath) {
+		try {
 
-            l.info("Executing dataCompleteness for testCasePath: " + testCasePath);
+			testCaseCounter++;
+			l.info("#########################################################################    Test Case "
+					+ testCaseCounter + " : Data Completeness Validation for " + testCasePath + " : STARTED");
 
-            // Create a task (implementing Callable) for parallel execution
-            Callable<Void> dataCompletenessTask = () -> {
-                try {
-                    File source_subfolder = new File(Constants.sqlFilePath + "/" + testCasePath + "/source");
-                    File target_subfolder = new File(Constants.sqlFilePath + "/" + testCasePath + "/target");
+			// l.info("Executing test case : " + testCasePath);
 
-                    File[] source_csvFiles = source_subfolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".csv"));
-                    File sourceSqlFile = new File(source_subfolder, "source.sql");
+			// Create a task (implementing Callable) for parallel execution
+			Callable<Void> dataCompletenessTask = () -> {
+				try {
+					File source_subfolder = new File(Constants.sqlFilePath + "/" + testCasePath + "/source");
+					File target_subfolder = new File(Constants.sqlFilePath + "/" + testCasePath + "/target");
 
-                    File[] target_csvFiles = target_subfolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".csv"));
-                    File targetSqlFile = new File(target_subfolder, "target.sql");
+					File[] source_csvFiles = source_subfolder
+							.listFiles((dir, name) -> name.toLowerCase().endsWith(".csv"));
+					File sourceSqlFile = new File(source_subfolder, "source.sql");
 
-                    if (source_csvFiles != null && source_csvFiles.length > 0 && !sourceSqlFile.exists()) {
-                        l.info("Reading data from source CSV file");
-                        List<List<String>> fileData = CSVFileReader.readCSVFile(source_csvFiles[0].getPath());
-                        sourceQueryResult = fileData;
+					File[] target_csvFiles = target_subfolder
+							.listFiles((dir, name) -> name.toLowerCase().endsWith(".csv"));
+					File targetSqlFile = new File(target_subfolder, "target.sql");
 
-                    } else {
-                        l.info("Reading source SQL query from file");
-                        sourceQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/source/" + "source" + ".sql";
-                        sourceQuery = sqlFunction.readQueryFromFile(sourceQueryFilePath);
-                        sourceQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, sourceQuery,
-                                sourceConnection);
-                    }
+					if (source_csvFiles != null && source_csvFiles.length > 0 && !sourceSqlFile.exists()) {
+						l.info("Reading data from source CSV file");
+						List<List<String>> fileData = CSVFileReader.readCSVFile(source_csvFiles[0].getPath());
+						sourceQueryResult = fileData;
 
-                    if (target_csvFiles != null && target_csvFiles.length > 0 && !targetSqlFile.exists()) {
-                        l.info("Reading data from target CSV file");
-                        List<List<String>> fileData = CSVFileReader.readCSVFile(target_csvFiles[0].getPath());
-                        targetQueryResult = fileData;
+					} else {
+						l.info("Reading source SQL query from file");
+						sourceQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/source/" + "source"
+								+ ".sql";
+						sourceQuery = sqlFunction.readQueryFromFile(sourceQueryFilePath);
+						sourceQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, sourceQuery,
+								sourceConnection);
+					}
 
-                    } else {
-                        l.info("Reading target SQL query from file");
-                        targetQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/target/" + "target" + ".sql";
-                        targetQuery = sqlFunction.readQueryFromFile(targetQueryFilePath);
-                        targetQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, targetQuery,
-                                targetConnection);
-                    }
+					if (target_csvFiles != null && target_csvFiles.length > 0 && !targetSqlFile.exists()) {
+						l.info("Reading data from target CSV file");
+						List<List<String>> fileData = CSVFileReader.readCSVFile(target_csvFiles[0].getPath());
+						targetQueryResult = fileData;
 
-                    l.info("Finding differing rows");
-                    List<Integer> differingRows = sqlFunction.findDifferingRows(sourceQueryResult, targetQueryResult);
+					} else {
+						l.info("Reading target SQL query from file");
+						targetQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/target/" + "target"
+								+ ".sql";
+						targetQuery = sqlFunction.readQueryFromFile(targetQueryFilePath);
+						targetQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, targetQuery,
+								targetConnection);
+					}
 
-                    l.info("Asserting that the lists are equal");
-                    Assert.assertTrue(differingRows.isEmpty(),
-                            sqlFunction.getDifferencesAsString(sourceQueryResult, targetQueryResult, differingRows));
-                } catch (SQLException sqlException) {
-                    // SQL syntax error detected
-                    String errorMessage = "SQL Syntax Error: " + sqlException.getMessage();
-                    l.error(errorMessage, sqlException);
-                    throw new AssertionError(errorMessage, sqlException);
-                } catch (Exception e) {
-                    l.error("Test failed: " + e.getMessage(), e);
-                    throw new AssertionError("Test failed: " + e.getMessage(), e);
-                }
-                return null;
-            };
+					l.info("Finding differing rows");
+					List<Integer> differingRows = sqlFunction.findDifferingRows(sourceQueryResult, targetQueryResult);
 
-            // Submit the task to the thread pool
-            Future<Void> futureResult = submitTask(dataCompletenessTask);
+					boolean isTestPassed = differingRows.isEmpty();
+					
+					
+					// Log the appropriate message based on the test outcome
+					if (isTestPassed) {
+					l.info("Asserting that the lists are equal");
+					l.info("#########################################################################    Test Case "
+							+ testCaseCounter + " : Data Completeness Validation for " + testCasePath + " : PASSED");
+					}
+					else {
+						// Log the "FAILED" message for SQL syntax error or other exceptions
+                        l.error("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case " + testCaseCounter + " : Data Completeness Validation for " + testCasePath
+                                + " : FAILED");
+                        Assert.assertTrue(isTestPassed,
+    							sqlFunction.getDifferencesAsString(sourceQueryResult, targetQueryResult, differingRows));
+    					
+					}
+				} catch (SQLException sqlException) {
+					// SQL syntax error detected
+					String errorMessage = "SQL Syntax Error: " + sqlException.getMessage();
+					// Log the "FAILED" message for other exceptions
+					l.error(errorMessage, sqlException);
+					l.error("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case "
+							+ testCaseCounter + " : Data Completeness Validation for " + testCasePath + " : FAILED");
+					throw new AssertionError(errorMessage, sqlException);
+				} catch (Exception e) {
+					l.error("Test failed: " + e.getMessage(), e);
+					// Log the "FAILED" message for other exceptions
+					l.error("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case "
+							+ testCaseCounter + " : Data Completeness Validation for " + testCasePath + " : FAILED");
 
-            // Wait for the task to complete
-            futureResult.get();
-        } catch (Exception e) {
-            l.error("Test failed: " + e.getMessage(), e);
-            throw new AssertionError("Test failed: " + e.getMessage(), e);
-        }
-    }
+					throw new AssertionError("Test failed:1234 " + e.getMessage(), e);
+				}
+				return null;
+			};
 
-    @DataProvider
-    public Object[] getFolderPath() {
-        try {
-            File file = new File(Constants.sqlFilePath);
-            String[] subfolders = file.list(new FilenameFilter() {
-                @Override
-                public boolean accept(File current, String name) {
-                    return new File(current, name).isDirectory();
-                }
-            });
-            Object[] obj = new Object[subfolders.length];
-            List<String> folderList = new ArrayList<String>();
+			// Submit the task to the thread pool
+			Future<Void> futureResult = submitTask(dataCompletenessTask);
 
-            for (String s : subfolders) {
-                folderList.add(s);
-            }
-            obj = folderList.toArray(obj);
-            return obj;
-        } catch (Exception e) {
-            l.error("Skipping the test due to an exception in the data provider: " + e.getMessage(), e);
-            System.out.println("Skipping the test due to an exception in the data provider: " + e.getMessage());
-            return new Object[0]; // Return an empty array to indicate test failure
-        }
-    }
+			// Wait for the task to complete
+			futureResult.get();
+		} catch (Exception e) {
+			l.error("Test failed: " + e.getMessage(), e);
+			throw new AssertionError("Test failed: " + e.getMessage(), e);
+		}
+	}
+
+	@DataProvider
+	public Object[] getFolderPath() {
+		try {
+			File file = new File(Constants.sqlFilePath);
+			String[] subfolders = file.list(new FilenameFilter() {
+				@Override
+				public boolean accept(File current, String name) {
+					return new File(current, name).isDirectory();
+				}
+			});
+			Object[] obj = new Object[subfolders.length];
+			List<String> folderList = new ArrayList<String>();
+
+			for (String s : subfolders) {
+				folderList.add(s);
+			}
+			obj = folderList.toArray(obj);
+			return obj;
+		} catch (Exception e) {
+			l.error("Skipping the test due to an exception in the data provider: " + e.getMessage(), e);
+			System.out.println("Skipping the test due to an exception in the data provider: " + e.getMessage());
+			return new Object[0]; // Return an empty array to indicate test failure
+		}
+	}
 }

@@ -34,9 +34,11 @@ public class TestBase {
 	public Database database;
 	public static ExecutorService threadPool;
 	public Logger l = Logger.getLogger(TestBase.class);
+	public static int testCaseCounter = 0;
 
 	@BeforeClass
 	public void setUp() {
+		testCaseCounter = 0;
 		l.info("BeforeClass setUp() execution started............");
 		try {
 			Log4jConfigurator.configure();
@@ -97,12 +99,14 @@ public class TestBase {
 			try {
 				targetConnection = DatabaseConn.createConnection(jdbcUrl, username, password);
 				l.info("Target database connection established successfully.");
+
 			} catch (Exception e) {
 				l.error("Error creating target database connection", e);
 			}
 		}
-
+		l.info("********************************    Target Set up completed     *********************************");
 		if (prop.getProperty("sourceDB").equalsIgnoreCase("oracle")) {
+			l.info("Source Database selected : " + prop.getProperty("sourceDB"));
 			jdbcUrl = prop.getProperty("jdbcUrl_oracle");
 			username = prop.getProperty("username_oracle");
 			password = prop.getProperty("password_oracle");
@@ -113,6 +117,7 @@ public class TestBase {
 				l.error("Error creating source database connection", e);
 			}
 		} else if (prop.getProperty("sourceDB").equalsIgnoreCase("mysql")) {
+			l.info("Source Database selected : " + prop.getProperty("sourceDB"));
 			jdbcUrl = prop.getProperty("jdbcUrl_mysql");
 			username = prop.getProperty("username_mysql");
 			password = prop.getProperty("password_mysql");
@@ -123,6 +128,8 @@ public class TestBase {
 				l.error("Error creating source database connection", e);
 			}
 		}
+		l.info("********************************    Source Set up completed    *********************************");
+
 	}
 
 	@AfterClass
@@ -148,6 +155,6 @@ public class TestBase {
 		// Shutdown the thread pool
 		threadPool.shutdown();
 		l.info("Thread pool shut down successfully.");
-		l.info("Teardown Completed..............");
+		l.info("****************************************************    Teardown Completed     ********************************************");
 	}
 }
