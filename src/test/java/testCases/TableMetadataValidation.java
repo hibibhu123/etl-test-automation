@@ -41,7 +41,13 @@ public class TableMetadataValidation extends TestBase {
                 l.info("Metadata Match for Table: " + tableName);
             } else {
                 l.info("Metadata Mismatch for Table: " + tableName);
-                Assert.fail("Metadata Mismatch for Table: " + tableName);
+
+                // Log details of the mismatch
+                l.info("Source Metadata: " + sourceMetadata);
+                l.info("Target Metadata: " + targetMetadata);
+
+                // assertEquals used for a detailed failure message
+                Assert.assertEquals(sourceMetadata, targetMetadata, "Metadata Mismatch for Table: " + tableName);
             }
         } catch (Exception e) {
             l.error("An exception occurred: " + e.getMessage(), e);
