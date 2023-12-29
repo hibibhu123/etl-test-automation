@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Suite" class="navigator-link">
-              <span class="suite-name border-passed">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,7 +92,26 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">9 methods,   9 passed</span>
+                    <span class="method-stats">16 methods, 2 failed,   14 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(T_EMP_DataCompletenessValidation)">dataCompleteness(T_EMP_DataCompletenessValidation)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="testCases.TableMetadataValidation" class="method navigator-link" hash-for-method="tableMetadataValidation(T_EMP)">tableMetadataValidation(T_EMP)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,27 +122,12 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(ITEMS_10L_Record_Validation)">dataCompleteness(ITEMS_10L_Record_Validation)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(STUDENT_SMALL_db_to_file_validation)">dataCompleteness(STUDENT_SMALL_db_to_file_validation)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(ITEMS_CountValidation)">dataCompleteness(ITEMS_CountValidation)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(STUDENT_5L_Record_Validation)">dataCompleteness(STUDENT_5L_Record_Validation)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(STUDENT_SMALL_file_to_db_validation)">dataCompleteness(STUDENT_SMALL_file_to_db_validation)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(ITEMS_10L_Record_Validation)">dataCompleteness(ITEMS_10L_Record_Validation)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -133,12 +137,52 @@
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(STUDENT_CountValidation)">dataCompleteness(STUDENT_CountValidation)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(T_DEPT_DataCompletenessValidation)">dataCompleteness(T_DEPT_DataCompletenessValidation)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="testCases.TableMetadataValidation" class="method navigator-link" hash-for-method="tableMetadataValidation(T_EMP)">tableMetadataValidation(T_EMP)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(STUDENT_SMALL_db_to_file_validation)">dataCompleteness(STUDENT_SMALL_db_to_file_validation)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(T_EMP_PrimaryKey_Validation)">dataCompleteness(T_EMP_PrimaryKey_Validation)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(T_EMP_CountValidation)">dataCompleteness(T_EMP_CountValidation)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(T_DEPT_CountValidation)">dataCompleteness(T_DEPT_CountValidation)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(STUDENT_SMALL_file_to_db_validation)">dataCompleteness(STUDENT_SMALL_file_to_db_validation)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(STUDENT_5L_Record_Validation)">dataCompleteness(STUDENT_5L_Record_Validation)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(T_EMP_SurrogateKey_Validation)">dataCompleteness(T_EMP_SurrogateKey_Validation)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(T_EMP_DuplicateValidation)">dataCompleteness(T_EMP_DuplicateValidation)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="testCases.DataCompletenessValidation" class="method navigator-link" hash-for-method="dataCompleteness(STUDENT_CountValidation)">dataCompleteness(STUDENT_CountValidation)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -158,28 +202,93 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">testCases.TableMetadataValidation</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="tableMetadataValidation(T_EMP)">
+                  </a> <!-- tableMetadataValidation(T_EMP) -->
+                  <span class="method-name">tableMetadataValidation</span>
+                  <span class="parameters">(T_EMP)</span>
+                  <div class="stack-trace">java.lang.AssertionError: Test failed: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME=EMP_ID}, {COLUMN_NAME=T_EMP_ID1212, TARGET_COLUMN_NAME=T_EMP_ID}] expected [true] but found [false]
+	at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValidation.java:60)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: java.lang.AssertionError: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME=EMP_ID}, {COLUMN_NAME=T_EMP_ID1212, TARGET_COLUMN_NAME=T_EMP_ID}] expected [true] but found [false]
+	at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValidation.java:56)
+	... 32 more
+... Removed 34 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">testCases.DataCompletenessValidation</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="dataCompleteness(T_EMP_DataCompletenessValidation)">
+                  </a> <!-- dataCompleteness(T_EMP_DataCompletenessValidation) -->
+                  <span class="method-name">dataCompleteness</span>
+                  <span class="parameters">(T_EMP_DataCompletenessValidation)</span>
+                  <div class="stack-trace">java.lang.AssertionError: Test failed: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:131)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: java.util.concurrent.ExecutionException: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:128)
+	... 32 more
+Caused by: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at testCases.DataCompletenessValidation.lambda$dataCompleteness$2(DataCompletenessValidation.java:101)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+... Removed 34 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">testCases.TableMetadataValidation</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="tableMetadataValidation(T_DEPT)">
+                  </a> <!-- tableMetadataValidation(T_DEPT) -->
+                  <span class="method-name">tableMetadataValidation</span>
+                  <span class="parameters">(T_DEPT)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
               <span class="class-name">testCases.DataCompletenessValidation</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="dataCompleteness(ITEMS_10L_Record_Validation)">
-                  </a> <!-- dataCompleteness(ITEMS_10L_Record_Validation) -->
-                  <span class="method-name">dataCompleteness</span>
-                  <span class="parameters">(ITEMS_10L_Record_Validation)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="dataCompleteness(STUDENT_SMALL_db_to_file_validation)">
-                  </a> <!-- dataCompleteness(STUDENT_SMALL_db_to_file_validation) -->
-                  <span class="method-name">dataCompleteness</span>
-                  <span class="parameters">(STUDENT_SMALL_db_to_file_validation)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="dataCompleteness(ITEMS_CountValidation)">
@@ -190,18 +299,10 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="dataCompleteness(STUDENT_5L_Record_Validation)">
-                  </a> <!-- dataCompleteness(STUDENT_5L_Record_Validation) -->
+                  <a name="dataCompleteness(ITEMS_10L_Record_Validation)">
+                  </a> <!-- dataCompleteness(ITEMS_10L_Record_Validation) -->
                   <span class="method-name">dataCompleteness</span>
-                  <span class="parameters">(STUDENT_5L_Record_Validation)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="dataCompleteness(STUDENT_SMALL_file_to_db_validation)">
-                  </a> <!-- dataCompleteness(STUDENT_SMALL_file_to_db_validation) -->
-                  <span class="method-name">dataCompleteness</span>
-                  <span class="parameters">(STUDENT_SMALL_file_to_db_validation)</span>
+                  <span class="parameters">(ITEMS_10L_Record_Validation)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -214,34 +315,82 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
+                  <a name="dataCompleteness(T_DEPT_DataCompletenessValidation)">
+                  </a> <!-- dataCompleteness(T_DEPT_DataCompletenessValidation) -->
+                  <span class="method-name">dataCompleteness</span>
+                  <span class="parameters">(T_DEPT_DataCompletenessValidation)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dataCompleteness(STUDENT_SMALL_db_to_file_validation)">
+                  </a> <!-- dataCompleteness(STUDENT_SMALL_db_to_file_validation) -->
+                  <span class="method-name">dataCompleteness</span>
+                  <span class="parameters">(STUDENT_SMALL_db_to_file_validation)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dataCompleteness(T_EMP_PrimaryKey_Validation)">
+                  </a> <!-- dataCompleteness(T_EMP_PrimaryKey_Validation) -->
+                  <span class="method-name">dataCompleteness</span>
+                  <span class="parameters">(T_EMP_PrimaryKey_Validation)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dataCompleteness(T_EMP_CountValidation)">
+                  </a> <!-- dataCompleteness(T_EMP_CountValidation) -->
+                  <span class="method-name">dataCompleteness</span>
+                  <span class="parameters">(T_EMP_CountValidation)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dataCompleteness(T_DEPT_CountValidation)">
+                  </a> <!-- dataCompleteness(T_DEPT_CountValidation) -->
+                  <span class="method-name">dataCompleteness</span>
+                  <span class="parameters">(T_DEPT_CountValidation)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dataCompleteness(STUDENT_SMALL_file_to_db_validation)">
+                  </a> <!-- dataCompleteness(STUDENT_SMALL_file_to_db_validation) -->
+                  <span class="method-name">dataCompleteness</span>
+                  <span class="parameters">(STUDENT_SMALL_file_to_db_validation)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dataCompleteness(STUDENT_5L_Record_Validation)">
+                  </a> <!-- dataCompleteness(STUDENT_5L_Record_Validation) -->
+                  <span class="method-name">dataCompleteness</span>
+                  <span class="parameters">(STUDENT_5L_Record_Validation)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dataCompleteness(T_EMP_SurrogateKey_Validation)">
+                  </a> <!-- dataCompleteness(T_EMP_SurrogateKey_Validation) -->
+                  <span class="method-name">dataCompleteness</span>
+                  <span class="parameters">(T_EMP_SurrogateKey_Validation)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="dataCompleteness(T_EMP_DuplicateValidation)">
+                  </a> <!-- dataCompleteness(T_EMP_DuplicateValidation) -->
+                  <span class="method-name">dataCompleteness</span>
+                  <span class="parameters">(T_EMP_DuplicateValidation)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="dataCompleteness(STUDENT_CountValidation)">
                   </a> <!-- dataCompleteness(STUDENT_CountValidation) -->
                   <span class="method-name">dataCompleteness</span>
                   <span class="parameters">(STUDENT_CountValidation)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-passed -->
-          <div class="suite-Suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">testCases.TableMetadataValidation</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="tableMetadataValidation(T_EMP)">
-                  </a> <!-- tableMetadataValidation(T_EMP) -->
-                  <span class="method-name">tableMetadataValidation</span>
-                  <span class="parameters">(T_EMP)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="tableMetadataValidation(T_DEPT)">
-                  </a> <!-- tableMetadataValidation(T_DEPT) -->
-                  <span class="method-name">tableMetadataValidation</span>
-                  <span class="parameters">(T_DEPT)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -302,48 +451,76 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(9);
+data.addRows(16);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'dataCompleteness')
 data.setCell(0, 2, 'testCases.DataCompletenessValidation')
-data.setCell(0, 3, 5478);
+data.setCell(0, 3, 5545);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'dataCompleteness')
 data.setCell(1, 2, 'testCases.DataCompletenessValidation')
-data.setCell(1, 3, 5027);
+data.setCell(1, 3, 4055);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'dataCompleteness')
 data.setCell(2, 2, 'testCases.DataCompletenessValidation')
-data.setCell(2, 3, 99);
+data.setCell(2, 3, 88);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'dataCompleteness')
 data.setCell(3, 2, 'testCases.DataCompletenessValidation')
-data.setCell(3, 3, 79);
+data.setCell(3, 3, 87);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'dataCompleteness')
 data.setCell(4, 2, 'testCases.DataCompletenessValidation')
-data.setCell(4, 3, 39);
+data.setCell(4, 3, 49);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'tableMetadataValidation')
-data.setCell(5, 2, 'testCases.TableMetadataValidation')
-data.setCell(5, 3, 24);
+data.setCell(5, 1, 'dataCompleteness')
+data.setCell(5, 2, 'testCases.DataCompletenessValidation')
+data.setCell(5, 3, 43);
 data.setCell(6, 0, 6)
 data.setCell(6, 1, 'dataCompleteness')
 data.setCell(6, 2, 'testCases.DataCompletenessValidation')
-data.setCell(6, 3, 8);
+data.setCell(6, 3, 15);
 data.setCell(7, 0, 7)
 data.setCell(7, 1, 'dataCompleteness')
 data.setCell(7, 2, 'testCases.DataCompletenessValidation')
-data.setCell(7, 3, 5);
+data.setCell(7, 3, 14);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'tableMetadataValidation')
-data.setCell(8, 2, 'testCases.TableMetadataValidation')
-data.setCell(8, 3, 3);
+data.setCell(8, 1, 'dataCompleteness')
+data.setCell(8, 2, 'testCases.DataCompletenessValidation')
+data.setCell(8, 3, 12);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'dataCompleteness')
+data.setCell(9, 2, 'testCases.DataCompletenessValidation')
+data.setCell(9, 3, 12);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'dataCompleteness')
+data.setCell(10, 2, 'testCases.DataCompletenessValidation')
+data.setCell(10, 3, 11);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'dataCompleteness')
+data.setCell(11, 2, 'testCases.DataCompletenessValidation')
+data.setCell(11, 3, 11);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'dataCompleteness')
+data.setCell(12, 2, 'testCases.DataCompletenessValidation')
+data.setCell(12, 3, 10);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'tableMetadataValidation')
+data.setCell(13, 2, 'testCases.TableMetadataValidation')
+data.setCell(13, 3, 9);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'dataCompleteness')
+data.setCell(14, 2, 'testCases.DataCompletenessValidation')
+data.setCell(14, 3, 8);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'tableMetadataValidation')
+data.setCell(15, 2, 'testCases.TableMetadataValidation')
+data.setCell(15, 3, 5);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 10 seconds</span>
+              <span class="suite-total-time">Total running time: 9 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -376,54 +553,86 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">dataCompleteness(ITEMS_10L_Record_Validation)</span>
-                <span class="method-start">2576 ms</span>
+                <span class="method-start">1976 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">dataCompleteness(ITEMS_CountValidation)</span>
-                <span class="method-start">8057 ms</span>
+                <span class="method-start">7524 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">dataCompleteness(STUDENT_5L_Record_Validation)</span>
-                <span class="method-start">8157 ms</span>
+                <span class="method-start">7613 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">dataCompleteness(STUDENT_CountValidation)</span>
-                <span class="method-start">13186 ms</span>
+                <span class="method-start">11670 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">dataCompleteness(STUDENT_SMALL_db_to_file_validation)</span>
-                <span class="method-start">13266 ms</span>
+                <span class="method-start">11758 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">dataCompleteness(STUDENT_SMALL_file_to_db_validation)</span>
-                <span class="method-start">13307 ms</span>
+                <span class="method-start">11802 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">dataCompleteness(STUDENT_SMALL_file_to_file_validation)</span>
-                <span class="method-start">13315 ms</span>
+                <span class="method-start">11813 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dataCompleteness(T_DEPT_CountValidation)</span>
+                <span class="method-start">11822 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dataCompleteness(T_DEPT_DataCompletenessValidation)</span>
+                <span class="method-start">11839 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dataCompleteness(T_EMP_CountValidation)</span>
+                <span class="method-start">11851 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">dataCompleteness(T_EMP_DataCompletenessValidation)</span>
+                <span class="method-start">11866 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dataCompleteness(T_EMP_DuplicateValidation)</span>
+                <span class="method-start">11928 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dataCompleteness(T_EMP_PrimaryKey_Validation)</span>
+                <span class="method-start">11941 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">dataCompleteness(T_EMP_SurrogateKey_Validation)</span>
+                <span class="method-start">11953 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">13322 ms</span>
+                <span class="method-start">11966 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">testCases.TableMetadataValidation</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">13346 ms</span>
+                <span class="method-start">11977 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">tableMetadataValidation(T_EMP)</span>
-                <span class="method-start">13670 ms</span>
+                <span class="method-start">12191 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">tableMetadataValidation(T_DEPT)</span>
-                <span class="method-start">13695 ms</span>
+                <span class="method-start">12201 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">13698 ms</span>
+                <span class="method-start">12207 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

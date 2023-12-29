@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>9/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>14/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Dec 25 15:59:42 IST 2023</td>
+<td>Started on:</td><td>Fri Dec 29 14:01:41 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>13 seconds (13970 ms)</td>
+<tr><td>Total time:</td><td>12 seconds (12439 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,153 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: T_EMP_DataCompletenessValidation</td>
+<td><div><pre>java.lang.AssertionError: Test failed: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:131)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: java.util.concurrent.ExecutionException: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:128)
+	... 32 more
+Caused by: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at testCases.DataCompletenessValidation.lambda$dataCompleteness$2(DataCompletenessValidation.java:101)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+... Removed 34 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1069131391", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1069131391'><pre>java.lang.AssertionError: Test failed: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:131)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.util.concurrent.ExecutionException: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:128)
+	... 32 more
+Caused by: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at testCases.DataCompletenessValidation.lambda$dataCompleteness$2(DataCompletenessValidation.java:101)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+</pre></div></td>
+<td>0</td>
+<td>testCases.DataCompletenessValidation@5b247367</td></tr>
+<tr>
+<td title='testCases.TableMetadataValidation.tableMetadataValidation()'><b>tableMetadataValidation</b><br>Test class: testCases.TableMetadataValidation<br>Parameters: T_EMP</td>
+<td><div><pre>java.lang.AssertionError: Test failed: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME=EMP_ID}, {COLUMN_NAME=T_EMP_ID1212, TARGET_COLUMN_NAME=T_EMP_ID}] expected [true] but found [false]
+	at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValidation.java:60)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+Caused by: java.lang.AssertionError: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME=EMP_ID}, {COLUMN_NAME=T_EMP_ID1212, TARGET_COLUMN_NAME=T_EMP_ID}] expected [true] but found [false]
+	at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValidation.java:56)
+	... 32 more
+... Removed 34 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1489099273", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1489099273'><pre>java.lang.AssertionError: Test failed: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME=EMP_ID}, {COLUMN_NAME=T_EMP_ID1212, TARGET_COLUMN_NAME=T_EMP_ID}] expected [true] but found [false]
+	at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValidation.java:60)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.lang.AssertionError: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME=EMP_ID}, {COLUMN_NAME=T_EMP_ID1212, TARGET_COLUMN_NAME=T_EMP_ID}] expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValidation.java:56)
+	... 32 more
+</pre></div></td>
+<td>0</td>
+<td>testCases.TableMetadataValidation@7c137fd5</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -76,50 +223,75 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='testCases.TableMetadataValidation.tableMetadataValidation()'><b>tableMetadataValidation</b><br>Test class: testCases.TableMetadataValidation<br>Parameters: T_EMP</td>
+<td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: ITEMS_CountValidation</td>
 <td></td>
 <td>0</td>
-<td>testCases.TableMetadataValidation@5149d738</td></tr>
+<td>testCases.DataCompletenessValidation@5b247367</td></tr>
 <tr>
 <td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: ITEMS_10L_Record_Validation</td>
 <td></td>
 <td>5</td>
-<td>testCases.DataCompletenessValidation@75d3a5e0</td></tr>
-<tr>
-<td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: STUDENT_SMALL_db_to_file_validation</td>
-<td></td>
-<td>0</td>
-<td>testCases.DataCompletenessValidation@75d3a5e0</td></tr>
-<tr>
-<td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: ITEMS_CountValidation</td>
-<td></td>
-<td>0</td>
-<td>testCases.DataCompletenessValidation@75d3a5e0</td></tr>
-<tr>
-<td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: STUDENT_5L_Record_Validation</td>
-<td></td>
-<td>5</td>
-<td>testCases.DataCompletenessValidation@75d3a5e0</td></tr>
-<tr>
-<td title='testCases.TableMetadataValidation.tableMetadataValidation()'><b>tableMetadataValidation</b><br>Test class: testCases.TableMetadataValidation<br>Parameters: T_DEPT</td>
-<td></td>
-<td>0</td>
-<td>testCases.TableMetadataValidation@5149d738</td></tr>
-<tr>
-<td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: STUDENT_SMALL_file_to_db_validation</td>
-<td></td>
-<td>0</td>
-<td>testCases.DataCompletenessValidation@75d3a5e0</td></tr>
+<td>testCases.DataCompletenessValidation@5b247367</td></tr>
 <tr>
 <td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: STUDENT_SMALL_file_to_file_validation</td>
 <td></td>
 <td>0</td>
-<td>testCases.DataCompletenessValidation@75d3a5e0</td></tr>
+<td>testCases.DataCompletenessValidation@5b247367</td></tr>
+<tr>
+<td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: T_DEPT_DataCompletenessValidation</td>
+<td></td>
+<td>0</td>
+<td>testCases.DataCompletenessValidation@5b247367</td></tr>
+<tr>
+<td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: STUDENT_SMALL_db_to_file_validation</td>
+<td></td>
+<td>0</td>
+<td>testCases.DataCompletenessValidation@5b247367</td></tr>
+<tr>
+<td title='testCases.TableMetadataValidation.tableMetadataValidation()'><b>tableMetadataValidation</b><br>Test class: testCases.TableMetadataValidation<br>Parameters: T_DEPT</td>
+<td></td>
+<td>0</td>
+<td>testCases.TableMetadataValidation@7c137fd5</td></tr>
+<tr>
+<td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: T_EMP_PrimaryKey_Validation</td>
+<td></td>
+<td>0</td>
+<td>testCases.DataCompletenessValidation@5b247367</td></tr>
+<tr>
+<td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: T_EMP_CountValidation</td>
+<td></td>
+<td>0</td>
+<td>testCases.DataCompletenessValidation@5b247367</td></tr>
+<tr>
+<td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: T_DEPT_CountValidation</td>
+<td></td>
+<td>0</td>
+<td>testCases.DataCompletenessValidation@5b247367</td></tr>
+<tr>
+<td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: STUDENT_SMALL_file_to_db_validation</td>
+<td></td>
+<td>0</td>
+<td>testCases.DataCompletenessValidation@5b247367</td></tr>
+<tr>
+<td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: STUDENT_5L_Record_Validation</td>
+<td></td>
+<td>4</td>
+<td>testCases.DataCompletenessValidation@5b247367</td></tr>
+<tr>
+<td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: T_EMP_SurrogateKey_Validation</td>
+<td></td>
+<td>0</td>
+<td>testCases.DataCompletenessValidation@5b247367</td></tr>
+<tr>
+<td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: T_EMP_DuplicateValidation</td>
+<td></td>
+<td>0</td>
+<td>testCases.DataCompletenessValidation@5b247367</td></tr>
 <tr>
 <td title='testCases.DataCompletenessValidation.dataCompleteness()'><b>dataCompleteness</b><br>Test class: testCases.DataCompletenessValidation<br>Parameters: STUDENT_CountValidation</td>
 <td></td>
 <td>0</td>
-<td>testCases.DataCompletenessValidation@75d3a5e0</td></tr>
+<td>testCases.DataCompletenessValidation@5b247367</td></tr>
 </table><p>
 </body>
 </html>
