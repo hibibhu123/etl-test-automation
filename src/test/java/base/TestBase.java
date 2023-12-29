@@ -38,7 +38,7 @@ public class TestBase {
 
 	@BeforeClass
 	public void setUp() {
-		testCaseCounter = 0;
+		//testCaseCounter = 0;
 		l.info("BeforeClass setUp() execution started............");
 		try {
 			Log4jConfigurator.configure();
