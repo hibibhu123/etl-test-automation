@@ -3,17 +3,22 @@ package base;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import queryFunction.Database;
 import queryFunction.DatabaseConn;
 import queryFunction.MetadataExcelGenerator;
+import util.Banner;
 import util.Constants;
 import util.CustomTestListener;
 import util.Log4jConfigurator;
@@ -34,11 +39,25 @@ public class TestBase {
 	public Database database;
 	public static ExecutorService threadPool;
 	public Logger l = Logger.getLogger(TestBase.class);
-	public static int testCaseCounter = 0;
+	public static int testCaseCounter;
+	public static List<String> testResults = new ArrayList<>();
+
+	@BeforeSuite
+	public void setUpBeforeSuite() {
+		testCaseCounter = 0;
+	}
+
+	@AfterSuite
+	public void printTestResults() {
+		Banner.printLargeResultTextToLog();
+		for (String result : testResults) {
+			l.info(result);
+		}
+	}
 
 	@BeforeClass
 	public void setUp() {
-		//testCaseCounter = 0;
+
 		l.info("BeforeClass setUp() execution started............");
 		try {
 			Log4jConfigurator.configure();

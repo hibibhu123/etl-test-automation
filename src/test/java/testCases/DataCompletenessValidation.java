@@ -3,7 +3,6 @@ package testCases;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.sql.SQLException;
-import java.sql.SQLSyntaxErrorException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -30,6 +29,8 @@ public class DataCompletenessValidation extends TestBase {
 	private <T> Future<T> submitTask(Callable<T> task) {
 		return TestBase.threadPool.submit(task);
 	}
+
+	private boolean testMarked = false;
 
 	@Test(dataProvider = "getFolderPath", testName = "testFolderBasedTest")
 	public void dataCompleteness(String testCasePath) throws SQLException {
@@ -88,10 +89,18 @@ public class DataCompletenessValidation extends TestBase {
 					l.info("Asserting that the lists are equal");
 					l.info("#########################################################################    Test Case "
 							+ testCaseCounter + " : Data Completeness Validation for " + testCasePath + " : PASSED");
+
+					testResults.add("Test Case " + testCaseCounter + " " + testCasePath + ": PASSED");
+
 				} else {
 					// Log the "FAILED" message for SQL syntax error or other exceptions
 					l.error("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case "
 							+ testCaseCounter + " : Data Completeness Validation for " + testCasePath + " : FAILED");
+					if (!testMarked) {
+						testResults.add("Test Case " + testCaseCounter + " " + testCasePath + ": FAILED");
+
+						testMarked = true;
+					}
 					Assert.assertTrue(isTestPassed,
 							sqlFunction.getDifferencesAsString(sourceQueryResult, targetQueryResult, differingRows));
 
@@ -109,7 +118,9 @@ public class DataCompletenessValidation extends TestBase {
 			l.error("Test failed: " + e.getMessage(), e);
 			l.error("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case "
 					+ testCaseCounter + " : Data Completeness Validation for " + testCasePath + " : FAILED");
-
+			if (!testMarked) {
+			testResults.add("Test Case " + testCaseCounter + " " + testCasePath + ": FAILED");
+			}
 			throw new AssertionError("Test failed: " + e.getMessage(), e);
 		}
 	}
