@@ -41,7 +41,7 @@ public class sqlFunction {
             Connection connection) throws SQLException {
         List<List<String>> resultList = new ArrayList<>();
 
-        try (
+       try(
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery(query)) {
 
@@ -73,6 +73,7 @@ public class sqlFunction {
         } catch (SQLException e) {
             l.error("Error executing query: " + e.getMessage());
             e.printStackTrace();
+            throw new AssertionError("Test failed: " + e.getMessage(), e);
         }
 
         return resultList;

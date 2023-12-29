@@ -3,6 +3,7 @@ package testCases;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.sql.SQLException;
+import java.sql.SQLSyntaxErrorException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -31,93 +32,71 @@ public class DataCompletenessValidation extends TestBase {
 	}
 
 	@Test(dataProvider = "getFolderPath", testName = "testFolderBasedTest")
-	public void dataCompleteness(String testCasePath) {
+	public void dataCompleteness(String testCasePath) throws SQLException {
 		try {
 
 			testCaseCounter++;
 			l.info("#########################################################################    Test Case "
 					+ testCaseCounter + " : Data Completeness Validation for " + testCasePath + " : STARTED");
 
-			// l.info("Executing test case : " + testCasePath);
-
 			// Create a task (implementing Callable) for parallel execution
 			Callable<Void> dataCompletenessTask = () -> {
-				try {
-					File source_subfolder = new File(Constants.sqlFilePath + "/" + testCasePath + "/source");
-					File target_subfolder = new File(Constants.sqlFilePath + "/" + testCasePath + "/target");
 
-					File[] source_csvFiles = source_subfolder
-							.listFiles((dir, name) -> name.toLowerCase().endsWith(".csv"));
-					File sourceSqlFile = new File(source_subfolder, "source.sql");
+				File source_subfolder = new File(Constants.sqlFilePath + "/" + testCasePath + "/source");
+				File target_subfolder = new File(Constants.sqlFilePath + "/" + testCasePath + "/target");
 
-					File[] target_csvFiles = target_subfolder
-							.listFiles((dir, name) -> name.toLowerCase().endsWith(".csv"));
-					File targetSqlFile = new File(target_subfolder, "target.sql");
+				File[] source_csvFiles = source_subfolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".csv"));
+				File sourceSqlFile = new File(source_subfolder, "source.sql");
 
-					if (source_csvFiles != null && source_csvFiles.length > 0 && !sourceSqlFile.exists()) {
-						l.info("Reading data from source CSV file");
-						List<List<String>> fileData = CSVFileReader.readCSVFile(source_csvFiles[0].getPath());
-						sourceQueryResult = fileData;
+				File[] target_csvFiles = target_subfolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".csv"));
+				File targetSqlFile = new File(target_subfolder, "target.sql");
 
-					} else {
-						l.info("Reading source SQL query from file");
-						sourceQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/source/" + "source"
-								+ ".sql";
-						sourceQuery = sqlFunction.readQueryFromFile(sourceQueryFilePath);
-						sourceQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, sourceQuery,
-								sourceConnection);
-					}
+				if (source_csvFiles != null && source_csvFiles.length > 0 && !sourceSqlFile.exists()) {
+					l.info("Reading data from source CSV file");
+					List<List<String>> fileData = CSVFileReader.readCSVFile(source_csvFiles[0].getPath());
+					sourceQueryResult = fileData;
 
-					if (target_csvFiles != null && target_csvFiles.length > 0 && !targetSqlFile.exists()) {
-						l.info("Reading data from target CSV file");
-						List<List<String>> fileData = CSVFileReader.readCSVFile(target_csvFiles[0].getPath());
-						targetQueryResult = fileData;
+				} else {
+					l.info("Reading source SQL query from file");
+					sourceQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/source/" + "source" + ".sql";
+					sourceQuery = sqlFunction.readQueryFromFile(sourceQueryFilePath);
 
-					} else {
-						l.info("Reading target SQL query from file");
-						targetQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/target/" + "target"
-								+ ".sql";
-						targetQuery = sqlFunction.readQueryFromFile(targetQueryFilePath);
-						targetQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, targetQuery,
-								targetConnection);
-					}
+					sourceQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, sourceQuery,
+							sourceConnection);
+				}
 
-					l.info("Finding differing rows");
-					List<Integer> differingRows = sqlFunction.findDifferingRows(sourceQueryResult, targetQueryResult);
+				if (target_csvFiles != null && target_csvFiles.length > 0 && !targetSqlFile.exists()) {
+					l.info("Reading data from target CSV file");
+					List<List<String>> fileData = CSVFileReader.readCSVFile(target_csvFiles[0].getPath());
+					targetQueryResult = fileData;
+				} else {
+					l.info("Reading target SQL query from file");
+					targetQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/target/" + "target" + ".sql";
+					targetQuery = sqlFunction.readQueryFromFile(targetQueryFilePath);
+					targetQueryResult = sqlFunction.executeQuery(jdbcUrl, username, password, targetQuery,
+							targetConnection);
 
-					boolean isTestPassed = differingRows.isEmpty();
-					
-					
-					// Log the appropriate message based on the test outcome
-					if (isTestPassed) {
+				}
+
+				l.info("Finding differing rows");
+				List<Integer> differingRows = sqlFunction.findDifferingRows(sourceQueryResult, targetQueryResult);
+
+				boolean isTestPassed = differingRows.isEmpty();
+
+				// Log the appropriate message based on the test outcome
+				if (isTestPassed) {
 					l.info("Asserting that the lists are equal");
 					l.info("#########################################################################    Test Case "
 							+ testCaseCounter + " : Data Completeness Validation for " + testCasePath + " : PASSED");
-					}
-					else {
-						// Log the "FAILED" message for SQL syntax error or other exceptions
-                        l.error("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case " + testCaseCounter + " : Data Completeness Validation for " + testCasePath
-                                + " : FAILED");
-                        Assert.assertTrue(isTestPassed,
-    							sqlFunction.getDifferencesAsString(sourceQueryResult, targetQueryResult, differingRows));
-    					
-					}
-				} catch (SQLException sqlException) {
-					// SQL syntax error detected
-					String errorMessage = "SQL Syntax Error: " + sqlException.getMessage();
-					// Log the "FAILED" message for other exceptions
-					l.error(errorMessage, sqlException);
+				} else {
+					// Log the "FAILED" message for SQL syntax error or other exceptions
 					l.error("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case "
 							+ testCaseCounter + " : Data Completeness Validation for " + testCasePath + " : FAILED");
-					throw new AssertionError(errorMessage, sqlException);
-				} catch (Exception e) {
-					l.error("Test failed: " + e.getMessage(), e);
-					// Log the "FAILED" message for other exceptions
-					l.error("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case "
-							+ testCaseCounter + " : Data Completeness Validation for " + testCasePath + " : FAILED");
+					Assert.assertTrue(isTestPassed,
+							sqlFunction.getDifferencesAsString(sourceQueryResult, targetQueryResult, differingRows));
 
-					throw new AssertionError("Test failed:1234 " + e.getMessage(), e);
 				}
+
 				return null;
 			};
 
@@ -128,6 +107,9 @@ public class DataCompletenessValidation extends TestBase {
 			futureResult.get();
 		} catch (Exception e) {
 			l.error("Test failed: " + e.getMessage(), e);
+			l.error("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case "
+					+ testCaseCounter + " : Data Completeness Validation for " + testCasePath + " : FAILED");
+
 			throw new AssertionError("Test failed: " + e.getMessage(), e);
 		}
 	}
