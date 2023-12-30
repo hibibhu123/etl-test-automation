@@ -31,7 +31,7 @@ public class TableMetadataValidation extends TestBase {
 		try {
 			testCaseCounter++;
 			l.info("#########################################################################    Test Case "
-					+ testCaseCounter + " : Table Metadata Validation for " + tableName + " : STARTED");
+					+ testCaseCounter + " Table Metadata Validation for " + tableName + " : STARTED");
 			l.info("Processing Table: " + tableName);
 
 			DatabaseMetadataRetrieval metadataRetrieval = getMetadataRetrievalForCurrentDatabase(prop);
@@ -45,15 +45,15 @@ public class TableMetadataValidation extends TestBase {
 
 				l.info("Metadata Match for Table: " + tableName);
 				l.info("#########################################################################    Test Case "
-						+ testCaseCounter + " : Metadata Validation for " + tableName + " : PASSED");
-				testResults.add("Test Case " + testCaseCounter +" Metadata Validtion for : "+tableName+ ": PASSED");
+						+ testCaseCounter + " Table Metadata Validation for " + tableName + " : PASSED");
+				testResults.add("Test Case " + testCaseCounter +" Table Metadata Validation for "+tableName+ ": PASSED");
 
 			} else {
 
 				l.error("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case "
 						+ testCaseCounter + " : Table Metadata Validation for " + tableName + " : FAILED");
 
-				testResults.add("Test Case " + testCaseCounter +" Metadata Validtion for : "+tableName+ ": FAILED");
+				testResults.add("Test Case " + testCaseCounter +" Table Metadata Validation for "+tableName+ ": FAILED");
 				try {
 					Assert.assertTrue(isMetadataEqual, TableMetadataValidation.findMismatchedColumns(sourceMetadata,
 							targetMetadata, metadataRetrieval));
@@ -72,13 +72,13 @@ public class TableMetadataValidation extends TestBase {
 			l.error(errorMessage, sqlException);
 			l.error("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case "
 					+ testCaseCounter + " : Table Metadata Validation for " + tableName + " : FAILED");
-			testResults.add("Test Case " + testCaseCounter +" Metadata Validtion for : "+tableName+ ": FAILED");
+			testResults.add("Test Case " + testCaseCounter +" Table Metadata Validation for "+tableName+ ": FAILED");
 			throw new AssertionError(errorMessage, sqlException);
 		} catch (Exception e) {
 			l.error("Test failed: " + e.getMessage(), e);
 			l.error("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case "
 					+ testCaseCounter + " : Table Metadata Validation for " + tableName + " : FAILED");
-			testResults.add("Test Case " + testCaseCounter +" Metadata Validtion for : "+tableName+ ": FAILED");
+			testResults.add("Test Case " + testCaseCounter +" Table Metadata Validation for "+tableName+ ": FAILED");
 			throw new AssertionError("Test failed: " + e.getMessage(), e);
 		}
 	}
