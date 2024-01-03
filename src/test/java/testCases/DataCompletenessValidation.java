@@ -14,6 +14,8 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import queryFunction.CSVFileReader;
+import queryFunction.JSONFileReader;
+import queryFunction.XMLFileReader;
 import queryFunction.sqlFunction;
 import util.Constants;
 
@@ -47,9 +49,13 @@ public class DataCompletenessValidation extends TestBase {
 				File target_subfolder = new File(Constants.sqlFilePath + "/" + testCasePath + "/target");
 
 				File[] source_csvFiles = source_subfolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".csv"));
+				File[] source_jsonFiles = source_subfolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".json"));
+				File[] source_xmlFiles = source_subfolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".xml"));
 				File sourceSqlFile = new File(source_subfolder, "source.sql");
 
 				File[] target_csvFiles = target_subfolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".csv"));
+				File[] target_jsonFiles = target_subfolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".json"));
+				File[] target_xmlFiles = target_subfolder.listFiles((dir, name) -> name.toLowerCase().endsWith(".xml"));
 				File targetSqlFile = new File(target_subfolder, "target.sql");
 
 				if (source_csvFiles != null && source_csvFiles.length > 0 && !sourceSqlFile.exists()) {
@@ -57,6 +63,14 @@ public class DataCompletenessValidation extends TestBase {
 					List<List<String>> fileData = CSVFileReader.readCSVFile(source_csvFiles[0].getPath());
 					sourceQueryResult = fileData;
 
+				} else if (source_jsonFiles != null && source_jsonFiles.length > 0 && !sourceSqlFile.exists()) {
+					l.info("Reading data from source JSON file");
+					List<List<String>> fileData = JSONFileReader.readJSONFile(source_jsonFiles[0].getPath());
+					sourceQueryResult = fileData;
+				} else if (source_xmlFiles != null && source_xmlFiles.length > 0 && !sourceSqlFile.exists()) {
+					l.info("Reading data from source XML file");
+					List<List<String>> fileData = XMLFileReader.readXMLFile(source_xmlFiles[0].getPath());
+					sourceQueryResult = fileData;
 				} else {
 					l.info("Reading source SQL query from file");
 					sourceQueryFilePath = Constants.sqlFilePath + "/" + testCasePath + "/source/" + "source" + ".sql";
@@ -69,6 +83,14 @@ public class DataCompletenessValidation extends TestBase {
 				if (target_csvFiles != null && target_csvFiles.length > 0 && !targetSqlFile.exists()) {
 					l.info("Reading data from target CSV file");
 					List<List<String>> fileData = CSVFileReader.readCSVFile(target_csvFiles[0].getPath());
+					targetQueryResult = fileData;
+				} else if (target_jsonFiles != null && target_jsonFiles.length > 0 && !targetSqlFile.exists()) {
+					l.info("Reading data from target JSON file");
+					List<List<String>> fileData = JSONFileReader.readJSONFile(target_jsonFiles[0].getPath());
+					targetQueryResult = fileData;
+				} else if (target_xmlFiles != null && target_xmlFiles.length > 0 && !targetSqlFile.exists()) {
+					l.info("Reading data from target XML file");
+					List<List<String>> fileData = XMLFileReader.readXMLFile(target_xmlFiles[0].getPath());
 					targetQueryResult = fileData;
 				} else {
 					l.info("Reading target SQL query from file");
@@ -119,7 +141,7 @@ public class DataCompletenessValidation extends TestBase {
 			l.error("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case "
 					+ testCaseCounter + " : Data Completeness Validation for " + testCasePath + " : FAILED");
 			if (!testMarked) {
-			testResults.add("Test Case " + testCaseCounter + " " + testCasePath + ": FAILED");
+				testResults.add("Test Case " + testCaseCounter + " " + testCasePath + ": FAILED");
 			}
 			throw new AssertionError("Test failed: " + e.getMessage(), e);
 		}
