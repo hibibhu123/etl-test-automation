@@ -1,5 +1,6 @@
 package base;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -9,8 +10,17 @@ import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.log4j.Logger;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
@@ -50,8 +60,62 @@ public class TestBase {
 	@AfterSuite
 	public void printTestResults() {
 		Banner.printLargeResultTextToLog();
-		for (String result : testResults) {
-			l.info(result);
+
+		try (Workbook workbook = new XSSFWorkbook()) {
+			Sheet sheet = workbook.createSheet("Test Results");
+			int rowCount = 0;
+
+			// Create header row with cell styles
+			Row headerRow = sheet.createRow(rowCount++);
+			CellStyle headerStyle = workbook.createCellStyle();
+			headerStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+			headerStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+
+			Cell testCaseHeaderCell = headerRow.createCell(0);
+			testCaseHeaderCell.setCellValue("Test Case");
+			testCaseHeaderCell.setCellStyle(headerStyle);
+
+			Cell statusHeaderCell = headerRow.createCell(1);
+			statusHeaderCell.setCellValue("Status");
+			statusHeaderCell.setCellStyle(headerStyle);
+
+			// Write test results with color coding
+			for (String result : testResults) {
+				l.info(result);
+
+				Row row = sheet.createRow(rowCount++);
+				String[] resultParts = result.split(": ");
+				String testCaseName = resultParts[0];
+				String status = resultParts[1];
+
+				Cell testCaseCell = row.createCell(0);
+				testCaseCell.setCellValue(testCaseName);
+
+				Cell statusCell = row.createCell(1);
+				statusCell.setCellValue(status);
+
+				// Apply color coding
+				CellStyle cellStyle = workbook.createCellStyle();
+				if ("PASSED".equalsIgnoreCase(status)) {
+					cellStyle.setFillForegroundColor(IndexedColors.LIGHT_GREEN.getIndex());
+				} else if ("FAILED".equalsIgnoreCase(status)) {
+					cellStyle.setFillForegroundColor(IndexedColors.RED1.getIndex());
+				}
+				cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+				statusCell.setCellStyle(cellStyle);
+			}
+
+			// Auto-size columns to fit content
+			for (int i = 0; i < headerRow.getPhysicalNumberOfCells(); i++) {
+				sheet.autoSizeColumn(i);
+			}
+
+			try (FileOutputStream outputStream = new FileOutputStream(Constants.testResultExcelFilePath)) {
+				workbook.write(outputStream);
+			}
+			l.info("Test results written to Excel file: " + Constants.testResultExcelFilePath);
+		} catch (IOException e) {
+			l.error("Error writing test results to Excel", e);
 		}
 	}
 

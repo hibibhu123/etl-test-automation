@@ -16,4 +16,6 @@ public class Constants {
 	
 	public static final String metaDataQuery_oracle="SELECT COLUMN_NAME, DATA_TYPE, CHAR_LENGTH,DATA_LENGTH,DATA_PRECISION, DATA_SCALE FROM ALL_TAB_COLUMNS WHERE TABLE_NAME = ";
 	public static final String metaDataQuery_mysql="SELECT COLUMN_NAME, COLUMN_TYPE FROM information_schema.COLUMNS WHERE TABLE_NAME = ";
+
+	public static final String testResultExcelFilePath = "./Reports/test-results.xlsx";
 }
