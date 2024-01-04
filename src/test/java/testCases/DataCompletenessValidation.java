@@ -13,10 +13,10 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import queryFunction.CSVFileReader;
-import queryFunction.JSONFileReader;
-import queryFunction.XMLFileReader;
-import queryFunction.sqlFunction;
+import databaseFunction.sqlFunction;
+import fileFunction.CSVFileReader;
+import fileFunction.JSONFileReader;
+import fileFunction.XMLFileReader;
 import util.Constants;
 
 public class DataCompletenessValidation extends TestBase {

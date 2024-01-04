@@ -11,7 +11,7 @@ public class Log4jConfigurator {
 
     public static void configure() {
         try {
-            String log4jConfigFile = System.getProperty("user.dir") + File.separator + ".\\propertyFile\\log4j.properties";
+            String log4jConfigFile = System.getProperty("user.dir") + File.separator + Constants.log4jConfigFile;
             PropertyConfigurator.configure(log4jConfigFile);
             LOGGER.info("Log4j configuration loaded successfully.");
         } catch (Exception e) {

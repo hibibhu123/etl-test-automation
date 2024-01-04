@@ -1,4 +1,4 @@
-package queryFunction;
+package databaseFunction;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

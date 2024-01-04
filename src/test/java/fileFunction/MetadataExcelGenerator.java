@@ -1,4 +1,4 @@
-package queryFunction;
+package fileFunction;
 
 import java.io.File;
 import java.io.FileOutputStream;

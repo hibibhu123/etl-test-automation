@@ -1,4 +1,4 @@
-package queryFunction;
+package databaseFunction;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

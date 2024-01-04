@@ -20,9 +20,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import queryFunction.DatabaseMetadataRetrieval;
-import queryFunction.MySqlMetadataRetrieval;
-import queryFunction.OracleMetadataRetrieval;
+import databaseFunction.DatabaseMetadataRetrieval;
+import databaseFunction.MySqlMetadataRetrieval;
+import databaseFunction.OracleMetadataRetrieval;
 
 public class TableMetadataValidation extends TestBase {
 

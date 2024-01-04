@@ -1,4 +1,4 @@
-package queryFunction;
+package fileFunction;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

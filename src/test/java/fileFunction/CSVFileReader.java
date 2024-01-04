@@ -1,4 +1,4 @@
-package queryFunction;
+package fileFunction;
 
 import java.io.FileReader;
 import java.io.IOException;

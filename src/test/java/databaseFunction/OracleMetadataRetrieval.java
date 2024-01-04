@@ -1,4 +1,4 @@
-package queryFunction;
+package databaseFunction;
 
 import java.sql.*;
 import java.util.ArrayList;

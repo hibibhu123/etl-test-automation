@@ -6942,3 +6942,2106 @@ java.lang.AssertionError: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME=EMP_ID}, {
 2024-01-04 20:15:35,049 - base.TestBase - INFO - Test Case 21 Table Metadata Validation for T_EMP: FAILED
 2024-01-04 20:15:35,049 - base.TestBase - INFO - Test Case 22 Table Metadata Validation for T_DEPT: PASSED
 2024-01-04 20:15:35,331 - base.TestBase - INFO - Test results written to Excel file: ./Reports/test-results.xlsx
+2024-01-04 21:05:53,903 - util.Log4jConfigurator - INFO - Log4j configuration loaded successfully.
+2024-01-04 21:05:53,907 - base.TestBase - INFO - Log4j configured successfully.
+2024-01-04 21:05:53,909 - base.TestBase - INFO - Properties file loaded successfully.
+2024-01-04 21:05:53,911 - base.TestBase - INFO - Thread Pool created
+2024-01-04 21:05:53,911 - base.TestBase - INFO - Target Database selected : mysql
+2024-01-04 21:05:53,911 - base.TestBase - INFO - Auto Generated Metadata option selected as : yes
+2024-01-04 21:05:53,912 - fileFunction.MetadataExcelGenerator - INFO - Starting metadata Excel generation...
+2024-01-04 21:05:53,913 - fileFunction.MetadataExcelGenerator - INFO - Existing Metadata Excel deleted: ./TableMetadata/metadata_excel.xlsx
+2024-01-04 21:05:54,611 - fileFunction.MetadataExcelGenerator - INFO - Metadata Excel auto-generated successfully at: ./TableMetadata/metadata_excel.xlsx
+2024-01-04 21:05:54,611 - base.TestBase - INFO - Metadata Excel Generation Completed....
+2024-01-04 21:05:55,134 - databaseFunction.DatabaseConn - INFO - Database is Connected
+2024-01-04 21:05:55,135 - base.TestBase - INFO - Target database connection established successfully.
+2024-01-04 21:05:55,135 - base.TestBase - INFO - ********************************    Target Set up completed     *********************************
+2024-01-04 21:05:55,135 - base.TestBase - INFO - Source Database selected : oracle
+2024-01-04 21:05:55,522 - databaseFunction.DatabaseConn - INFO - Database is Connected
+2024-01-04 21:05:55,523 - base.TestBase - INFO - Source database connection established successfully.
+2024-01-04 21:05:55,530 - base.TestBase - INFO - ********************************    Source Set up completed    *********************************
+2024-01-04 21:05:55,550 - base.TestBase - INFO - #########################################################################    Test Case 1 : Data Completeness Validation for ITEMS_10L_Record_Validation : STARTED
+2024-01-04 21:05:55,553 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:05:55,558 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/ITEMS_10L_Record_Validation/source/source.sql
+2024-01-04 21:05:55,654 - databaseFunction.sqlFunction - ERROR - Error executing query: ORA-00933: SQL command not properly ended
+
+2024-01-04 21:05:55,655 - base.TestBase - ERROR - Test failed: java.lang.AssertionError: Test failed: ORA-00933: SQL command not properly ended
+
+java.util.concurrent.ExecutionException: java.lang.AssertionError: Test failed: ORA-00933: SQL command not properly ended
+
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:138)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.AssertionError: Test failed: ORA-00933: SQL command not properly ended
+
+	at databaseFunction.sqlFunction.executeQuery(sqlFunction.java:76)
+	at testCases.DataCompletenessValidation.lambda$0(DataCompletenessValidation.java:79)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.sql.SQLSyntaxErrorException: ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:702)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1248)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:518)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:156)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:963)
+	at oracle.jdbc.driver.OracleStatement.prepareDefineBufferAndExecute(OracleStatement.java:1205)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1135)
+	at oracle.jdbc.driver.OracleStatement.executeSQLSelect(OracleStatement.java:1472)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1343)
+	at oracle.jdbc.driver.OracleStatement.executeQuery(OracleStatement.java:1727)
+	at oracle.jdbc.driver.OracleStatementWrapper.executeQuery(OracleStatementWrapper.java:380)
+	at databaseFunction.sqlFunction.executeQuery(sqlFunction.java:46)
+	... 5 more
+Caused by: Error : 933, Position : 42, SQL = select ItemId, ItemName  from items  orde by itemid
+, Original SQL = select ItemId, ItemName  from items  orde by itemid
+, Error Message = ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	... 19 more
+2024-01-04 21:05:55,660 - base.TestBase - ERROR - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case 1 : Data Completeness Validation for ITEMS_10L_Record_Validation : FAILED
+2024-01-04 21:05:55,670 - base.TestBase - INFO - #########################################################################    Test Case 2 : Data Completeness Validation for ITEMS_CountValidation : STARTED
+2024-01-04 21:05:55,672 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:05:55,673 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/ITEMS_CountValidation/source/source.sql
+2024-01-04 21:05:55,755 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) FROM items
+
+2024-01-04 21:05:55,756 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:05:55,756 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/ITEMS_CountValidation/target/target.sql
+2024-01-04 21:05:55,895 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) FROM items
+
+2024-01-04 21:05:55,896 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:05:55,896 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:05:55,896 - base.TestBase - INFO - #########################################################################    Test Case 2 : Data Completeness Validation for ITEMS_CountValidation : PASSED
+2024-01-04 21:05:55,901 - base.TestBase - INFO - #########################################################################    Test Case 3 : Data Completeness Validation for STUDENT_5L_Record_Validation : STARTED
+2024-01-04 21:05:55,902 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:05:55,904 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_5L_Record_Validation/source/source.sql
+2024-01-04 21:05:57,550 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student order by student_id
+
+2024-01-04 21:05:57,551 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:05:57,551 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_5L_Record_Validation/target/target.sql
+2024-01-04 21:06:00,848 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student order by student_id
+
+2024-01-04 21:06:00,848 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:00,920 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:00,921 - base.TestBase - INFO - #########################################################################    Test Case 3 : Data Completeness Validation for STUDENT_5L_Record_Validation : PASSED
+2024-01-04 21:06:00,923 - base.TestBase - INFO - #########################################################################    Test Case 4 : Data Completeness Validation for STUDENT_CountValidation : STARTED
+2024-01-04 21:06:00,926 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:06:00,927 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_CountValidation/source/source.sql
+2024-01-04 21:06:00,936 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) from student
+
+2024-01-04 21:06:00,937 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:06:00,937 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_CountValidation/target/target.sql
+2024-01-04 21:06:01,008 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) from student
+
+2024-01-04 21:06:01,010 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,010 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:01,010 - base.TestBase - INFO - #########################################################################    Test Case 4 : Data Completeness Validation for STUDENT_CountValidation : PASSED
+2024-01-04 21:06:01,012 - base.TestBase - INFO - #########################################################################    Test Case 5 : Data Completeness Validation for STUDENT_SMALL_db_to_file_validation : STARTED
+2024-01-04 21:06:01,015 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:06:01,016 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_db_to_file_validation/source/source.sql
+2024-01-04 21:06:01,019 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:06:01,020 - base.TestBase - INFO - Reading data from target CSV file
+2024-01-04 21:06:01,037 - fileFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_db_to_file_validation\target\student_small.csv
+2024-01-04 21:06:01,038 - fileFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2024-01-04 21:06:01,038 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,038 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:01,038 - base.TestBase - INFO - #########################################################################    Test Case 5 : Data Completeness Validation for STUDENT_SMALL_db_to_file_validation : PASSED
+2024-01-04 21:06:01,041 - base.TestBase - INFO - #########################################################################    Test Case 6 : Data Completeness Validation for STUDENT_SMALL_db_to_JSONfile_validation : STARTED
+2024-01-04 21:06:01,043 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:06:01,043 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_db_to_JSONfile_validation/source/source.sql
+2024-01-04 21:06:01,045 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:06:01,045 - base.TestBase - INFO - Reading data from target JSON file
+2024-01-04 21:06:01,214 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,215 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:01,215 - base.TestBase - INFO - #########################################################################    Test Case 6 : Data Completeness Validation for STUDENT_SMALL_db_to_JSONfile_validation : PASSED
+2024-01-04 21:06:01,217 - base.TestBase - INFO - #########################################################################    Test Case 7 : Data Completeness Validation for STUDENT_SMALL_db_to_XMLfile_validation : STARTED
+2024-01-04 21:06:01,220 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:06:01,220 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_db_to_XMLfile_validation/source/source.sql
+2024-01-04 21:06:01,222 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:06:01,222 - base.TestBase - INFO - Reading data from target XML file
+2024-01-04 21:06:01,230 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,230 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:01,230 - base.TestBase - INFO - #########################################################################    Test Case 7 : Data Completeness Validation for STUDENT_SMALL_db_to_XMLfile_validation : PASSED
+2024-01-04 21:06:01,232 - base.TestBase - INFO - #########################################################################    Test Case 8 : Data Completeness Validation for STUDENT_SMALL_file_to_db_validation : STARTED
+2024-01-04 21:06:01,234 - base.TestBase - INFO - Reading data from source CSV file
+2024-01-04 21:06:01,235 - fileFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_db_validation\source\student_small.csv
+2024-01-04 21:06:01,236 - fileFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2024-01-04 21:06:01,236 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:06:01,236 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_file_to_db_validation/target/target.sql
+2024-01-04 21:06:01,238 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:06:01,238 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,238 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:01,238 - base.TestBase - INFO - #########################################################################    Test Case 8 : Data Completeness Validation for STUDENT_SMALL_file_to_db_validation : PASSED
+2024-01-04 21:06:01,240 - base.TestBase - INFO - #########################################################################    Test Case 9 : Data Completeness Validation for STUDENT_SMALL_file_to_file_validation : STARTED
+2024-01-04 21:06:01,243 - base.TestBase - INFO - Reading data from source CSV file
+2024-01-04 21:06:01,244 - fileFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_file_validation\source\student_small.csv
+2024-01-04 21:06:01,244 - fileFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2024-01-04 21:06:01,244 - base.TestBase - INFO - Reading data from target CSV file
+2024-01-04 21:06:01,245 - fileFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_file_validation\target\student_small.csv
+2024-01-04 21:06:01,246 - fileFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2024-01-04 21:06:01,246 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,246 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:01,246 - base.TestBase - INFO - #########################################################################    Test Case 9 : Data Completeness Validation for STUDENT_SMALL_file_to_file_validation : PASSED
+2024-01-04 21:06:01,248 - base.TestBase - INFO - #########################################################################    Test Case 10 : Data Completeness Validation for STUDENT_SMALL_JSONfile_to_db_validation : STARTED
+2024-01-04 21:06:01,249 - base.TestBase - INFO - Reading data from source JSON file
+2024-01-04 21:06:01,250 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:06:01,251 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_JSONfile_to_db_validation/target/target.sql
+2024-01-04 21:06:01,252 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:06:01,253 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,253 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:01,253 - base.TestBase - INFO - #########################################################################    Test Case 10 : Data Completeness Validation for STUDENT_SMALL_JSONfile_to_db_validation : PASSED
+2024-01-04 21:06:01,255 - base.TestBase - INFO - #########################################################################    Test Case 11 : Data Completeness Validation for STUDENT_SMALL_JSONfile_to_JSONfile_validation : STARTED
+2024-01-04 21:06:01,257 - base.TestBase - INFO - Reading data from source JSON file
+2024-01-04 21:06:01,258 - base.TestBase - INFO - Reading data from target JSON file
+2024-01-04 21:06:01,259 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,259 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:01,259 - base.TestBase - INFO - #########################################################################    Test Case 11 : Data Completeness Validation for STUDENT_SMALL_JSONfile_to_JSONfile_validation : PASSED
+2024-01-04 21:06:01,261 - base.TestBase - INFO - #########################################################################    Test Case 12 : Data Completeness Validation for STUDENT_SMALL_XMLfile_to_db_validation : STARTED
+2024-01-04 21:06:01,263 - base.TestBase - INFO - Reading data from source XML file
+2024-01-04 21:06:01,267 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:06:01,267 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_XMLfile_to_db_validation/target/target.sql
+2024-01-04 21:06:01,269 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:06:01,269 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,269 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:01,269 - base.TestBase - INFO - #########################################################################    Test Case 12 : Data Completeness Validation for STUDENT_SMALL_XMLfile_to_db_validation : PASSED
+2024-01-04 21:06:01,271 - base.TestBase - INFO - #########################################################################    Test Case 13 : Data Completeness Validation for STUDENT_SMALL_XMLfile_to_XMLfile_validation : STARTED
+2024-01-04 21:06:01,273 - base.TestBase - INFO - Reading data from source XML file
+2024-01-04 21:06:01,276 - base.TestBase - INFO - Reading data from target XML file
+2024-01-04 21:06:01,280 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,280 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:01,280 - base.TestBase - INFO - #########################################################################    Test Case 13 : Data Completeness Validation for STUDENT_SMALL_XMLfile_to_XMLfile_validation : PASSED
+2024-01-04 21:06:01,282 - base.TestBase - INFO - #########################################################################    Test Case 14 : Data Completeness Validation for T_DEPT_CountValidation : STARTED
+2024-01-04 21:06:01,283 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:06:01,284 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_DEPT_CountValidation/source/source.sql
+2024-01-04 21:06:01,285 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) from dept
+
+2024-01-04 21:06:01,285 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:06:01,285 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_DEPT_CountValidation/target/target.sql
+2024-01-04 21:06:01,289 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) from t_dept
+
+2024-01-04 21:06:01,289 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,289 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:01,289 - base.TestBase - INFO - #########################################################################    Test Case 14 : Data Completeness Validation for T_DEPT_CountValidation : PASSED
+2024-01-04 21:06:01,291 - base.TestBase - INFO - #########################################################################    Test Case 15 : Data Completeness Validation for T_DEPT_DataCompletenessValidation : STARTED
+2024-01-04 21:06:01,292 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:06:01,293 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_DEPT_DataCompletenessValidation/source/source.sql
+2024-01-04 21:06:01,294 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT * from dept order by deptno
+
+2024-01-04 21:06:01,294 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:06:01,294 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_DEPT_DataCompletenessValidation/target/target.sql
+2024-01-04 21:06:01,295 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT deptno,dname,loc from t_dept order by t_dept_id
+
+2024-01-04 21:06:01,295 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,295 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:01,295 - base.TestBase - INFO - #########################################################################    Test Case 15 : Data Completeness Validation for T_DEPT_DataCompletenessValidation : PASSED
+2024-01-04 21:06:01,298 - base.TestBase - INFO - #########################################################################    Test Case 16 : Data Completeness Validation for T_EMP_CountValidation : STARTED
+2024-01-04 21:06:01,300 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:06:01,301 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_CountValidation/source/source.sql
+2024-01-04 21:06:01,303 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) FROM s_emp e1 
+INNER JOIN s_dept d1 ON e1.deptno = d1.deptno
+INNER JOIN s_emp e2 on e2.empno=e1.mgr
+
+2024-01-04 21:06:01,303 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:06:01,304 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_CountValidation/target/target.sql
+2024-01-04 21:06:01,307 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) from t_emp
+
+2024-01-04 21:06:01,307 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,307 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:01,307 - base.TestBase - INFO - #########################################################################    Test Case 16 : Data Completeness Validation for T_EMP_CountValidation : PASSED
+2024-01-04 21:06:01,309 - base.TestBase - INFO - #########################################################################    Test Case 17 : Data Completeness Validation for T_EMP_DataCompletenessValidation : STARTED
+2024-01-04 21:06:01,311 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:06:01,311 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_DataCompletenessValidation/source/source.sql
+2024-01-04 21:06:01,314 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT 
+    e1.EMPNO AS EMP_ID,
+    INITCAP(e1.ename) AS EMP_NAME,
+    d1.dname AS DEPT_NAME,
+    INITCAP(e2.ename) AS MANAGER_NAME,
+    e1.job AS JOB_TYPE,
+    INITCAP(d1.loc) AS LOCATION,
+    TO_CHAR(e1.hiredate,'yyyy-mm-dd') as HIRE_DATE,
+    ROUND(MONTHS_BETWEEN(SYSDATE, e1.hiredate) / 12) AS TOTAL_EXP_IN_COMPANY,
+    e1.sal AS SALARY,
+    NVL(e1.comm, 0) AS COMMISSION,
+    e1.sal + NVL(e1.comm, 0) AS TOTAL_SALARY,
+    CASE 
+        WHEN e1.sal + NVL(e1.comm, 0) < 2000 THEN 'LOW' 
+        WHEN e1.sal + NVL(e1.comm, 0) BETWEEN 2000 AND 3000 THEN 'MID' 
+        ELSE 'HIGH' 
+    END AS SALARY_GRADE
+FROM s_emp e1 
+INNER JOIN s_dept d1 ON e1.deptno = d1.deptno
+INNER JOIN s_emp e2 on e2.empno=e1.mgr
+order by EMP_ID
+
+2024-01-04 21:06:01,315 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:06:01,316 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_DataCompletenessValidation/target/target.sql
+2024-01-04 21:06:01,318 - databaseFunction.sqlFunction - INFO - Query executed successfully: select 
+EMP_ID,
+EMP_NAME,
+DEPT_NAME,
+MANAGER_NAME,
+JOB_TYPE,
+LOCATION,
+HIRE_DATE,
+TOTAL_EXP_IN_COMPANY,
+SALARY,
+COMMISSION,
+TOTAL_SALARY,
+SALARY_GRADE
+from t_emp
+order by EMP_ID
+
+2024-01-04 21:06:01,318 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,318 - base.TestBase - ERROR - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case 17 : Data Completeness Validation for T_EMP_DataCompletenessValidation : FAILED
+2024-01-04 21:06:01,322 - base.TestBase - ERROR - Test failed: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+java.util.concurrent.ExecutionException: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:138)
+	at jdk.internal.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at testCases.DataCompletenessValidation.lambda$0(DataCompletenessValidation.java:126)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2024-01-04 21:06:01,324 - base.TestBase - ERROR - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case 17 : Data Completeness Validation for T_EMP_DataCompletenessValidation : FAILED
+2024-01-04 21:06:01,326 - base.TestBase - INFO - #########################################################################    Test Case 18 : Data Completeness Validation for T_EMP_DuplicateValidation : STARTED
+2024-01-04 21:06:01,327 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:06:01,328 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_DuplicateValidation/source/source.sql
+2024-01-04 21:06:01,329 - databaseFunction.sqlFunction - INFO - Query executed successfully: select 0 as No_Of_Duplicate_Rows from dual
+
+2024-01-04 21:06:01,329 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:06:01,329 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_DuplicateValidation/target/target.sql
+2024-01-04 21:06:01,331 - databaseFunction.sqlFunction - INFO - Query executed successfully: select dup.No_Of_Duplicate_Rows from(
+select 
+EMP_ID,
+EMP_NAME,
+DEPT_NAME,
+MANAGER_NAME,
+JOB_TYPE,
+LOCATION,
+HIRE_DATE,
+TOTAL_EXP_IN_COMPANY,
+SALARY,
+COMMISSION,
+TOTAL_SALARY,
+SALARY_GRADE,
+COUNT(*) as No_Of_Duplicate_Rows
+from T_EMP
+group by
+EMP_ID,
+EMP_NAME,
+DEPT_NAME,
+MANAGER_NAME,
+JOB_TYPE,
+LOCATION,
+HIRE_DATE,
+TOTAL_EXP_IN_COMPANY,
+SALARY,
+COMMISSION,
+TOTAL_SALARY,
+SALARY_GRADE
+having COUNT(*) >1) dup
+
+2024-01-04 21:06:01,331 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,331 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:01,331 - base.TestBase - INFO - #########################################################################    Test Case 18 : Data Completeness Validation for T_EMP_DuplicateValidation : PASSED
+2024-01-04 21:06:01,333 - base.TestBase - INFO - #########################################################################    Test Case 19 : Data Completeness Validation for T_EMP_PrimaryKey_Validation : STARTED
+2024-01-04 21:06:01,335 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:06:01,335 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_PrimaryKey_Validation/source/source.sql
+2024-01-04 21:06:01,336 - databaseFunction.sqlFunction - INFO - Query executed successfully: select 0 as Null_and_Duplicates from dual
+
+2024-01-04 21:06:01,336 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:06:01,337 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_PrimaryKey_Validation/target/target.sql
+2024-01-04 21:06:01,340 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) as Null_and_Duplicates from T_emp where EMP_ID is null
+union
+select e.cnt from(
+select emp_id, count(*) cnt from t_emp group by emp_id having cnt>1)e
+
+2024-01-04 21:06:01,340 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,340 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:01,340 - base.TestBase - INFO - #########################################################################    Test Case 19 : Data Completeness Validation for T_EMP_PrimaryKey_Validation : PASSED
+2024-01-04 21:06:01,342 - base.TestBase - INFO - #########################################################################    Test Case 20 : Data Completeness Validation for T_EMP_SurrogateKey_Validation : STARTED
+2024-01-04 21:06:01,344 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:06:01,344 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_SurrogateKey_Validation/source/source.sql
+2024-01-04 21:06:01,346 - databaseFunction.sqlFunction - INFO - Query executed successfully: select 0 as Null_and_Duplicates from dual
+
+2024-01-04 21:06:01,346 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:06:01,346 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_SurrogateKey_Validation/target/target.sql
+2024-01-04 21:06:01,347 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) as Null_and_Duplicates from T_emp where T_EMP_ID is null
+union
+select e.cnt from(
+select t_emp_id, count(*) cnt from t_emp group by t_emp_id having cnt>1)e
+
+2024-01-04 21:06:01,348 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:06:01,348 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:06:01,348 - base.TestBase - INFO - #########################################################################    Test Case 20 : Data Completeness Validation for T_EMP_SurrogateKey_Validation : PASSED
+2024-01-04 21:06:01,350 - base.TestBase - INFO - Teardown started..............
+2024-01-04 21:06:01,353 - databaseFunction.DatabaseConn - INFO - Database Connection Closed
+2024-01-04 21:06:01,353 - base.TestBase - INFO - Source database connection closed successfully.
+2024-01-04 21:06:01,355 - databaseFunction.DatabaseConn - INFO - Database Connection Closed
+2024-01-04 21:06:01,356 - base.TestBase - INFO - Target database connection closed successfully.
+2024-01-04 21:06:01,357 - base.TestBase - INFO - Thread pool shut down successfully.
+2024-01-04 21:06:01,358 - base.TestBase - INFO - ****************************************************    Teardown Completed     ********************************************
+2024-01-04 21:06:01,359 - base.TestBase - INFO - BeforeClass setUp() execution started............
+2024-01-04 21:06:01,361 - util.Log4jConfigurator - INFO - Log4j configuration loaded successfully.
+2024-01-04 21:06:01,362 - base.TestBase - INFO - Log4j configured successfully.
+2024-01-04 21:06:01,362 - base.TestBase - INFO - Properties file loaded successfully.
+2024-01-04 21:06:01,362 - base.TestBase - INFO - Thread Pool created
+2024-01-04 21:06:01,362 - base.TestBase - INFO - Target Database selected : mysql
+2024-01-04 21:06:01,362 - base.TestBase - INFO - Auto Generated Metadata option selected as : yes
+2024-01-04 21:06:01,362 - fileFunction.MetadataExcelGenerator - INFO - Starting metadata Excel generation...
+2024-01-04 21:06:01,363 - fileFunction.MetadataExcelGenerator - INFO - Existing Metadata Excel deleted: ./TableMetadata/metadata_excel.xlsx
+2024-01-04 21:06:01,448 - fileFunction.MetadataExcelGenerator - INFO - Metadata Excel auto-generated successfully at: ./TableMetadata/metadata_excel.xlsx
+2024-01-04 21:06:01,448 - base.TestBase - INFO - Metadata Excel Generation Completed....
+2024-01-04 21:06:01,475 - databaseFunction.DatabaseConn - INFO - Database is Connected
+2024-01-04 21:06:01,475 - base.TestBase - INFO - Target database connection established successfully.
+2024-01-04 21:06:01,476 - base.TestBase - INFO - ********************************    Target Set up completed     *********************************
+2024-01-04 21:06:01,476 - base.TestBase - INFO - Source Database selected : oracle
+2024-01-04 21:06:01,539 - databaseFunction.DatabaseConn - INFO - Database is Connected
+2024-01-04 21:06:01,540 - base.TestBase - INFO - Source database connection established successfully.
+2024-01-04 21:06:01,540 - base.TestBase - INFO - ********************************    Source Set up completed    *********************************
+2024-01-04 21:06:01,562 - base.TestBase - INFO - Workbook loaded successfully.
+2024-01-04 21:06:01,564 - base.TestBase - INFO - #########################################################################    Test Case 21 Table Metadata Validation for T_EMP : STARTED
+2024-01-04 21:06:01,564 - base.TestBase - INFO - Processing Table: T_EMP
+2024-01-04 21:06:01,566 - base.TestBase - INFO - Sorted Metadata from Mapping Sheet:[{COLUMN_NAME=COMMISSION, DATA_TYPE=int}, {COLUMN_NAME=DEPT_NAME, DATA_TYPE=varchar(20)}, {COLUMN_NAME=EMP_ID345, DATA_TYPE=int}, {COLUMN_NAME=EMP_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=HIRE_DATE, DATA_TYPE=date}, {COLUMN_NAME=JOB_TYPE, DATA_TYPE=varchar(20)}, {COLUMN_NAME=LOCATION, DATA_TYPE=varchar(30)}, {COLUMN_NAME=MANAGER_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=SALARY, DATA_TYPE=int}, {COLUMN_NAME=SALARY_GRADE, DATA_TYPE=varchar(10)}, {COLUMN_NAME=T_EMP_ID1212, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_EXP_IN_COMPANY, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_SALARY, DATA_TYPE=int}]
+2024-01-04 21:06:01,571 - databaseFunction.MySqlMetadataRetrieval - INFO - Metadata retrieval from MySQL table completed for table: T_EMP
+2024-01-04 21:06:01,571 - databaseFunction.MySqlMetadataRetrieval - INFO - Metadata from MySQL Table:[{COLUMN_NAME=COMMISSION, DATA_TYPE=int}, {COLUMN_NAME=DEPT_NAME, DATA_TYPE=varchar(20)}, {COLUMN_NAME=EMP_ID, DATA_TYPE=int}, {COLUMN_NAME=EMP_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=HIRE_DATE, DATA_TYPE=date}, {COLUMN_NAME=JOB_TYPE, DATA_TYPE=varchar(20)}, {COLUMN_NAME=LOCATION, DATA_TYPE=varchar(30)}, {COLUMN_NAME=MANAGER_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=SALARY, DATA_TYPE=int}, {COLUMN_NAME=SALARY_GRADE, DATA_TYPE=varchar(10)}, {COLUMN_NAME=T_EMP_ID, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_EXP_IN_COMPANY, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_SALARY, DATA_TYPE=int}]
+2024-01-04 21:06:01,572 - base.TestBase - INFO - Metadata Mismatch for Table: T_EMP
+2024-01-04 21:06:01,572 - base.TestBase - INFO - Source Column: {COLUMN_NAME=EMP_ID345, DATA_TYPE=int}
+2024-01-04 21:06:01,572 - base.TestBase - INFO - Target Column: {COLUMN_NAME=EMP_ID, DATA_TYPE=int}
+2024-01-04 21:06:01,572 - base.TestBase - ERROR - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case 21 : Table Metadata Validation for T_EMP : FAILED
+2024-01-04 21:06:01,573 - base.TestBase - ERROR - Test failed: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME=EMP_ID}, {COLUMN_NAME=T_EMP_ID1212, TARGET_COLUMN_NAME=T_EMP_ID}] expected [true] but found [false]
+java.lang.AssertionError: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME=EMP_ID}, {COLUMN_NAME=T_EMP_ID1212, TARGET_COLUMN_NAME=T_EMP_ID}] expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValidation.java:58)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+2024-01-04 21:06:01,575 - base.TestBase - INFO - #########################################################################    Test Case 22 Table Metadata Validation for T_DEPT : STARTED
+2024-01-04 21:06:01,575 - base.TestBase - INFO - Processing Table: T_DEPT
+2024-01-04 21:06:01,575 - base.TestBase - INFO - Sorted Metadata from Mapping Sheet:[{COLUMN_NAME=DEPTNO, DATA_TYPE=int}, {COLUMN_NAME=DNAME, DATA_TYPE=varchar(14)}, {COLUMN_NAME=LOC, DATA_TYPE=varchar(13)}, {COLUMN_NAME=T_DEPT_ID, DATA_TYPE=int}]
+2024-01-04 21:06:01,578 - databaseFunction.MySqlMetadataRetrieval - INFO - Metadata retrieval from MySQL table completed for table: T_DEPT
+2024-01-04 21:06:01,578 - databaseFunction.MySqlMetadataRetrieval - INFO - Metadata from MySQL Table:[{COLUMN_NAME=DEPTNO, DATA_TYPE=int}, {COLUMN_NAME=DNAME, DATA_TYPE=varchar(14)}, {COLUMN_NAME=LOC, DATA_TYPE=varchar(13)}, {COLUMN_NAME=T_DEPT_ID, DATA_TYPE=int}]
+2024-01-04 21:06:01,578 - base.TestBase - INFO - Metadata Match for Table: T_DEPT
+2024-01-04 21:06:01,578 - base.TestBase - INFO - #########################################################################    Test Case 22 Table Metadata Validation for T_DEPT : PASSED
+2024-01-04 21:06:01,579 - base.TestBase - INFO - Teardown started..............
+2024-01-04 21:06:01,596 - base.TestBase - INFO - Workbook closed successfully.
+2024-01-04 21:06:01,598 - databaseFunction.DatabaseConn - INFO - Database Connection Closed
+2024-01-04 21:06:01,598 - base.TestBase - INFO - Source database connection closed successfully.
+2024-01-04 21:06:01,599 - databaseFunction.DatabaseConn - INFO - Database Connection Closed
+2024-01-04 21:06:01,599 - base.TestBase - INFO - Target database connection closed successfully.
+2024-01-04 21:06:01,599 - base.TestBase - INFO - Thread pool shut down successfully.
+2024-01-04 21:06:01,600 - base.TestBase - INFO - ****************************************************    Teardown Completed     ********************************************
+2024-01-04 21:06:01,989 - util.Banner - INFO - *****     *****    ****    *   *    *      *****  
+2024-01-04 21:06:01,989 - util.Banner - INFO - *   *     *        *       *   *    *        *    
+2024-01-04 21:06:01,990 - util.Banner - INFO - *****     ****     ****    *   *    *        *    
+2024-01-04 21:06:01,990 - util.Banner - INFO - *  **     *           *    *   *    *        *    
+2024-01-04 21:06:01,990 - util.Banner - INFO - *   **    *****    ****     ***     *****    *    
+2024-01-04 21:06:01,997 - base.TestBase - INFO - Test Case 1 ITEMS_10L_Record_Validation: FAILED
+2024-01-04 21:06:01,998 - base.TestBase - INFO - Test Case 2 ITEMS_CountValidation: PASSED
+2024-01-04 21:06:01,998 - base.TestBase - INFO - Test Case 3 STUDENT_5L_Record_Validation: PASSED
+2024-01-04 21:06:01,999 - base.TestBase - INFO - Test Case 4 STUDENT_CountValidation: PASSED
+2024-01-04 21:06:02,000 - base.TestBase - INFO - Test Case 5 STUDENT_SMALL_db_to_file_validation: PASSED
+2024-01-04 21:06:02,001 - base.TestBase - INFO - Test Case 6 STUDENT_SMALL_db_to_JSONfile_validation: PASSED
+2024-01-04 21:06:02,002 - base.TestBase - INFO - Test Case 7 STUDENT_SMALL_db_to_XMLfile_validation: PASSED
+2024-01-04 21:06:02,002 - base.TestBase - INFO - Test Case 8 STUDENT_SMALL_file_to_db_validation: PASSED
+2024-01-04 21:06:02,003 - base.TestBase - INFO - Test Case 9 STUDENT_SMALL_file_to_file_validation: PASSED
+2024-01-04 21:06:02,004 - base.TestBase - INFO - Test Case 10 STUDENT_SMALL_JSONfile_to_db_validation: PASSED
+2024-01-04 21:06:02,005 - base.TestBase - INFO - Test Case 11 STUDENT_SMALL_JSONfile_to_JSONfile_validation: PASSED
+2024-01-04 21:06:02,005 - base.TestBase - INFO - Test Case 12 STUDENT_SMALL_XMLfile_to_db_validation: PASSED
+2024-01-04 21:06:02,006 - base.TestBase - INFO - Test Case 13 STUDENT_SMALL_XMLfile_to_XMLfile_validation: PASSED
+2024-01-04 21:06:02,007 - base.TestBase - INFO - Test Case 14 T_DEPT_CountValidation: PASSED
+2024-01-04 21:06:02,007 - base.TestBase - INFO - Test Case 15 T_DEPT_DataCompletenessValidation: PASSED
+2024-01-04 21:06:02,009 - base.TestBase - INFO - Test Case 16 T_EMP_CountValidation: PASSED
+2024-01-04 21:06:02,010 - base.TestBase - INFO - Test Case 17 T_EMP_DataCompletenessValidation: FAILED
+2024-01-04 21:06:02,011 - base.TestBase - INFO - Test Case 18 T_EMP_DuplicateValidation: PASSED
+2024-01-04 21:06:02,012 - base.TestBase - INFO - Test Case 19 T_EMP_PrimaryKey_Validation: PASSED
+2024-01-04 21:06:02,012 - base.TestBase - INFO - Test Case 20 T_EMP_SurrogateKey_Validation: PASSED
+2024-01-04 21:06:02,013 - base.TestBase - INFO - Test Case 21 Table Metadata Validation for T_EMP: FAILED
+2024-01-04 21:06:02,013 - base.TestBase - INFO - Test Case 22 Table Metadata Validation for T_DEPT: PASSED
+2024-01-04 21:06:02,132 - base.TestBase - INFO - Test results written to Excel file: ./Reports/test-results.xlsx
+2024-01-04 21:12:38,494 - util.Log4jConfigurator - INFO - Log4j configuration loaded successfully.
+2024-01-04 21:12:38,499 - base.TestBase - INFO - Log4j configured successfully.
+2024-01-04 21:12:38,573 - base.TestBase - INFO - BeforeClass setUp() execution started............
+2024-01-04 21:12:38,576 - util.Log4jConfigurator - INFO - Log4j configuration loaded successfully.
+2024-01-04 21:12:38,577 - base.TestBase - INFO - Log4j configured successfully.
+2024-01-04 21:12:39,083 - util.Banner - INFO - *****     *****    ****    *   *    *      *****  
+2024-01-04 21:12:39,084 - util.Banner - INFO - *   *     *        *       *   *    *        *    
+2024-01-04 21:12:39,084 - util.Banner - INFO - *****     ****     ****    *   *    *        *    
+2024-01-04 21:12:39,084 - util.Banner - INFO - *  **     *           *    *   *    *        *    
+2024-01-04 21:12:39,084 - util.Banner - INFO - *   **    *****    ****     ***     *****    *    
+2024-01-04 21:12:39,717 - base.TestBase - INFO - Test results written to Excel file: ./Reports/test-results.xlsx
+2024-01-04 21:13:20,754 - util.Log4jConfigurator - INFO - Log4j configuration loaded successfully.
+2024-01-04 21:13:20,759 - base.TestBase - INFO - Log4j configured successfully.
+2024-01-04 21:13:20,760 - base.TestBase - INFO - Properties file loaded successfully.
+2024-01-04 21:13:20,763 - base.TestBase - INFO - Thread Pool created
+2024-01-04 21:13:20,763 - base.TestBase - INFO - Target Database selected : mysql
+2024-01-04 21:13:20,763 - base.TestBase - INFO - Auto Generated Metadata option selected as : yes
+2024-01-04 21:13:20,764 - fileFunction.MetadataExcelGenerator - INFO - Starting metadata Excel generation...
+2024-01-04 21:13:20,766 - fileFunction.MetadataExcelGenerator - INFO - Existing Metadata Excel deleted: ./TableMetadata/metadata_excel.xlsx
+2024-01-04 21:13:21,439 - fileFunction.MetadataExcelGenerator - INFO - Metadata Excel auto-generated successfully at: ./TableMetadata/metadata_excel.xlsx
+2024-01-04 21:13:21,440 - base.TestBase - INFO - Metadata Excel Generation Completed....
+2024-01-04 21:13:21,994 - databaseFunction.DatabaseConn - INFO - Database is Connected
+2024-01-04 21:13:21,995 - base.TestBase - INFO - Target database connection established successfully.
+2024-01-04 21:13:21,995 - base.TestBase - INFO - ********************************    Target Set up completed     *********************************
+2024-01-04 21:13:21,995 - base.TestBase - INFO - Source Database selected : oracle
+2024-01-04 21:13:22,410 - databaseFunction.DatabaseConn - INFO - Database is Connected
+2024-01-04 21:13:22,411 - base.TestBase - INFO - Source database connection established successfully.
+2024-01-04 21:13:22,430 - base.TestBase - INFO - ********************************    Source Set up completed    *********************************
+2024-01-04 21:13:22,455 - base.TestBase - INFO - #########################################################################    Test Case 1 : Data Completeness Validation for ITEMS_10L_Record_Validation : STARTED
+2024-01-04 21:13:22,459 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:13:22,466 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/ITEMS_10L_Record_Validation/source/source.sql
+2024-01-04 21:13:22,557 - databaseFunction.sqlFunction - ERROR - Error executing query: ORA-00933: SQL command not properly ended
+
+2024-01-04 21:13:22,559 - base.TestBase - ERROR - Test failed: java.lang.AssertionError: Test failed: ORA-00933: SQL command not properly ended
+
+java.util.concurrent.ExecutionException: java.lang.AssertionError: Test failed: ORA-00933: SQL command not properly ended
+
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:138)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.AssertionError: Test failed: ORA-00933: SQL command not properly ended
+
+	at databaseFunction.sqlFunction.executeQuery(sqlFunction.java:76)
+	at testCases.DataCompletenessValidation.lambda$0(DataCompletenessValidation.java:79)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.sql.SQLSyntaxErrorException: ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:702)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1248)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:518)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:156)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:963)
+	at oracle.jdbc.driver.OracleStatement.prepareDefineBufferAndExecute(OracleStatement.java:1205)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1135)
+	at oracle.jdbc.driver.OracleStatement.executeSQLSelect(OracleStatement.java:1472)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1343)
+	at oracle.jdbc.driver.OracleStatement.executeQuery(OracleStatement.java:1727)
+	at oracle.jdbc.driver.OracleStatementWrapper.executeQuery(OracleStatementWrapper.java:380)
+	at databaseFunction.sqlFunction.executeQuery(sqlFunction.java:46)
+	... 5 more
+Caused by: Error : 933, Position : 42, SQL = select ItemId, ItemName  from items  orde by itemid
+, Original SQL = select ItemId, ItemName  from items  orde by itemid
+, Error Message = ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	... 19 more
+2024-01-04 21:13:22,564 - base.TestBase - ERROR - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case 1 : Data Completeness Validation for ITEMS_10L_Record_Validation : FAILED
+2024-01-04 21:13:22,574 - base.TestBase - INFO - #########################################################################    Test Case 2 : Data Completeness Validation for ITEMS_CountValidation : STARTED
+2024-01-04 21:13:22,576 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:13:22,577 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/ITEMS_CountValidation/source/source.sql
+2024-01-04 21:13:22,661 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) FROM items
+
+2024-01-04 21:13:22,662 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:13:22,663 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/ITEMS_CountValidation/target/target.sql
+2024-01-04 21:13:22,810 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) FROM items
+
+2024-01-04 21:13:22,811 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:22,811 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:22,812 - base.TestBase - INFO - #########################################################################    Test Case 2 : Data Completeness Validation for ITEMS_CountValidation : PASSED
+2024-01-04 21:13:22,814 - base.TestBase - INFO - #########################################################################    Test Case 3 : Data Completeness Validation for STUDENT_5L_Record_Validation : STARTED
+2024-01-04 21:13:22,816 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:13:22,817 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_5L_Record_Validation/source/source.sql
+2024-01-04 21:13:24,379 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student order by student_id
+
+2024-01-04 21:13:24,380 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:13:24,380 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_5L_Record_Validation/target/target.sql
+2024-01-04 21:13:27,604 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student order by student_id
+
+2024-01-04 21:13:27,605 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:27,673 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:27,673 - base.TestBase - INFO - #########################################################################    Test Case 3 : Data Completeness Validation for STUDENT_5L_Record_Validation : PASSED
+2024-01-04 21:13:27,675 - base.TestBase - INFO - #########################################################################    Test Case 4 : Data Completeness Validation for STUDENT_CountValidation : STARTED
+2024-01-04 21:13:27,677 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:13:27,678 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_CountValidation/source/source.sql
+2024-01-04 21:13:27,686 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) from student
+
+2024-01-04 21:13:27,686 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:13:27,687 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_CountValidation/target/target.sql
+2024-01-04 21:13:27,762 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) from student
+
+2024-01-04 21:13:27,763 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:27,763 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:27,763 - base.TestBase - INFO - #########################################################################    Test Case 4 : Data Completeness Validation for STUDENT_CountValidation : PASSED
+2024-01-04 21:13:27,767 - base.TestBase - INFO - #########################################################################    Test Case 5 : Data Completeness Validation for STUDENT_SMALL_db_to_file_validation : STARTED
+2024-01-04 21:13:27,770 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:13:27,772 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_db_to_file_validation/source/source.sql
+2024-01-04 21:13:27,777 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:13:27,778 - base.TestBase - INFO - Reading data from target CSV file
+2024-01-04 21:13:27,804 - fileFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_db_to_file_validation\target\student_small.csv
+2024-01-04 21:13:27,806 - fileFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2024-01-04 21:13:27,807 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:27,807 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:27,807 - base.TestBase - INFO - #########################################################################    Test Case 5 : Data Completeness Validation for STUDENT_SMALL_db_to_file_validation : PASSED
+2024-01-04 21:13:27,810 - base.TestBase - INFO - #########################################################################    Test Case 6 : Data Completeness Validation for STUDENT_SMALL_db_to_JSONfile_validation : STARTED
+2024-01-04 21:13:27,815 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:13:27,815 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_db_to_JSONfile_validation/source/source.sql
+2024-01-04 21:13:27,819 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:13:27,820 - base.TestBase - INFO - Reading data from target JSON file
+2024-01-04 21:13:28,027 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:28,027 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:28,027 - base.TestBase - INFO - #########################################################################    Test Case 6 : Data Completeness Validation for STUDENT_SMALL_db_to_JSONfile_validation : PASSED
+2024-01-04 21:13:28,030 - base.TestBase - INFO - #########################################################################    Test Case 7 : Data Completeness Validation for STUDENT_SMALL_db_to_XMLfile_validation : STARTED
+2024-01-04 21:13:28,031 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:13:28,031 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_db_to_XMLfile_validation/source/source.sql
+2024-01-04 21:13:28,033 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:13:28,033 - base.TestBase - INFO - Reading data from target XML file
+2024-01-04 21:13:28,041 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:28,042 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:28,042 - base.TestBase - INFO - #########################################################################    Test Case 7 : Data Completeness Validation for STUDENT_SMALL_db_to_XMLfile_validation : PASSED
+2024-01-04 21:13:28,044 - base.TestBase - INFO - #########################################################################    Test Case 8 : Data Completeness Validation for STUDENT_SMALL_file_to_db_validation : STARTED
+2024-01-04 21:13:28,045 - base.TestBase - INFO - Reading data from source CSV file
+2024-01-04 21:13:28,046 - fileFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_db_validation\source\student_small.csv
+2024-01-04 21:13:28,047 - fileFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2024-01-04 21:13:28,047 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:13:28,047 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_file_to_db_validation/target/target.sql
+2024-01-04 21:13:28,050 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:13:28,050 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:28,051 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:28,051 - base.TestBase - INFO - #########################################################################    Test Case 8 : Data Completeness Validation for STUDENT_SMALL_file_to_db_validation : PASSED
+2024-01-04 21:13:28,052 - base.TestBase - INFO - #########################################################################    Test Case 9 : Data Completeness Validation for STUDENT_SMALL_file_to_file_validation : STARTED
+2024-01-04 21:13:28,055 - base.TestBase - INFO - Reading data from source CSV file
+2024-01-04 21:13:28,056 - fileFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_file_validation\source\student_small.csv
+2024-01-04 21:13:28,056 - fileFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2024-01-04 21:13:28,056 - base.TestBase - INFO - Reading data from target CSV file
+2024-01-04 21:13:28,057 - fileFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_file_validation\target\student_small.csv
+2024-01-04 21:13:28,057 - fileFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2024-01-04 21:13:28,058 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:28,058 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:28,058 - base.TestBase - INFO - #########################################################################    Test Case 9 : Data Completeness Validation for STUDENT_SMALL_file_to_file_validation : PASSED
+2024-01-04 21:13:28,060 - base.TestBase - INFO - #########################################################################    Test Case 10 : Data Completeness Validation for STUDENT_SMALL_JSONfile_to_db_validation : STARTED
+2024-01-04 21:13:28,061 - base.TestBase - INFO - Reading data from source JSON file
+2024-01-04 21:13:28,062 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:13:28,063 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_JSONfile_to_db_validation/target/target.sql
+2024-01-04 21:13:28,064 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:13:28,064 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:28,065 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:28,065 - base.TestBase - INFO - #########################################################################    Test Case 10 : Data Completeness Validation for STUDENT_SMALL_JSONfile_to_db_validation : PASSED
+2024-01-04 21:13:28,066 - base.TestBase - INFO - #########################################################################    Test Case 11 : Data Completeness Validation for STUDENT_SMALL_JSONfile_to_JSONfile_validation : STARTED
+2024-01-04 21:13:28,068 - base.TestBase - INFO - Reading data from source JSON file
+2024-01-04 21:13:28,069 - base.TestBase - INFO - Reading data from target JSON file
+2024-01-04 21:13:28,071 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:28,071 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:28,071 - base.TestBase - INFO - #########################################################################    Test Case 11 : Data Completeness Validation for STUDENT_SMALL_JSONfile_to_JSONfile_validation : PASSED
+2024-01-04 21:13:28,073 - base.TestBase - INFO - #########################################################################    Test Case 12 : Data Completeness Validation for STUDENT_SMALL_XMLfile_to_db_validation : STARTED
+2024-01-04 21:13:28,075 - base.TestBase - INFO - Reading data from source XML file
+2024-01-04 21:13:28,077 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:13:28,078 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_XMLfile_to_db_validation/target/target.sql
+2024-01-04 21:13:28,079 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:13:28,079 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:28,079 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:28,079 - base.TestBase - INFO - #########################################################################    Test Case 12 : Data Completeness Validation for STUDENT_SMALL_XMLfile_to_db_validation : PASSED
+2024-01-04 21:13:28,081 - base.TestBase - INFO - #########################################################################    Test Case 13 : Data Completeness Validation for STUDENT_SMALL_XMLfile_to_XMLfile_validation : STARTED
+2024-01-04 21:13:28,083 - base.TestBase - INFO - Reading data from source XML file
+2024-01-04 21:13:28,086 - base.TestBase - INFO - Reading data from target XML file
+2024-01-04 21:13:28,088 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:28,088 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:28,088 - base.TestBase - INFO - #########################################################################    Test Case 13 : Data Completeness Validation for STUDENT_SMALL_XMLfile_to_XMLfile_validation : PASSED
+2024-01-04 21:13:28,090 - base.TestBase - INFO - #########################################################################    Test Case 14 : Data Completeness Validation for T_DEPT_CountValidation : STARTED
+2024-01-04 21:13:28,092 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:13:28,092 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_DEPT_CountValidation/source/source.sql
+2024-01-04 21:13:28,093 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) from dept
+
+2024-01-04 21:13:28,093 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:13:28,094 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_DEPT_CountValidation/target/target.sql
+2024-01-04 21:13:28,099 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) from t_dept
+
+2024-01-04 21:13:28,099 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:28,099 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:28,099 - base.TestBase - INFO - #########################################################################    Test Case 14 : Data Completeness Validation for T_DEPT_CountValidation : PASSED
+2024-01-04 21:13:28,102 - base.TestBase - INFO - #########################################################################    Test Case 15 : Data Completeness Validation for T_DEPT_DataCompletenessValidation : STARTED
+2024-01-04 21:13:28,104 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:13:28,104 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_DEPT_DataCompletenessValidation/source/source.sql
+2024-01-04 21:13:28,105 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT * from dept order by deptno
+
+2024-01-04 21:13:28,106 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:13:28,106 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_DEPT_DataCompletenessValidation/target/target.sql
+2024-01-04 21:13:28,108 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT deptno,dname,loc from t_dept order by t_dept_id
+
+2024-01-04 21:13:28,108 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:28,108 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:28,108 - base.TestBase - INFO - #########################################################################    Test Case 15 : Data Completeness Validation for T_DEPT_DataCompletenessValidation : PASSED
+2024-01-04 21:13:28,110 - base.TestBase - INFO - #########################################################################    Test Case 16 : Data Completeness Validation for T_EMP_CountValidation : STARTED
+2024-01-04 21:13:28,111 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:13:28,112 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_CountValidation/source/source.sql
+2024-01-04 21:13:28,114 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) FROM s_emp e1 
+INNER JOIN s_dept d1 ON e1.deptno = d1.deptno
+INNER JOIN s_emp e2 on e2.empno=e1.mgr
+
+2024-01-04 21:13:28,114 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:13:28,114 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_CountValidation/target/target.sql
+2024-01-04 21:13:28,118 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) from t_emp
+
+2024-01-04 21:13:28,118 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:28,118 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:28,119 - base.TestBase - INFO - #########################################################################    Test Case 16 : Data Completeness Validation for T_EMP_CountValidation : PASSED
+2024-01-04 21:13:28,121 - base.TestBase - INFO - #########################################################################    Test Case 17 : Data Completeness Validation for T_EMP_DataCompletenessValidation : STARTED
+2024-01-04 21:13:28,122 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:13:28,123 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_DataCompletenessValidation/source/source.sql
+2024-01-04 21:13:28,126 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT 
+    e1.EMPNO AS EMP_ID,
+    INITCAP(e1.ename) AS EMP_NAME,
+    d1.dname AS DEPT_NAME,
+    INITCAP(e2.ename) AS MANAGER_NAME,
+    e1.job AS JOB_TYPE,
+    INITCAP(d1.loc) AS LOCATION,
+    TO_CHAR(e1.hiredate,'yyyy-mm-dd') as HIRE_DATE,
+    ROUND(MONTHS_BETWEEN(SYSDATE, e1.hiredate) / 12) AS TOTAL_EXP_IN_COMPANY,
+    e1.sal AS SALARY,
+    NVL(e1.comm, 0) AS COMMISSION,
+    e1.sal + NVL(e1.comm, 0) AS TOTAL_SALARY,
+    CASE 
+        WHEN e1.sal + NVL(e1.comm, 0) < 2000 THEN 'LOW' 
+        WHEN e1.sal + NVL(e1.comm, 0) BETWEEN 2000 AND 3000 THEN 'MID' 
+        ELSE 'HIGH' 
+    END AS SALARY_GRADE
+FROM s_emp e1 
+INNER JOIN s_dept d1 ON e1.deptno = d1.deptno
+INNER JOIN s_emp e2 on e2.empno=e1.mgr
+order by EMP_ID
+
+2024-01-04 21:13:28,127 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:13:28,127 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_DataCompletenessValidation/target/target.sql
+2024-01-04 21:13:28,130 - databaseFunction.sqlFunction - INFO - Query executed successfully: select 
+EMP_ID,
+EMP_NAME,
+DEPT_NAME,
+MANAGER_NAME,
+JOB_TYPE,
+LOCATION,
+HIRE_DATE,
+TOTAL_EXP_IN_COMPANY,
+SALARY,
+COMMISSION,
+TOTAL_SALARY,
+SALARY_GRADE
+from t_emp
+order by EMP_ID
+
+2024-01-04 21:13:28,130 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:28,130 - base.TestBase - ERROR - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case 17 : Data Completeness Validation for T_EMP_DataCompletenessValidation : FAILED
+2024-01-04 21:13:28,134 - base.TestBase - ERROR - Test failed: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+java.util.concurrent.ExecutionException: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:138)
+	at jdk.internal.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at testCases.DataCompletenessValidation.lambda$0(DataCompletenessValidation.java:126)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2024-01-04 21:13:28,136 - base.TestBase - ERROR - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case 17 : Data Completeness Validation for T_EMP_DataCompletenessValidation : FAILED
+2024-01-04 21:13:28,138 - base.TestBase - INFO - #########################################################################    Test Case 18 : Data Completeness Validation for T_EMP_DuplicateValidation : STARTED
+2024-01-04 21:13:28,140 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:13:28,141 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_DuplicateValidation/source/source.sql
+2024-01-04 21:13:28,142 - databaseFunction.sqlFunction - INFO - Query executed successfully: select 0 as No_Of_Duplicate_Rows from dual
+
+2024-01-04 21:13:28,142 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:13:28,142 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_DuplicateValidation/target/target.sql
+2024-01-04 21:13:28,144 - databaseFunction.sqlFunction - INFO - Query executed successfully: select dup.No_Of_Duplicate_Rows from(
+select 
+EMP_ID,
+EMP_NAME,
+DEPT_NAME,
+MANAGER_NAME,
+JOB_TYPE,
+LOCATION,
+HIRE_DATE,
+TOTAL_EXP_IN_COMPANY,
+SALARY,
+COMMISSION,
+TOTAL_SALARY,
+SALARY_GRADE,
+COUNT(*) as No_Of_Duplicate_Rows
+from T_EMP
+group by
+EMP_ID,
+EMP_NAME,
+DEPT_NAME,
+MANAGER_NAME,
+JOB_TYPE,
+LOCATION,
+HIRE_DATE,
+TOTAL_EXP_IN_COMPANY,
+SALARY,
+COMMISSION,
+TOTAL_SALARY,
+SALARY_GRADE
+having COUNT(*) >1) dup
+
+2024-01-04 21:13:28,144 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:28,144 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:28,144 - base.TestBase - INFO - #########################################################################    Test Case 18 : Data Completeness Validation for T_EMP_DuplicateValidation : PASSED
+2024-01-04 21:13:28,146 - base.TestBase - INFO - #########################################################################    Test Case 19 : Data Completeness Validation for T_EMP_PrimaryKey_Validation : STARTED
+2024-01-04 21:13:28,147 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:13:28,148 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_PrimaryKey_Validation/source/source.sql
+2024-01-04 21:13:28,149 - databaseFunction.sqlFunction - INFO - Query executed successfully: select 0 as Null_and_Duplicates from dual
+
+2024-01-04 21:13:28,149 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:13:28,149 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_PrimaryKey_Validation/target/target.sql
+2024-01-04 21:13:28,153 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) as Null_and_Duplicates from T_emp where EMP_ID is null
+union
+select e.cnt from(
+select emp_id, count(*) cnt from t_emp group by emp_id having cnt>1)e
+
+2024-01-04 21:13:28,153 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:28,153 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:28,154 - base.TestBase - INFO - #########################################################################    Test Case 19 : Data Completeness Validation for T_EMP_PrimaryKey_Validation : PASSED
+2024-01-04 21:13:28,155 - base.TestBase - INFO - #########################################################################    Test Case 20 : Data Completeness Validation for T_EMP_SurrogateKey_Validation : STARTED
+2024-01-04 21:13:28,156 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:13:28,157 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_SurrogateKey_Validation/source/source.sql
+2024-01-04 21:13:28,158 - databaseFunction.sqlFunction - INFO - Query executed successfully: select 0 as Null_and_Duplicates from dual
+
+2024-01-04 21:13:28,158 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:13:28,158 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_SurrogateKey_Validation/target/target.sql
+2024-01-04 21:13:28,159 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) as Null_and_Duplicates from T_emp where T_EMP_ID is null
+union
+select e.cnt from(
+select t_emp_id, count(*) cnt from t_emp group by t_emp_id having cnt>1)e
+
+2024-01-04 21:13:28,159 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:13:28,160 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:13:28,160 - base.TestBase - INFO - #########################################################################    Test Case 20 : Data Completeness Validation for T_EMP_SurrogateKey_Validation : PASSED
+2024-01-04 21:13:28,161 - base.TestBase - INFO - Teardown started..............
+2024-01-04 21:13:28,164 - databaseFunction.DatabaseConn - INFO - Database Connection Closed
+2024-01-04 21:13:28,164 - base.TestBase - INFO - Source database connection closed successfully.
+2024-01-04 21:13:28,166 - databaseFunction.DatabaseConn - INFO - Database Connection Closed
+2024-01-04 21:13:28,166 - base.TestBase - INFO - Target database connection closed successfully.
+2024-01-04 21:13:28,167 - base.TestBase - INFO - Thread pool shut down successfully.
+2024-01-04 21:13:28,167 - base.TestBase - INFO - ****************************************************    Teardown Completed     ********************************************
+2024-01-04 21:13:28,170 - base.TestBase - INFO - BeforeClass setUp() execution started............
+2024-01-04 21:13:28,171 - util.Log4jConfigurator - INFO - Log4j configuration loaded successfully.
+2024-01-04 21:13:28,172 - base.TestBase - INFO - Log4j configured successfully.
+2024-01-04 21:13:28,172 - base.TestBase - INFO - Properties file loaded successfully.
+2024-01-04 21:13:28,172 - base.TestBase - INFO - Thread Pool created
+2024-01-04 21:13:28,172 - base.TestBase - INFO - Target Database selected : mysql
+2024-01-04 21:13:28,172 - base.TestBase - INFO - Auto Generated Metadata option selected as : yes
+2024-01-04 21:13:28,173 - fileFunction.MetadataExcelGenerator - INFO - Starting metadata Excel generation...
+2024-01-04 21:13:28,173 - fileFunction.MetadataExcelGenerator - INFO - Existing Metadata Excel deleted: ./TableMetadata/metadata_excel.xlsx
+2024-01-04 21:13:28,261 - fileFunction.MetadataExcelGenerator - INFO - Metadata Excel auto-generated successfully at: ./TableMetadata/metadata_excel.xlsx
+2024-01-04 21:13:28,262 - base.TestBase - INFO - Metadata Excel Generation Completed....
+2024-01-04 21:13:28,293 - databaseFunction.DatabaseConn - INFO - Database is Connected
+2024-01-04 21:13:28,293 - base.TestBase - INFO - Target database connection established successfully.
+2024-01-04 21:13:28,293 - base.TestBase - INFO - ********************************    Target Set up completed     *********************************
+2024-01-04 21:13:28,293 - base.TestBase - INFO - Source Database selected : oracle
+2024-01-04 21:13:28,355 - databaseFunction.DatabaseConn - INFO - Database is Connected
+2024-01-04 21:13:28,356 - base.TestBase - INFO - Source database connection established successfully.
+2024-01-04 21:13:28,356 - base.TestBase - INFO - ********************************    Source Set up completed    *********************************
+2024-01-04 21:13:28,382 - base.TestBase - INFO - Workbook loaded successfully.
+2024-01-04 21:13:28,384 - base.TestBase - INFO - #########################################################################    Test Case 21 Table Metadata Validation for T_EMP : STARTED
+2024-01-04 21:13:28,384 - base.TestBase - INFO - Processing Table: T_EMP
+2024-01-04 21:13:28,387 - base.TestBase - INFO - Sorted Metadata from Mapping Sheet:[{COLUMN_NAME=COMMISSION, DATA_TYPE=int}, {COLUMN_NAME=DEPT_NAME, DATA_TYPE=varchar(20)}, {COLUMN_NAME=EMP_ID345, DATA_TYPE=int}, {COLUMN_NAME=EMP_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=HIRE_DATE, DATA_TYPE=date}, {COLUMN_NAME=JOB_TYPE, DATA_TYPE=varchar(20)}, {COLUMN_NAME=LOCATION, DATA_TYPE=varchar(30)}, {COLUMN_NAME=MANAGER_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=SALARY, DATA_TYPE=int}, {COLUMN_NAME=SALARY_GRADE, DATA_TYPE=varchar(10)}, {COLUMN_NAME=T_EMP_ID1212, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_EXP_IN_COMPANY, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_SALARY, DATA_TYPE=int}]
+2024-01-04 21:13:28,394 - databaseFunction.MySqlMetadataRetrieval - INFO - Metadata retrieval from MySQL table completed for table: T_EMP
+2024-01-04 21:13:28,395 - databaseFunction.MySqlMetadataRetrieval - INFO - Metadata from MySQL Table:[{COLUMN_NAME=COMMISSION, DATA_TYPE=int}, {COLUMN_NAME=DEPT_NAME, DATA_TYPE=varchar(20)}, {COLUMN_NAME=EMP_ID, DATA_TYPE=int}, {COLUMN_NAME=EMP_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=HIRE_DATE, DATA_TYPE=date}, {COLUMN_NAME=JOB_TYPE, DATA_TYPE=varchar(20)}, {COLUMN_NAME=LOCATION, DATA_TYPE=varchar(30)}, {COLUMN_NAME=MANAGER_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=SALARY, DATA_TYPE=int}, {COLUMN_NAME=SALARY_GRADE, DATA_TYPE=varchar(10)}, {COLUMN_NAME=T_EMP_ID, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_EXP_IN_COMPANY, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_SALARY, DATA_TYPE=int}]
+2024-01-04 21:13:28,396 - base.TestBase - INFO - Metadata Mismatch for Table: T_EMP
+2024-01-04 21:13:28,396 - base.TestBase - INFO - Source Column: {COLUMN_NAME=EMP_ID345, DATA_TYPE=int}
+2024-01-04 21:13:28,396 - base.TestBase - INFO - Target Column: {COLUMN_NAME=EMP_ID, DATA_TYPE=int}
+2024-01-04 21:13:28,396 - base.TestBase - ERROR - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case 21 : Table Metadata Validation for T_EMP : FAILED
+2024-01-04 21:13:28,396 - base.TestBase - ERROR - Test failed: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME=EMP_ID}, {COLUMN_NAME=T_EMP_ID1212, TARGET_COLUMN_NAME=T_EMP_ID}] expected [true] but found [false]
+java.lang.AssertionError: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME=EMP_ID}, {COLUMN_NAME=T_EMP_ID1212, TARGET_COLUMN_NAME=T_EMP_ID}] expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValidation.java:58)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+2024-01-04 21:13:28,399 - base.TestBase - INFO - #########################################################################    Test Case 22 Table Metadata Validation for T_DEPT : STARTED
+2024-01-04 21:13:28,400 - base.TestBase - INFO - Processing Table: T_DEPT
+2024-01-04 21:13:28,400 - base.TestBase - INFO - Sorted Metadata from Mapping Sheet:[{COLUMN_NAME=DEPTNO, DATA_TYPE=int}, {COLUMN_NAME=DNAME, DATA_TYPE=varchar(14)}, {COLUMN_NAME=LOC, DATA_TYPE=varchar(13)}, {COLUMN_NAME=T_DEPT_ID, DATA_TYPE=int}]
+2024-01-04 21:13:28,403 - databaseFunction.MySqlMetadataRetrieval - INFO - Metadata retrieval from MySQL table completed for table: T_DEPT
+2024-01-04 21:13:28,403 - databaseFunction.MySqlMetadataRetrieval - INFO - Metadata from MySQL Table:[{COLUMN_NAME=DEPTNO, DATA_TYPE=int}, {COLUMN_NAME=DNAME, DATA_TYPE=varchar(14)}, {COLUMN_NAME=LOC, DATA_TYPE=varchar(13)}, {COLUMN_NAME=T_DEPT_ID, DATA_TYPE=int}]
+2024-01-04 21:13:28,404 - base.TestBase - INFO - Metadata Match for Table: T_DEPT
+2024-01-04 21:13:28,404 - base.TestBase - INFO - #########################################################################    Test Case 22 Table Metadata Validation for T_DEPT : PASSED
+2024-01-04 21:13:28,405 - base.TestBase - INFO - Teardown started..............
+2024-01-04 21:13:28,421 - base.TestBase - INFO - Workbook closed successfully.
+2024-01-04 21:13:28,422 - databaseFunction.DatabaseConn - INFO - Database Connection Closed
+2024-01-04 21:13:28,423 - base.TestBase - INFO - Source database connection closed successfully.
+2024-01-04 21:13:28,423 - databaseFunction.DatabaseConn - INFO - Database Connection Closed
+2024-01-04 21:13:28,424 - base.TestBase - INFO - Target database connection closed successfully.
+2024-01-04 21:13:28,424 - base.TestBase - INFO - Thread pool shut down successfully.
+2024-01-04 21:13:28,424 - base.TestBase - INFO - ****************************************************    Teardown Completed     ********************************************
+2024-01-04 21:13:28,764 - util.Banner - INFO - *****     *****    ****    *   *    *      *****  
+2024-01-04 21:13:28,765 - util.Banner - INFO - *   *     *        *       *   *    *        *    
+2024-01-04 21:13:28,765 - util.Banner - INFO - *****     ****     ****    *   *    *        *    
+2024-01-04 21:13:28,765 - util.Banner - INFO - *  **     *           *    *   *    *        *    
+2024-01-04 21:13:28,765 - util.Banner - INFO - *   **    *****    ****     ***     *****    *    
+2024-01-04 21:13:28,772 - base.TestBase - INFO - Test Case 1 ITEMS_10L_Record_Validation: FAILED
+2024-01-04 21:13:28,774 - base.TestBase - INFO - Test Case 2 ITEMS_CountValidation: PASSED
+2024-01-04 21:13:28,775 - base.TestBase - INFO - Test Case 3 STUDENT_5L_Record_Validation: PASSED
+2024-01-04 21:13:28,776 - base.TestBase - INFO - Test Case 4 STUDENT_CountValidation: PASSED
+2024-01-04 21:13:28,778 - base.TestBase - INFO - Test Case 5 STUDENT_SMALL_db_to_file_validation: PASSED
+2024-01-04 21:13:28,779 - base.TestBase - INFO - Test Case 6 STUDENT_SMALL_db_to_JSONfile_validation: PASSED
+2024-01-04 21:13:28,780 - base.TestBase - INFO - Test Case 7 STUDENT_SMALL_db_to_XMLfile_validation: PASSED
+2024-01-04 21:13:28,781 - base.TestBase - INFO - Test Case 8 STUDENT_SMALL_file_to_db_validation: PASSED
+2024-01-04 21:13:28,782 - base.TestBase - INFO - Test Case 9 STUDENT_SMALL_file_to_file_validation: PASSED
+2024-01-04 21:13:28,783 - base.TestBase - INFO - Test Case 10 STUDENT_SMALL_JSONfile_to_db_validation: PASSED
+2024-01-04 21:13:28,784 - base.TestBase - INFO - Test Case 11 STUDENT_SMALL_JSONfile_to_JSONfile_validation: PASSED
+2024-01-04 21:13:28,785 - base.TestBase - INFO - Test Case 12 STUDENT_SMALL_XMLfile_to_db_validation: PASSED
+2024-01-04 21:13:28,786 - base.TestBase - INFO - Test Case 13 STUDENT_SMALL_XMLfile_to_XMLfile_validation: PASSED
+2024-01-04 21:13:28,787 - base.TestBase - INFO - Test Case 14 T_DEPT_CountValidation: PASSED
+2024-01-04 21:13:28,788 - base.TestBase - INFO - Test Case 15 T_DEPT_DataCompletenessValidation: PASSED
+2024-01-04 21:13:28,789 - base.TestBase - INFO - Test Case 16 T_EMP_CountValidation: PASSED
+2024-01-04 21:13:28,790 - base.TestBase - INFO - Test Case 17 T_EMP_DataCompletenessValidation: FAILED
+2024-01-04 21:13:28,791 - base.TestBase - INFO - Test Case 18 T_EMP_DuplicateValidation: PASSED
+2024-01-04 21:13:28,792 - base.TestBase - INFO - Test Case 19 T_EMP_PrimaryKey_Validation: PASSED
+2024-01-04 21:13:28,792 - base.TestBase - INFO - Test Case 20 T_EMP_SurrogateKey_Validation: PASSED
+2024-01-04 21:13:28,793 - base.TestBase - INFO - Test Case 21 Table Metadata Validation for T_EMP: FAILED
+2024-01-04 21:13:28,794 - base.TestBase - INFO - Test Case 22 Table Metadata Validation for T_DEPT: PASSED
+2024-01-04 21:13:28,905 - base.TestBase - INFO - Test results written to Excel file: ./Reports/test-results.xlsx
+2024-01-04 21:15:03,041 - util.Log4jConfigurator - INFO - Log4j configuration loaded successfully.
+2024-01-04 21:15:03,044 - base.TestBase - INFO - Log4j configured successfully.
+2024-01-04 21:15:03,045 - base.TestBase - INFO - Properties file loaded successfully.
+2024-01-04 21:15:03,047 - base.TestBase - INFO - Thread Pool created
+2024-01-04 21:15:03,048 - base.TestBase - INFO - Target Database selected : mysql
+2024-01-04 21:15:03,048 - base.TestBase - INFO - Auto Generated Metadata option selected as : yes
+2024-01-04 21:15:03,049 - fileFunction.MetadataExcelGenerator - INFO - Starting metadata Excel generation...
+2024-01-04 21:15:03,050 - fileFunction.MetadataExcelGenerator - INFO - Existing Metadata Excel deleted: ./TableMetadata/metadata_excel.xlsx
+2024-01-04 21:15:03,780 - fileFunction.MetadataExcelGenerator - INFO - Metadata Excel auto-generated successfully at: ./TableMetadata/metadata_excel.xlsx
+2024-01-04 21:15:03,780 - base.TestBase - INFO - Metadata Excel Generation Completed....
+2024-01-04 21:15:04,308 - databaseFunction.DatabaseConn - INFO - Database is Connected
+2024-01-04 21:15:04,308 - base.TestBase - INFO - Target database connection established successfully.
+2024-01-04 21:15:04,308 - base.TestBase - INFO - ********************************    Target Set up completed     *********************************
+2024-01-04 21:15:04,308 - base.TestBase - INFO - Source Database selected : oracle
+2024-01-04 21:15:04,709 - databaseFunction.DatabaseConn - INFO - Database is Connected
+2024-01-04 21:15:04,710 - base.TestBase - INFO - Source database connection established successfully.
+2024-01-04 21:15:04,718 - base.TestBase - INFO - ********************************    Source Set up completed    *********************************
+2024-01-04 21:15:04,738 - base.TestBase - INFO - #########################################################################    Test Case 1 : Data Completeness Validation for ITEMS_10L_Record_Validation : STARTED
+2024-01-04 21:15:04,741 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:04,745 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/ITEMS_10L_Record_Validation/source/source.sql
+2024-01-04 21:15:04,828 - databaseFunction.sqlFunction - ERROR - Error executing query: ORA-00933: SQL command not properly ended
+
+2024-01-04 21:15:04,831 - base.TestBase - ERROR - Test failed: java.lang.AssertionError: Test failed: ORA-00933: SQL command not properly ended
+
+java.util.concurrent.ExecutionException: java.lang.AssertionError: Test failed: ORA-00933: SQL command not properly ended
+
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:138)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.AssertionError: Test failed: ORA-00933: SQL command not properly ended
+
+	at databaseFunction.sqlFunction.executeQuery(sqlFunction.java:76)
+	at testCases.DataCompletenessValidation.lambda$0(DataCompletenessValidation.java:79)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.sql.SQLSyntaxErrorException: ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:702)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1248)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:518)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:156)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:963)
+	at oracle.jdbc.driver.OracleStatement.prepareDefineBufferAndExecute(OracleStatement.java:1205)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1135)
+	at oracle.jdbc.driver.OracleStatement.executeSQLSelect(OracleStatement.java:1472)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1343)
+	at oracle.jdbc.driver.OracleStatement.executeQuery(OracleStatement.java:1727)
+	at oracle.jdbc.driver.OracleStatementWrapper.executeQuery(OracleStatementWrapper.java:380)
+	at databaseFunction.sqlFunction.executeQuery(sqlFunction.java:46)
+	... 5 more
+Caused by: Error : 933, Position : 42, SQL = select ItemId, ItemName  from items  orde by itemid
+, Original SQL = select ItemId, ItemName  from items  orde by itemid
+, Error Message = ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	... 19 more
+2024-01-04 21:15:04,834 - base.TestBase - ERROR - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case 1 : Data Completeness Validation for ITEMS_10L_Record_Validation : FAILED
+2024-01-04 21:15:04,845 - base.TestBase - INFO - #########################################################################    Test Case 2 : Data Completeness Validation for ITEMS_CountValidation : STARTED
+2024-01-04 21:15:04,848 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:04,848 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/ITEMS_CountValidation/source/source.sql
+2024-01-04 21:15:04,930 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) FROM items
+
+2024-01-04 21:15:04,930 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:04,931 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/ITEMS_CountValidation/target/target.sql
+2024-01-04 21:15:05,062 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) FROM items
+
+2024-01-04 21:15:05,063 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:05,063 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:05,063 - base.TestBase - INFO - #########################################################################    Test Case 2 : Data Completeness Validation for ITEMS_CountValidation : PASSED
+2024-01-04 21:15:05,066 - base.TestBase - INFO - #########################################################################    Test Case 3 : Data Completeness Validation for STUDENT_5L_Record_Validation : STARTED
+2024-01-04 21:15:05,068 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:05,069 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_5L_Record_Validation/source/source.sql
+2024-01-04 21:15:06,750 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student order by student_id
+
+2024-01-04 21:15:06,751 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:06,751 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_5L_Record_Validation/target/target.sql
+2024-01-04 21:15:10,181 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student order by student_id
+
+2024-01-04 21:15:10,182 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,249 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,250 - base.TestBase - INFO - #########################################################################    Test Case 3 : Data Completeness Validation for STUDENT_5L_Record_Validation : PASSED
+2024-01-04 21:15:10,252 - base.TestBase - INFO - #########################################################################    Test Case 4 : Data Completeness Validation for STUDENT_CountValidation : STARTED
+2024-01-04 21:15:10,256 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:10,257 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_CountValidation/source/source.sql
+2024-01-04 21:15:10,270 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) from student
+
+2024-01-04 21:15:10,270 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:10,271 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_CountValidation/target/target.sql
+2024-01-04 21:15:10,344 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) from student
+
+2024-01-04 21:15:10,346 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,346 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,346 - base.TestBase - INFO - #########################################################################    Test Case 4 : Data Completeness Validation for STUDENT_CountValidation : PASSED
+2024-01-04 21:15:10,348 - base.TestBase - INFO - #########################################################################    Test Case 5 : Data Completeness Validation for STUDENT_SMALL_db_to_file_validation : STARTED
+2024-01-04 21:15:10,351 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:10,352 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_db_to_file_validation/source/source.sql
+2024-01-04 21:15:10,356 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:15:10,357 - base.TestBase - INFO - Reading data from target CSV file
+2024-01-04 21:15:10,386 - fileFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_db_to_file_validation\target\student_small.csv
+2024-01-04 21:15:10,388 - fileFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2024-01-04 21:15:10,389 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,389 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,390 - base.TestBase - INFO - #########################################################################    Test Case 5 : Data Completeness Validation for STUDENT_SMALL_db_to_file_validation : PASSED
+2024-01-04 21:15:10,394 - base.TestBase - INFO - #########################################################################    Test Case 6 : Data Completeness Validation for STUDENT_SMALL_db_to_JSONfile_validation : STARTED
+2024-01-04 21:15:10,398 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:10,399 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_db_to_JSONfile_validation/source/source.sql
+2024-01-04 21:15:10,403 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:15:10,403 - base.TestBase - INFO - Reading data from target JSON file
+2024-01-04 21:15:10,632 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,632 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,633 - base.TestBase - INFO - #########################################################################    Test Case 6 : Data Completeness Validation for STUDENT_SMALL_db_to_JSONfile_validation : PASSED
+2024-01-04 21:15:10,636 - base.TestBase - INFO - #########################################################################    Test Case 7 : Data Completeness Validation for STUDENT_SMALL_db_to_XMLfile_validation : STARTED
+2024-01-04 21:15:10,638 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:10,639 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_db_to_XMLfile_validation/source/source.sql
+2024-01-04 21:15:10,641 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:15:10,641 - base.TestBase - INFO - Reading data from target XML file
+2024-01-04 21:15:10,649 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,649 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,650 - base.TestBase - INFO - #########################################################################    Test Case 7 : Data Completeness Validation for STUDENT_SMALL_db_to_XMLfile_validation : PASSED
+2024-01-04 21:15:10,652 - base.TestBase - INFO - #########################################################################    Test Case 8 : Data Completeness Validation for STUDENT_SMALL_file_to_db_validation : STARTED
+2024-01-04 21:15:10,655 - base.TestBase - INFO - Reading data from source CSV file
+2024-01-04 21:15:10,655 - fileFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_db_validation\source\student_small.csv
+2024-01-04 21:15:10,656 - fileFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2024-01-04 21:15:10,656 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:10,657 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_file_to_db_validation/target/target.sql
+2024-01-04 21:15:10,658 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:15:10,658 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,659 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,659 - base.TestBase - INFO - #########################################################################    Test Case 8 : Data Completeness Validation for STUDENT_SMALL_file_to_db_validation : PASSED
+2024-01-04 21:15:10,661 - base.TestBase - INFO - #########################################################################    Test Case 9 : Data Completeness Validation for STUDENT_SMALL_file_to_file_validation : STARTED
+2024-01-04 21:15:10,663 - base.TestBase - INFO - Reading data from source CSV file
+2024-01-04 21:15:10,663 - fileFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_file_validation\source\student_small.csv
+2024-01-04 21:15:10,664 - fileFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2024-01-04 21:15:10,664 - base.TestBase - INFO - Reading data from target CSV file
+2024-01-04 21:15:10,664 - fileFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_file_validation\target\student_small.csv
+2024-01-04 21:15:10,664 - fileFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2024-01-04 21:15:10,665 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,665 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,665 - base.TestBase - INFO - #########################################################################    Test Case 9 : Data Completeness Validation for STUDENT_SMALL_file_to_file_validation : PASSED
+2024-01-04 21:15:10,667 - base.TestBase - INFO - #########################################################################    Test Case 10 : Data Completeness Validation for STUDENT_SMALL_JSONfile_to_db_validation : STARTED
+2024-01-04 21:15:10,669 - base.TestBase - INFO - Reading data from source JSON file
+2024-01-04 21:15:10,670 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:10,671 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_JSONfile_to_db_validation/target/target.sql
+2024-01-04 21:15:10,673 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:15:10,673 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,674 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,674 - base.TestBase - INFO - #########################################################################    Test Case 10 : Data Completeness Validation for STUDENT_SMALL_JSONfile_to_db_validation : PASSED
+2024-01-04 21:15:10,675 - base.TestBase - INFO - #########################################################################    Test Case 11 : Data Completeness Validation for STUDENT_SMALL_JSONfile_to_JSONfile_validation : STARTED
+2024-01-04 21:15:10,676 - base.TestBase - INFO - Reading data from source JSON file
+2024-01-04 21:15:10,678 - base.TestBase - INFO - Reading data from target JSON file
+2024-01-04 21:15:10,678 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,678 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,678 - base.TestBase - INFO - #########################################################################    Test Case 11 : Data Completeness Validation for STUDENT_SMALL_JSONfile_to_JSONfile_validation : PASSED
+2024-01-04 21:15:10,680 - base.TestBase - INFO - #########################################################################    Test Case 12 : Data Completeness Validation for STUDENT_SMALL_XMLfile_to_db_validation : STARTED
+2024-01-04 21:15:10,682 - base.TestBase - INFO - Reading data from source XML file
+2024-01-04 21:15:10,684 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:10,685 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_XMLfile_to_db_validation/target/target.sql
+2024-01-04 21:15:10,687 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:15:10,687 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,688 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,688 - base.TestBase - INFO - #########################################################################    Test Case 12 : Data Completeness Validation for STUDENT_SMALL_XMLfile_to_db_validation : PASSED
+2024-01-04 21:15:10,690 - base.TestBase - INFO - #########################################################################    Test Case 13 : Data Completeness Validation for STUDENT_SMALL_XMLfile_to_XMLfile_validation : STARTED
+2024-01-04 21:15:10,692 - base.TestBase - INFO - Reading data from source XML file
+2024-01-04 21:15:10,696 - base.TestBase - INFO - Reading data from target XML file
+2024-01-04 21:15:10,698 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,698 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,698 - base.TestBase - INFO - #########################################################################    Test Case 13 : Data Completeness Validation for STUDENT_SMALL_XMLfile_to_XMLfile_validation : PASSED
+2024-01-04 21:15:10,700 - base.TestBase - INFO - #########################################################################    Test Case 14 : Data Completeness Validation for T_DEPT_CountValidation : STARTED
+2024-01-04 21:15:10,701 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:10,702 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_DEPT_CountValidation/source/source.sql
+2024-01-04 21:15:10,703 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) from dept
+
+2024-01-04 21:15:10,703 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:10,703 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_DEPT_CountValidation/target/target.sql
+2024-01-04 21:15:10,706 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) from t_dept
+
+2024-01-04 21:15:10,706 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,706 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,706 - base.TestBase - INFO - #########################################################################    Test Case 14 : Data Completeness Validation for T_DEPT_CountValidation : PASSED
+2024-01-04 21:15:10,708 - base.TestBase - INFO - #########################################################################    Test Case 15 : Data Completeness Validation for T_DEPT_DataCompletenessValidation : STARTED
+2024-01-04 21:15:10,709 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:10,710 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_DEPT_DataCompletenessValidation/source/source.sql
+2024-01-04 21:15:10,711 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT * from dept order by deptno
+
+2024-01-04 21:15:10,711 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:10,711 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_DEPT_DataCompletenessValidation/target/target.sql
+2024-01-04 21:15:10,712 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT deptno,dname,loc from t_dept order by t_dept_id
+
+2024-01-04 21:15:10,712 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,712 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,712 - base.TestBase - INFO - #########################################################################    Test Case 15 : Data Completeness Validation for T_DEPT_DataCompletenessValidation : PASSED
+2024-01-04 21:15:10,714 - base.TestBase - INFO - #########################################################################    Test Case 16 : Data Completeness Validation for T_EMP_CountValidation : STARTED
+2024-01-04 21:15:10,716 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:10,717 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_CountValidation/source/source.sql
+2024-01-04 21:15:10,719 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) FROM s_emp e1 
+INNER JOIN s_dept d1 ON e1.deptno = d1.deptno
+INNER JOIN s_emp e2 on e2.empno=e1.mgr
+
+2024-01-04 21:15:10,719 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:10,720 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_CountValidation/target/target.sql
+2024-01-04 21:15:10,722 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) from t_emp
+
+2024-01-04 21:15:10,723 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,723 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,723 - base.TestBase - INFO - #########################################################################    Test Case 16 : Data Completeness Validation for T_EMP_CountValidation : PASSED
+2024-01-04 21:15:10,725 - base.TestBase - INFO - #########################################################################    Test Case 17 : Data Completeness Validation for T_EMP_DataCompletenessValidation : STARTED
+2024-01-04 21:15:10,726 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:10,727 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_DataCompletenessValidation/source/source.sql
+2024-01-04 21:15:10,731 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT 
+    e1.EMPNO AS EMP_ID,
+    INITCAP(e1.ename) AS EMP_NAME,
+    d1.dname AS DEPT_NAME,
+    INITCAP(e2.ename) AS MANAGER_NAME,
+    e1.job AS JOB_TYPE,
+    INITCAP(d1.loc) AS LOCATION,
+    TO_CHAR(e1.hiredate,'yyyy-mm-dd') as HIRE_DATE,
+    ROUND(MONTHS_BETWEEN(SYSDATE, e1.hiredate) / 12) AS TOTAL_EXP_IN_COMPANY,
+    e1.sal AS SALARY,
+    NVL(e1.comm, 0) AS COMMISSION,
+    e1.sal + NVL(e1.comm, 0) AS TOTAL_SALARY,
+    CASE 
+        WHEN e1.sal + NVL(e1.comm, 0) < 2000 THEN 'LOW' 
+        WHEN e1.sal + NVL(e1.comm, 0) BETWEEN 2000 AND 3000 THEN 'MID' 
+        ELSE 'HIGH' 
+    END AS SALARY_GRADE
+FROM s_emp e1 
+INNER JOIN s_dept d1 ON e1.deptno = d1.deptno
+INNER JOIN s_emp e2 on e2.empno=e1.mgr
+order by EMP_ID
+
+2024-01-04 21:15:10,731 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:10,732 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_DataCompletenessValidation/target/target.sql
+2024-01-04 21:15:10,734 - databaseFunction.sqlFunction - INFO - Query executed successfully: select 
+EMP_ID,
+EMP_NAME,
+DEPT_NAME,
+MANAGER_NAME,
+JOB_TYPE,
+LOCATION,
+HIRE_DATE,
+TOTAL_EXP_IN_COMPANY,
+SALARY,
+COMMISSION,
+TOTAL_SALARY,
+SALARY_GRADE
+from t_emp
+order by EMP_ID
+
+2024-01-04 21:15:10,734 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,734 - base.TestBase - ERROR - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case 17 : Data Completeness Validation for T_EMP_DataCompletenessValidation : FAILED
+2024-01-04 21:15:10,737 - base.TestBase - ERROR - Test failed: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+java.util.concurrent.ExecutionException: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:138)
+	at jdk.internal.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at testCases.DataCompletenessValidation.lambda$0(DataCompletenessValidation.java:126)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2024-01-04 21:15:10,739 - base.TestBase - ERROR - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case 17 : Data Completeness Validation for T_EMP_DataCompletenessValidation : FAILED
+2024-01-04 21:15:10,741 - base.TestBase - INFO - #########################################################################    Test Case 18 : Data Completeness Validation for T_EMP_DuplicateValidation : STARTED
+2024-01-04 21:15:10,743 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:10,743 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_DuplicateValidation/source/source.sql
+2024-01-04 21:15:10,744 - databaseFunction.sqlFunction - INFO - Query executed successfully: select 0 as No_Of_Duplicate_Rows from dual
+
+2024-01-04 21:15:10,745 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:10,745 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_DuplicateValidation/target/target.sql
+2024-01-04 21:15:10,746 - databaseFunction.sqlFunction - INFO - Query executed successfully: select dup.No_Of_Duplicate_Rows from(
+select 
+EMP_ID,
+EMP_NAME,
+DEPT_NAME,
+MANAGER_NAME,
+JOB_TYPE,
+LOCATION,
+HIRE_DATE,
+TOTAL_EXP_IN_COMPANY,
+SALARY,
+COMMISSION,
+TOTAL_SALARY,
+SALARY_GRADE,
+COUNT(*) as No_Of_Duplicate_Rows
+from T_EMP
+group by
+EMP_ID,
+EMP_NAME,
+DEPT_NAME,
+MANAGER_NAME,
+JOB_TYPE,
+LOCATION,
+HIRE_DATE,
+TOTAL_EXP_IN_COMPANY,
+SALARY,
+COMMISSION,
+TOTAL_SALARY,
+SALARY_GRADE
+having COUNT(*) >1) dup
+
+2024-01-04 21:15:10,747 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,747 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,747 - base.TestBase - INFO - #########################################################################    Test Case 18 : Data Completeness Validation for T_EMP_DuplicateValidation : PASSED
+2024-01-04 21:15:10,749 - base.TestBase - INFO - #########################################################################    Test Case 19 : Data Completeness Validation for T_EMP_PrimaryKey_Validation : STARTED
+2024-01-04 21:15:10,751 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:10,751 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_PrimaryKey_Validation/source/source.sql
+2024-01-04 21:15:10,752 - databaseFunction.sqlFunction - INFO - Query executed successfully: select 0 as Null_and_Duplicates from dual
+
+2024-01-04 21:15:10,752 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:10,752 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_PrimaryKey_Validation/target/target.sql
+2024-01-04 21:15:10,754 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) as Null_and_Duplicates from T_emp where EMP_ID is null
+union
+select e.cnt from(
+select emp_id, count(*) cnt from t_emp group by emp_id having cnt>1)e
+
+2024-01-04 21:15:10,754 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,754 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,754 - base.TestBase - INFO - #########################################################################    Test Case 19 : Data Completeness Validation for T_EMP_PrimaryKey_Validation : PASSED
+2024-01-04 21:15:10,756 - base.TestBase - INFO - #########################################################################    Test Case 20 : Data Completeness Validation for T_EMP_SurrogateKey_Validation : STARTED
+2024-01-04 21:15:10,757 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:10,758 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_SurrogateKey_Validation/source/source.sql
+2024-01-04 21:15:10,759 - databaseFunction.sqlFunction - INFO - Query executed successfully: select 0 as Null_and_Duplicates from dual
+
+2024-01-04 21:15:10,759 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:10,759 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_SurrogateKey_Validation/target/target.sql
+2024-01-04 21:15:10,760 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) as Null_and_Duplicates from T_emp where T_EMP_ID is null
+union
+select e.cnt from(
+select t_emp_id, count(*) cnt from t_emp group by t_emp_id having cnt>1)e
+
+2024-01-04 21:15:10,760 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:10,761 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:10,761 - base.TestBase - INFO - #########################################################################    Test Case 20 : Data Completeness Validation for T_EMP_SurrogateKey_Validation : PASSED
+2024-01-04 21:15:10,762 - base.TestBase - INFO - Teardown started..............
+2024-01-04 21:15:10,764 - databaseFunction.DatabaseConn - INFO - Database Connection Closed
+2024-01-04 21:15:10,764 - base.TestBase - INFO - Source database connection closed successfully.
+2024-01-04 21:15:10,766 - databaseFunction.DatabaseConn - INFO - Database Connection Closed
+2024-01-04 21:15:10,766 - base.TestBase - INFO - Target database connection closed successfully.
+2024-01-04 21:15:10,768 - base.TestBase - INFO - Thread pool shut down successfully.
+2024-01-04 21:15:10,768 - base.TestBase - INFO - ****************************************************    Teardown Completed     ********************************************
+2024-01-04 21:15:10,770 - base.TestBase - INFO - BeforeClass setUp() execution started............
+2024-01-04 21:15:10,772 - util.Log4jConfigurator - INFO - Log4j configuration loaded successfully.
+2024-01-04 21:15:10,772 - base.TestBase - INFO - Log4j configured successfully.
+2024-01-04 21:15:10,772 - base.TestBase - INFO - Properties file loaded successfully.
+2024-01-04 21:15:10,772 - base.TestBase - INFO - Thread Pool created
+2024-01-04 21:15:10,772 - base.TestBase - INFO - Target Database selected : mysql
+2024-01-04 21:15:10,772 - base.TestBase - INFO - Auto Generated Metadata option selected as : yes
+2024-01-04 21:15:10,773 - fileFunction.MetadataExcelGenerator - INFO - Starting metadata Excel generation...
+2024-01-04 21:15:10,773 - fileFunction.MetadataExcelGenerator - INFO - Existing Metadata Excel deleted: ./TableMetadata/metadata_excel.xlsx
+2024-01-04 21:15:10,867 - fileFunction.MetadataExcelGenerator - INFO - Metadata Excel auto-generated successfully at: ./TableMetadata/metadata_excel.xlsx
+2024-01-04 21:15:10,868 - base.TestBase - INFO - Metadata Excel Generation Completed....
+2024-01-04 21:15:10,892 - databaseFunction.DatabaseConn - INFO - Database is Connected
+2024-01-04 21:15:10,893 - base.TestBase - INFO - Target database connection established successfully.
+2024-01-04 21:15:10,893 - base.TestBase - INFO - ********************************    Target Set up completed     *********************************
+2024-01-04 21:15:10,893 - base.TestBase - INFO - Source Database selected : oracle
+2024-01-04 21:15:10,939 - databaseFunction.DatabaseConn - INFO - Database is Connected
+2024-01-04 21:15:10,939 - base.TestBase - INFO - Source database connection established successfully.
+2024-01-04 21:15:10,940 - base.TestBase - INFO - ********************************    Source Set up completed    *********************************
+2024-01-04 21:15:10,962 - base.TestBase - INFO - Workbook loaded successfully.
+2024-01-04 21:15:10,964 - base.TestBase - INFO - #########################################################################    Test Case 21 Table Metadata Validation for T_EMP : STARTED
+2024-01-04 21:15:10,964 - base.TestBase - INFO - Processing Table: T_EMP
+2024-01-04 21:15:10,967 - base.TestBase - INFO - Sorted Metadata from Mapping Sheet:[{COLUMN_NAME=COMMISSION, DATA_TYPE=int}, {COLUMN_NAME=DEPT_NAME, DATA_TYPE=varchar(20)}, {COLUMN_NAME=EMP_ID345, DATA_TYPE=int}, {COLUMN_NAME=EMP_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=HIRE_DATE, DATA_TYPE=date}, {COLUMN_NAME=JOB_TYPE, DATA_TYPE=varchar(20)}, {COLUMN_NAME=LOCATION, DATA_TYPE=varchar(30)}, {COLUMN_NAME=MANAGER_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=SALARY, DATA_TYPE=int}, {COLUMN_NAME=SALARY_GRADE, DATA_TYPE=varchar(10)}, {COLUMN_NAME=T_EMP_ID1212, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_EXP_IN_COMPANY, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_SALARY, DATA_TYPE=int}]
+2024-01-04 21:15:10,973 - databaseFunction.MySqlMetadataRetrieval - INFO - Metadata retrieval from MySQL table completed for table: T_EMP
+2024-01-04 21:15:10,974 - databaseFunction.MySqlMetadataRetrieval - INFO - Metadata from MySQL Table:[{COLUMN_NAME=COMMISSION, DATA_TYPE=int}, {COLUMN_NAME=DEPT_NAME, DATA_TYPE=varchar(20)}, {COLUMN_NAME=EMP_ID, DATA_TYPE=int}, {COLUMN_NAME=EMP_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=HIRE_DATE, DATA_TYPE=date}, {COLUMN_NAME=JOB_TYPE, DATA_TYPE=varchar(20)}, {COLUMN_NAME=LOCATION, DATA_TYPE=varchar(30)}, {COLUMN_NAME=MANAGER_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=SALARY, DATA_TYPE=int}, {COLUMN_NAME=SALARY_GRADE, DATA_TYPE=varchar(10)}, {COLUMN_NAME=T_EMP_ID, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_EXP_IN_COMPANY, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_SALARY, DATA_TYPE=int}]
+2024-01-04 21:15:10,974 - base.TestBase - INFO - Metadata Mismatch for Table: T_EMP
+2024-01-04 21:15:10,974 - base.TestBase - INFO - Source Column: {COLUMN_NAME=EMP_ID345, DATA_TYPE=int}
+2024-01-04 21:15:10,974 - base.TestBase - INFO - Target Column: {COLUMN_NAME=EMP_ID, DATA_TYPE=int}
+2024-01-04 21:15:10,974 - base.TestBase - ERROR - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case 21 : Table Metadata Validation for T_EMP : FAILED
+2024-01-04 21:15:10,974 - base.TestBase - ERROR - Test failed: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME=EMP_ID}, {COLUMN_NAME=T_EMP_ID1212, TARGET_COLUMN_NAME=T_EMP_ID}] expected [true] but found [false]
+java.lang.AssertionError: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME=EMP_ID}, {COLUMN_NAME=T_EMP_ID1212, TARGET_COLUMN_NAME=T_EMP_ID}] expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValidation.java:58)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+2024-01-04 21:15:10,977 - base.TestBase - INFO - #########################################################################    Test Case 22 Table Metadata Validation for T_DEPT : STARTED
+2024-01-04 21:15:10,977 - base.TestBase - INFO - Processing Table: T_DEPT
+2024-01-04 21:15:10,978 - base.TestBase - INFO - Sorted Metadata from Mapping Sheet:[{COLUMN_NAME=DEPTNO, DATA_TYPE=int}, {COLUMN_NAME=DNAME, DATA_TYPE=varchar(14)}, {COLUMN_NAME=LOC, DATA_TYPE=varchar(13)}, {COLUMN_NAME=T_DEPT_ID, DATA_TYPE=int}]
+2024-01-04 21:15:10,981 - databaseFunction.MySqlMetadataRetrieval - INFO - Metadata retrieval from MySQL table completed for table: T_DEPT
+2024-01-04 21:15:10,981 - databaseFunction.MySqlMetadataRetrieval - INFO - Metadata from MySQL Table:[{COLUMN_NAME=DEPTNO, DATA_TYPE=int}, {COLUMN_NAME=DNAME, DATA_TYPE=varchar(14)}, {COLUMN_NAME=LOC, DATA_TYPE=varchar(13)}, {COLUMN_NAME=T_DEPT_ID, DATA_TYPE=int}]
+2024-01-04 21:15:10,981 - base.TestBase - INFO - Metadata Match for Table: T_DEPT
+2024-01-04 21:15:10,981 - base.TestBase - INFO - #########################################################################    Test Case 22 Table Metadata Validation for T_DEPT : PASSED
+2024-01-04 21:15:10,982 - base.TestBase - INFO - Teardown started..............
+2024-01-04 21:15:10,998 - base.TestBase - INFO - Workbook closed successfully.
+2024-01-04 21:15:11,000 - databaseFunction.DatabaseConn - INFO - Database Connection Closed
+2024-01-04 21:15:11,001 - base.TestBase - INFO - Source database connection closed successfully.
+2024-01-04 21:15:11,001 - databaseFunction.DatabaseConn - INFO - Database Connection Closed
+2024-01-04 21:15:11,001 - base.TestBase - INFO - Target database connection closed successfully.
+2024-01-04 21:15:11,002 - base.TestBase - INFO - Thread pool shut down successfully.
+2024-01-04 21:15:11,002 - base.TestBase - INFO - ****************************************************    Teardown Completed     ********************************************
+2024-01-04 21:15:11,332 - util.Banner - INFO - *****     *****    ****    *   *    *      *****  
+2024-01-04 21:15:11,333 - util.Banner - INFO - *   *     *        *       *   *    *        *    
+2024-01-04 21:15:11,333 - util.Banner - INFO - *****     ****     ****    *   *    *        *    
+2024-01-04 21:15:11,333 - util.Banner - INFO - *  **     *           *    *   *    *        *    
+2024-01-04 21:15:11,333 - util.Banner - INFO - *   **    *****    ****     ***     *****    *    
+2024-01-04 21:15:11,340 - base.TestBase - INFO - Test Case 1 ITEMS_10L_Record_Validation: FAILED
+2024-01-04 21:15:11,340 - base.TestBase - INFO - Test Case 2 ITEMS_CountValidation: PASSED
+2024-01-04 21:15:11,341 - base.TestBase - INFO - Test Case 3 STUDENT_5L_Record_Validation: PASSED
+2024-01-04 21:15:11,342 - base.TestBase - INFO - Test Case 4 STUDENT_CountValidation: PASSED
+2024-01-04 21:15:11,344 - base.TestBase - INFO - Test Case 5 STUDENT_SMALL_db_to_file_validation: PASSED
+2024-01-04 21:15:11,345 - base.TestBase - INFO - Test Case 6 STUDENT_SMALL_db_to_JSONfile_validation: PASSED
+2024-01-04 21:15:11,346 - base.TestBase - INFO - Test Case 7 STUDENT_SMALL_db_to_XMLfile_validation: PASSED
+2024-01-04 21:15:11,347 - base.TestBase - INFO - Test Case 8 STUDENT_SMALL_file_to_db_validation: PASSED
+2024-01-04 21:15:11,348 - base.TestBase - INFO - Test Case 9 STUDENT_SMALL_file_to_file_validation: PASSED
+2024-01-04 21:15:11,350 - base.TestBase - INFO - Test Case 10 STUDENT_SMALL_JSONfile_to_db_validation: PASSED
+2024-01-04 21:15:11,351 - base.TestBase - INFO - Test Case 11 STUDENT_SMALL_JSONfile_to_JSONfile_validation: PASSED
+2024-01-04 21:15:11,352 - base.TestBase - INFO - Test Case 12 STUDENT_SMALL_XMLfile_to_db_validation: PASSED
+2024-01-04 21:15:11,353 - base.TestBase - INFO - Test Case 13 STUDENT_SMALL_XMLfile_to_XMLfile_validation: PASSED
+2024-01-04 21:15:11,355 - base.TestBase - INFO - Test Case 14 T_DEPT_CountValidation: PASSED
+2024-01-04 21:15:11,356 - base.TestBase - INFO - Test Case 15 T_DEPT_DataCompletenessValidation: PASSED
+2024-01-04 21:15:11,357 - base.TestBase - INFO - Test Case 16 T_EMP_CountValidation: PASSED
+2024-01-04 21:15:11,358 - base.TestBase - INFO - Test Case 17 T_EMP_DataCompletenessValidation: FAILED
+2024-01-04 21:15:11,359 - base.TestBase - INFO - Test Case 18 T_EMP_DuplicateValidation: PASSED
+2024-01-04 21:15:11,359 - base.TestBase - INFO - Test Case 19 T_EMP_PrimaryKey_Validation: PASSED
+2024-01-04 21:15:11,360 - base.TestBase - INFO - Test Case 20 T_EMP_SurrogateKey_Validation: PASSED
+2024-01-04 21:15:11,361 - base.TestBase - INFO - Test Case 21 Table Metadata Validation for T_EMP: FAILED
+2024-01-04 21:15:11,362 - base.TestBase - INFO - Test Case 22 Table Metadata Validation for T_DEPT: PASSED
+2024-01-04 21:15:11,479 - base.TestBase - INFO - Test results written to Excel file: ./Reports/Test-Results.xlsx
+2024-01-04 21:15:40,750 - util.Log4jConfigurator - INFO - Log4j configuration loaded successfully.
+2024-01-04 21:15:40,756 - base.TestBase - INFO - Log4j configured successfully.
+2024-01-04 21:15:40,757 - base.TestBase - INFO - Properties file loaded successfully.
+2024-01-04 21:15:40,759 - base.TestBase - INFO - Thread Pool created
+2024-01-04 21:15:40,759 - base.TestBase - INFO - Target Database selected : mysql
+2024-01-04 21:15:40,760 - base.TestBase - INFO - Auto Generated Metadata option selected as : yes
+2024-01-04 21:15:40,760 - fileFunction.MetadataExcelGenerator - INFO - Starting metadata Excel generation...
+2024-01-04 21:15:40,761 - fileFunction.MetadataExcelGenerator - INFO - Existing Metadata Excel deleted: ./TableMetadata/metadata_excel.xlsx
+2024-01-04 21:15:41,471 - fileFunction.MetadataExcelGenerator - INFO - Metadata Excel auto-generated successfully at: ./TableMetadata/metadata_excel.xlsx
+2024-01-04 21:15:41,471 - base.TestBase - INFO - Metadata Excel Generation Completed....
+2024-01-04 21:15:42,000 - databaseFunction.DatabaseConn - INFO - Database is Connected
+2024-01-04 21:15:42,000 - base.TestBase - INFO - Target database connection established successfully.
+2024-01-04 21:15:42,000 - base.TestBase - INFO - ********************************    Target Set up completed     *********************************
+2024-01-04 21:15:42,001 - base.TestBase - INFO - Source Database selected : oracle
+2024-01-04 21:15:42,396 - databaseFunction.DatabaseConn - INFO - Database is Connected
+2024-01-04 21:15:42,399 - base.TestBase - INFO - Source database connection established successfully.
+2024-01-04 21:15:42,401 - base.TestBase - INFO - ********************************    Source Set up completed    *********************************
+2024-01-04 21:15:42,421 - base.TestBase - INFO - #########################################################################    Test Case 1 : Data Completeness Validation for ITEMS_10L_Record_Validation : STARTED
+2024-01-04 21:15:42,424 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:42,429 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/ITEMS_10L_Record_Validation/source/source.sql
+2024-01-04 21:15:42,541 - databaseFunction.sqlFunction - ERROR - Error executing query: ORA-00933: SQL command not properly ended
+
+2024-01-04 21:15:42,543 - base.TestBase - ERROR - Test failed: java.lang.AssertionError: Test failed: ORA-00933: SQL command not properly ended
+
+java.util.concurrent.ExecutionException: java.lang.AssertionError: Test failed: ORA-00933: SQL command not properly ended
+
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:138)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.AssertionError: Test failed: ORA-00933: SQL command not properly ended
+
+	at databaseFunction.sqlFunction.executeQuery(sqlFunction.java:76)
+	at testCases.DataCompletenessValidation.lambda$0(DataCompletenessValidation.java:79)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.sql.SQLSyntaxErrorException: ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:702)
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1248)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:518)
+	at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:156)
+	at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:963)
+	at oracle.jdbc.driver.OracleStatement.prepareDefineBufferAndExecute(OracleStatement.java:1205)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1135)
+	at oracle.jdbc.driver.OracleStatement.executeSQLSelect(OracleStatement.java:1472)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1343)
+	at oracle.jdbc.driver.OracleStatement.executeQuery(OracleStatement.java:1727)
+	at oracle.jdbc.driver.OracleStatementWrapper.executeQuery(OracleStatementWrapper.java:380)
+	at databaseFunction.sqlFunction.executeQuery(sqlFunction.java:46)
+	... 5 more
+Caused by: Error : 933, Position : 42, SQL = select ItemId, ItemName  from items  orde by itemid
+, Original SQL = select ItemId, ItemName  from items  orde by itemid
+, Error Message = ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+	... 19 more
+2024-01-04 21:15:42,548 - base.TestBase - ERROR - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case 1 : Data Completeness Validation for ITEMS_10L_Record_Validation : FAILED
+2024-01-04 21:15:42,559 - base.TestBase - INFO - #########################################################################    Test Case 2 : Data Completeness Validation for ITEMS_CountValidation : STARTED
+2024-01-04 21:15:42,561 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:42,562 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/ITEMS_CountValidation/source/source.sql
+2024-01-04 21:15:42,638 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) FROM items
+
+2024-01-04 21:15:42,638 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:42,639 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/ITEMS_CountValidation/target/target.sql
+2024-01-04 21:15:42,815 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) FROM items
+
+2024-01-04 21:15:42,815 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:42,816 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:42,816 - base.TestBase - INFO - #########################################################################    Test Case 2 : Data Completeness Validation for ITEMS_CountValidation : PASSED
+2024-01-04 21:15:42,818 - base.TestBase - INFO - #########################################################################    Test Case 3 : Data Completeness Validation for STUDENT_5L_Record_Validation : STARTED
+2024-01-04 21:15:42,820 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:42,821 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_5L_Record_Validation/source/source.sql
+2024-01-04 21:15:44,493 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student order by student_id
+
+2024-01-04 21:15:44,493 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:44,494 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_5L_Record_Validation/target/target.sql
+2024-01-04 21:15:47,933 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student order by student_id
+
+2024-01-04 21:15:47,934 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,003 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,004 - base.TestBase - INFO - #########################################################################    Test Case 3 : Data Completeness Validation for STUDENT_5L_Record_Validation : PASSED
+2024-01-04 21:15:48,007 - base.TestBase - INFO - #########################################################################    Test Case 4 : Data Completeness Validation for STUDENT_CountValidation : STARTED
+2024-01-04 21:15:48,009 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:48,010 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_CountValidation/source/source.sql
+2024-01-04 21:15:48,022 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) from student
+
+2024-01-04 21:15:48,022 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:48,023 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_CountValidation/target/target.sql
+2024-01-04 21:15:48,113 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) from student
+
+2024-01-04 21:15:48,115 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,115 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,115 - base.TestBase - INFO - #########################################################################    Test Case 4 : Data Completeness Validation for STUDENT_CountValidation : PASSED
+2024-01-04 21:15:48,117 - base.TestBase - INFO - #########################################################################    Test Case 5 : Data Completeness Validation for STUDENT_SMALL_db_to_file_validation : STARTED
+2024-01-04 21:15:48,120 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:48,121 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_db_to_file_validation/source/source.sql
+2024-01-04 21:15:48,124 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:15:48,125 - base.TestBase - INFO - Reading data from target CSV file
+2024-01-04 21:15:48,147 - fileFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_db_to_file_validation\target\student_small.csv
+2024-01-04 21:15:48,149 - fileFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2024-01-04 21:15:48,150 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,150 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,151 - base.TestBase - INFO - #########################################################################    Test Case 5 : Data Completeness Validation for STUDENT_SMALL_db_to_file_validation : PASSED
+2024-01-04 21:15:48,156 - base.TestBase - INFO - #########################################################################    Test Case 6 : Data Completeness Validation for STUDENT_SMALL_db_to_JSONfile_validation : STARTED
+2024-01-04 21:15:48,160 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:48,161 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_db_to_JSONfile_validation/source/source.sql
+2024-01-04 21:15:48,163 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:15:48,164 - base.TestBase - INFO - Reading data from target JSON file
+2024-01-04 21:15:48,364 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,364 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,364 - base.TestBase - INFO - #########################################################################    Test Case 6 : Data Completeness Validation for STUDENT_SMALL_db_to_JSONfile_validation : PASSED
+2024-01-04 21:15:48,367 - base.TestBase - INFO - #########################################################################    Test Case 7 : Data Completeness Validation for STUDENT_SMALL_db_to_XMLfile_validation : STARTED
+2024-01-04 21:15:48,369 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:48,369 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_db_to_XMLfile_validation/source/source.sql
+2024-01-04 21:15:48,371 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:15:48,371 - base.TestBase - INFO - Reading data from target XML file
+2024-01-04 21:15:48,380 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,381 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,381 - base.TestBase - INFO - #########################################################################    Test Case 7 : Data Completeness Validation for STUDENT_SMALL_db_to_XMLfile_validation : PASSED
+2024-01-04 21:15:48,383 - base.TestBase - INFO - #########################################################################    Test Case 8 : Data Completeness Validation for STUDENT_SMALL_file_to_db_validation : STARTED
+2024-01-04 21:15:48,385 - base.TestBase - INFO - Reading data from source CSV file
+2024-01-04 21:15:48,386 - fileFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_db_validation\source\student_small.csv
+2024-01-04 21:15:48,387 - fileFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2024-01-04 21:15:48,387 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:48,387 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_file_to_db_validation/target/target.sql
+2024-01-04 21:15:48,388 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:15:48,389 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,389 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,389 - base.TestBase - INFO - #########################################################################    Test Case 8 : Data Completeness Validation for STUDENT_SMALL_file_to_db_validation : PASSED
+2024-01-04 21:15:48,391 - base.TestBase - INFO - #########################################################################    Test Case 9 : Data Completeness Validation for STUDENT_SMALL_file_to_file_validation : STARTED
+2024-01-04 21:15:48,392 - base.TestBase - INFO - Reading data from source CSV file
+2024-01-04 21:15:48,393 - fileFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_file_validation\source\student_small.csv
+2024-01-04 21:15:48,394 - fileFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2024-01-04 21:15:48,394 - base.TestBase - INFO - Reading data from target CSV file
+2024-01-04 21:15:48,395 - fileFunction.CSVFileReader - INFO - Reading CSV file: .\SQLFiles\STUDENT_SMALL_file_to_file_validation\target\student_small.csv
+2024-01-04 21:15:48,395 - fileFunction.CSVFileReader - INFO - CSV file read successfully. Number of rows: 10
+2024-01-04 21:15:48,396 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,396 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,396 - base.TestBase - INFO - #########################################################################    Test Case 9 : Data Completeness Validation for STUDENT_SMALL_file_to_file_validation : PASSED
+2024-01-04 21:15:48,397 - base.TestBase - INFO - #########################################################################    Test Case 10 : Data Completeness Validation for STUDENT_SMALL_JSONfile_to_db_validation : STARTED
+2024-01-04 21:15:48,399 - base.TestBase - INFO - Reading data from source JSON file
+2024-01-04 21:15:48,400 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:48,400 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_JSONfile_to_db_validation/target/target.sql
+2024-01-04 21:15:48,402 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:15:48,402 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,402 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,402 - base.TestBase - INFO - #########################################################################    Test Case 10 : Data Completeness Validation for STUDENT_SMALL_JSONfile_to_db_validation : PASSED
+2024-01-04 21:15:48,403 - base.TestBase - INFO - #########################################################################    Test Case 11 : Data Completeness Validation for STUDENT_SMALL_JSONfile_to_JSONfile_validation : STARTED
+2024-01-04 21:15:48,405 - base.TestBase - INFO - Reading data from source JSON file
+2024-01-04 21:15:48,406 - base.TestBase - INFO - Reading data from target JSON file
+2024-01-04 21:15:48,407 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,407 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,407 - base.TestBase - INFO - #########################################################################    Test Case 11 : Data Completeness Validation for STUDENT_SMALL_JSONfile_to_JSONfile_validation : PASSED
+2024-01-04 21:15:48,409 - base.TestBase - INFO - #########################################################################    Test Case 12 : Data Completeness Validation for STUDENT_SMALL_XMLfile_to_db_validation : STARTED
+2024-01-04 21:15:48,411 - base.TestBase - INFO - Reading data from source XML file
+2024-01-04 21:15:48,414 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:48,414 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/STUDENT_SMALL_XMLfile_to_db_validation/target/target.sql
+2024-01-04 21:15:48,416 - databaseFunction.sqlFunction - INFO - Query executed successfully: select * from student_small order by student_id
+
+2024-01-04 21:15:48,416 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,416 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,416 - base.TestBase - INFO - #########################################################################    Test Case 12 : Data Completeness Validation for STUDENT_SMALL_XMLfile_to_db_validation : PASSED
+2024-01-04 21:15:48,418 - base.TestBase - INFO - #########################################################################    Test Case 13 : Data Completeness Validation for STUDENT_SMALL_XMLfile_to_XMLfile_validation : STARTED
+2024-01-04 21:15:48,420 - base.TestBase - INFO - Reading data from source XML file
+2024-01-04 21:15:48,423 - base.TestBase - INFO - Reading data from target XML file
+2024-01-04 21:15:48,425 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,425 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,425 - base.TestBase - INFO - #########################################################################    Test Case 13 : Data Completeness Validation for STUDENT_SMALL_XMLfile_to_XMLfile_validation : PASSED
+2024-01-04 21:15:48,426 - base.TestBase - INFO - #########################################################################    Test Case 14 : Data Completeness Validation for T_DEPT_CountValidation : STARTED
+2024-01-04 21:15:48,428 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:48,428 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_DEPT_CountValidation/source/source.sql
+2024-01-04 21:15:48,429 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) from dept
+
+2024-01-04 21:15:48,429 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:48,429 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_DEPT_CountValidation/target/target.sql
+2024-01-04 21:15:48,433 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) from t_dept
+
+2024-01-04 21:15:48,433 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,433 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,433 - base.TestBase - INFO - #########################################################################    Test Case 14 : Data Completeness Validation for T_DEPT_CountValidation : PASSED
+2024-01-04 21:15:48,434 - base.TestBase - INFO - #########################################################################    Test Case 15 : Data Completeness Validation for T_DEPT_DataCompletenessValidation : STARTED
+2024-01-04 21:15:48,436 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:48,437 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_DEPT_DataCompletenessValidation/source/source.sql
+2024-01-04 21:15:48,438 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT * from dept order by deptno
+
+2024-01-04 21:15:48,438 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:48,438 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_DEPT_DataCompletenessValidation/target/target.sql
+2024-01-04 21:15:48,439 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT deptno,dname,loc from t_dept order by t_dept_id
+
+2024-01-04 21:15:48,440 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,440 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,440 - base.TestBase - INFO - #########################################################################    Test Case 15 : Data Completeness Validation for T_DEPT_DataCompletenessValidation : PASSED
+2024-01-04 21:15:48,442 - base.TestBase - INFO - #########################################################################    Test Case 16 : Data Completeness Validation for T_EMP_CountValidation : STARTED
+2024-01-04 21:15:48,443 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:48,443 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_CountValidation/source/source.sql
+2024-01-04 21:15:48,445 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT count(*) FROM s_emp e1 
+INNER JOIN s_dept d1 ON e1.deptno = d1.deptno
+INNER JOIN s_emp e2 on e2.empno=e1.mgr
+
+2024-01-04 21:15:48,445 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:48,445 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_CountValidation/target/target.sql
+2024-01-04 21:15:48,447 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) from t_emp
+
+2024-01-04 21:15:48,448 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,448 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,448 - base.TestBase - INFO - #########################################################################    Test Case 16 : Data Completeness Validation for T_EMP_CountValidation : PASSED
+2024-01-04 21:15:48,449 - base.TestBase - INFO - #########################################################################    Test Case 17 : Data Completeness Validation for T_EMP_DataCompletenessValidation : STARTED
+2024-01-04 21:15:48,450 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:48,451 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_DataCompletenessValidation/source/source.sql
+2024-01-04 21:15:48,454 - databaseFunction.sqlFunction - INFO - Query executed successfully: SELECT 
+    e1.EMPNO AS EMP_ID,
+    INITCAP(e1.ename) AS EMP_NAME,
+    d1.dname AS DEPT_NAME,
+    INITCAP(e2.ename) AS MANAGER_NAME,
+    e1.job AS JOB_TYPE,
+    INITCAP(d1.loc) AS LOCATION,
+    TO_CHAR(e1.hiredate,'yyyy-mm-dd') as HIRE_DATE,
+    ROUND(MONTHS_BETWEEN(SYSDATE, e1.hiredate) / 12) AS TOTAL_EXP_IN_COMPANY,
+    e1.sal AS SALARY,
+    NVL(e1.comm, 0) AS COMMISSION,
+    e1.sal + NVL(e1.comm, 0) AS TOTAL_SALARY,
+    CASE 
+        WHEN e1.sal + NVL(e1.comm, 0) < 2000 THEN 'LOW' 
+        WHEN e1.sal + NVL(e1.comm, 0) BETWEEN 2000 AND 3000 THEN 'MID' 
+        ELSE 'HIGH' 
+    END AS SALARY_GRADE
+FROM s_emp e1 
+INNER JOIN s_dept d1 ON e1.deptno = d1.deptno
+INNER JOIN s_emp e2 on e2.empno=e1.mgr
+order by EMP_ID
+
+2024-01-04 21:15:48,454 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:48,456 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_DataCompletenessValidation/target/target.sql
+2024-01-04 21:15:48,457 - databaseFunction.sqlFunction - INFO - Query executed successfully: select 
+EMP_ID,
+EMP_NAME,
+DEPT_NAME,
+MANAGER_NAME,
+JOB_TYPE,
+LOCATION,
+HIRE_DATE,
+TOTAL_EXP_IN_COMPANY,
+SALARY,
+COMMISSION,
+TOTAL_SALARY,
+SALARY_GRADE
+from t_emp
+order by EMP_ID
+
+2024-01-04 21:15:48,457 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,458 - base.TestBase - ERROR - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case 17 : Data Completeness Validation for T_EMP_DataCompletenessValidation : FAILED
+2024-01-04 21:15:48,460 - base.TestBase - ERROR - Test failed: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+java.util.concurrent.ExecutionException: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:138)
+	at jdk.internal.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: java.lang.AssertionError: Details of Differences:
+Row 1:
+   Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
+ expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at testCases.DataCompletenessValidation.lambda$0(DataCompletenessValidation.java:126)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2024-01-04 21:15:48,462 - base.TestBase - ERROR - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case 17 : Data Completeness Validation for T_EMP_DataCompletenessValidation : FAILED
+2024-01-04 21:15:48,464 - base.TestBase - INFO - #########################################################################    Test Case 18 : Data Completeness Validation for T_EMP_DuplicateValidation : STARTED
+2024-01-04 21:15:48,466 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:48,466 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_DuplicateValidation/source/source.sql
+2024-01-04 21:15:48,467 - databaseFunction.sqlFunction - INFO - Query executed successfully: select 0 as No_Of_Duplicate_Rows from dual
+
+2024-01-04 21:15:48,467 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:48,468 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_DuplicateValidation/target/target.sql
+2024-01-04 21:15:48,469 - databaseFunction.sqlFunction - INFO - Query executed successfully: select dup.No_Of_Duplicate_Rows from(
+select 
+EMP_ID,
+EMP_NAME,
+DEPT_NAME,
+MANAGER_NAME,
+JOB_TYPE,
+LOCATION,
+HIRE_DATE,
+TOTAL_EXP_IN_COMPANY,
+SALARY,
+COMMISSION,
+TOTAL_SALARY,
+SALARY_GRADE,
+COUNT(*) as No_Of_Duplicate_Rows
+from T_EMP
+group by
+EMP_ID,
+EMP_NAME,
+DEPT_NAME,
+MANAGER_NAME,
+JOB_TYPE,
+LOCATION,
+HIRE_DATE,
+TOTAL_EXP_IN_COMPANY,
+SALARY,
+COMMISSION,
+TOTAL_SALARY,
+SALARY_GRADE
+having COUNT(*) >1) dup
+
+2024-01-04 21:15:48,469 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,470 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,470 - base.TestBase - INFO - #########################################################################    Test Case 18 : Data Completeness Validation for T_EMP_DuplicateValidation : PASSED
+2024-01-04 21:15:48,471 - base.TestBase - INFO - #########################################################################    Test Case 19 : Data Completeness Validation for T_EMP_PrimaryKey_Validation : STARTED
+2024-01-04 21:15:48,474 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:48,475 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_PrimaryKey_Validation/source/source.sql
+2024-01-04 21:15:48,475 - databaseFunction.sqlFunction - INFO - Query executed successfully: select 0 as Null_and_Duplicates from dual
+
+2024-01-04 21:15:48,476 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:48,476 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_PrimaryKey_Validation/target/target.sql
+2024-01-04 21:15:48,477 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) as Null_and_Duplicates from T_emp where EMP_ID is null
+union
+select e.cnt from(
+select emp_id, count(*) cnt from t_emp group by emp_id having cnt>1)e
+
+2024-01-04 21:15:48,477 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,478 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,478 - base.TestBase - INFO - #########################################################################    Test Case 19 : Data Completeness Validation for T_EMP_PrimaryKey_Validation : PASSED
+2024-01-04 21:15:48,479 - base.TestBase - INFO - #########################################################################    Test Case 20 : Data Completeness Validation for T_EMP_SurrogateKey_Validation : STARTED
+2024-01-04 21:15:48,480 - base.TestBase - INFO - Reading source SQL query from file
+2024-01-04 21:15:48,480 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_SurrogateKey_Validation/source/source.sql
+2024-01-04 21:15:48,481 - databaseFunction.sqlFunction - INFO - Query executed successfully: select 0 as Null_and_Duplicates from dual
+
+2024-01-04 21:15:48,481 - base.TestBase - INFO - Reading target SQL query from file
+2024-01-04 21:15:48,482 - databaseFunction.sqlFunction - INFO - Query read from file: ./SQLFiles/T_EMP_SurrogateKey_Validation/target/target.sql
+2024-01-04 21:15:48,482 - databaseFunction.sqlFunction - INFO - Query executed successfully: select count(*) as Null_and_Duplicates from T_emp where T_EMP_ID is null
+union
+select e.cnt from(
+select t_emp_id, count(*) cnt from t_emp group by t_emp_id having cnt>1)e
+
+2024-01-04 21:15:48,482 - base.TestBase - INFO - Finding differing rows
+2024-01-04 21:15:48,482 - base.TestBase - INFO - Asserting that the lists are equal
+2024-01-04 21:15:48,482 - base.TestBase - INFO - #########################################################################    Test Case 20 : Data Completeness Validation for T_EMP_SurrogateKey_Validation : PASSED
+2024-01-04 21:15:48,484 - base.TestBase - INFO - Teardown started..............
+2024-01-04 21:15:48,486 - databaseFunction.DatabaseConn - INFO - Database Connection Closed
+2024-01-04 21:15:48,487 - base.TestBase - INFO - Source database connection closed successfully.
+2024-01-04 21:15:48,489 - databaseFunction.DatabaseConn - INFO - Database Connection Closed
+2024-01-04 21:15:48,489 - base.TestBase - INFO - Target database connection closed successfully.
+2024-01-04 21:15:48,490 - base.TestBase - INFO - Thread pool shut down successfully.
+2024-01-04 21:15:48,490 - base.TestBase - INFO - ****************************************************    Teardown Completed     ********************************************
+2024-01-04 21:15:48,492 - base.TestBase - INFO - BeforeClass setUp() execution started............
+2024-01-04 21:15:48,494 - util.Log4jConfigurator - INFO - Log4j configuration loaded successfully.
+2024-01-04 21:15:48,494 - base.TestBase - INFO - Log4j configured successfully.
+2024-01-04 21:15:48,494 - base.TestBase - INFO - Properties file loaded successfully.
+2024-01-04 21:15:48,494 - base.TestBase - INFO - Thread Pool created
+2024-01-04 21:15:48,494 - base.TestBase - INFO - Target Database selected : mysql
+2024-01-04 21:15:48,494 - base.TestBase - INFO - Auto Generated Metadata option selected as : yes
+2024-01-04 21:15:48,494 - fileFunction.MetadataExcelGenerator - INFO - Starting metadata Excel generation...
+2024-01-04 21:15:48,495 - fileFunction.MetadataExcelGenerator - INFO - Existing Metadata Excel deleted: ./TableMetadata/metadata_excel.xlsx
+2024-01-04 21:15:48,581 - fileFunction.MetadataExcelGenerator - INFO - Metadata Excel auto-generated successfully at: ./TableMetadata/metadata_excel.xlsx
+2024-01-04 21:15:48,581 - base.TestBase - INFO - Metadata Excel Generation Completed....
+2024-01-04 21:15:48,611 - databaseFunction.DatabaseConn - INFO - Database is Connected
+2024-01-04 21:15:48,612 - base.TestBase - INFO - Target database connection established successfully.
+2024-01-04 21:15:48,612 - base.TestBase - INFO - ********************************    Target Set up completed     *********************************
+2024-01-04 21:15:48,612 - base.TestBase - INFO - Source Database selected : oracle
+2024-01-04 21:15:48,674 - databaseFunction.DatabaseConn - INFO - Database is Connected
+2024-01-04 21:15:48,674 - base.TestBase - INFO - Source database connection established successfully.
+2024-01-04 21:15:48,674 - base.TestBase - INFO - ********************************    Source Set up completed    *********************************
+2024-01-04 21:15:48,692 - base.TestBase - INFO - Workbook loaded successfully.
+2024-01-04 21:15:48,694 - base.TestBase - INFO - #########################################################################    Test Case 21 Table Metadata Validation for T_EMP : STARTED
+2024-01-04 21:15:48,694 - base.TestBase - INFO - Processing Table: T_EMP
+2024-01-04 21:15:48,696 - base.TestBase - INFO - Sorted Metadata from Mapping Sheet:[{COLUMN_NAME=COMMISSION, DATA_TYPE=int}, {COLUMN_NAME=DEPT_NAME, DATA_TYPE=varchar(20)}, {COLUMN_NAME=EMP_ID345, DATA_TYPE=int}, {COLUMN_NAME=EMP_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=HIRE_DATE, DATA_TYPE=date}, {COLUMN_NAME=JOB_TYPE, DATA_TYPE=varchar(20)}, {COLUMN_NAME=LOCATION, DATA_TYPE=varchar(30)}, {COLUMN_NAME=MANAGER_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=SALARY, DATA_TYPE=int}, {COLUMN_NAME=SALARY_GRADE, DATA_TYPE=varchar(10)}, {COLUMN_NAME=T_EMP_ID1212, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_EXP_IN_COMPANY, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_SALARY, DATA_TYPE=int}]
+2024-01-04 21:15:48,702 - databaseFunction.MySqlMetadataRetrieval - INFO - Metadata retrieval from MySQL table completed for table: T_EMP
+2024-01-04 21:15:48,703 - databaseFunction.MySqlMetadataRetrieval - INFO - Metadata from MySQL Table:[{COLUMN_NAME=COMMISSION, DATA_TYPE=int}, {COLUMN_NAME=DEPT_NAME, DATA_TYPE=varchar(20)}, {COLUMN_NAME=EMP_ID, DATA_TYPE=int}, {COLUMN_NAME=EMP_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=HIRE_DATE, DATA_TYPE=date}, {COLUMN_NAME=JOB_TYPE, DATA_TYPE=varchar(20)}, {COLUMN_NAME=LOCATION, DATA_TYPE=varchar(30)}, {COLUMN_NAME=MANAGER_NAME, DATA_TYPE=varchar(50)}, {COLUMN_NAME=SALARY, DATA_TYPE=int}, {COLUMN_NAME=SALARY_GRADE, DATA_TYPE=varchar(10)}, {COLUMN_NAME=T_EMP_ID, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_EXP_IN_COMPANY, DATA_TYPE=int}, {COLUMN_NAME=TOTAL_SALARY, DATA_TYPE=int}]
+2024-01-04 21:15:48,703 - base.TestBase - INFO - Metadata Mismatch for Table: T_EMP
+2024-01-04 21:15:48,703 - base.TestBase - INFO - Source Column: {COLUMN_NAME=EMP_ID345, DATA_TYPE=int}
+2024-01-04 21:15:48,703 - base.TestBase - INFO - Target Column: {COLUMN_NAME=EMP_ID, DATA_TYPE=int}
+2024-01-04 21:15:48,703 - base.TestBase - ERROR - $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$    Test Case 21 : Table Metadata Validation for T_EMP : FAILED
+2024-01-04 21:15:48,704 - base.TestBase - ERROR - Test failed: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME=EMP_ID}, {COLUMN_NAME=T_EMP_ID1212, TARGET_COLUMN_NAME=T_EMP_ID}] expected [true] but found [false]
+java.lang.AssertionError: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME=EMP_ID}, {COLUMN_NAME=T_EMP_ID1212, TARGET_COLUMN_NAME=T_EMP_ID}] expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertTrue(Assert.java:45)
+	at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValidation.java:58)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+2024-01-04 21:15:48,707 - base.TestBase - INFO - #########################################################################    Test Case 22 Table Metadata Validation for T_DEPT : STARTED
+2024-01-04 21:15:48,707 - base.TestBase - INFO - Processing Table: T_DEPT
+2024-01-04 21:15:48,708 - base.TestBase - INFO - Sorted Metadata from Mapping Sheet:[{COLUMN_NAME=DEPTNO, DATA_TYPE=int}, {COLUMN_NAME=DNAME, DATA_TYPE=varchar(14)}, {COLUMN_NAME=LOC, DATA_TYPE=varchar(13)}, {COLUMN_NAME=T_DEPT_ID, DATA_TYPE=int}]
+2024-01-04 21:15:48,709 - databaseFunction.MySqlMetadataRetrieval - INFO - Metadata retrieval from MySQL table completed for table: T_DEPT
+2024-01-04 21:15:48,710 - databaseFunction.MySqlMetadataRetrieval - INFO - Metadata from MySQL Table:[{COLUMN_NAME=DEPTNO, DATA_TYPE=int}, {COLUMN_NAME=DNAME, DATA_TYPE=varchar(14)}, {COLUMN_NAME=LOC, DATA_TYPE=varchar(13)}, {COLUMN_NAME=T_DEPT_ID, DATA_TYPE=int}]
+2024-01-04 21:15:48,710 - base.TestBase - INFO - Metadata Match for Table: T_DEPT
+2024-01-04 21:15:48,710 - base.TestBase - INFO - #########################################################################    Test Case 22 Table Metadata Validation for T_DEPT : PASSED
+2024-01-04 21:15:48,712 - base.TestBase - INFO - Teardown started..............
+2024-01-04 21:15:48,724 - base.TestBase - INFO - Workbook closed successfully.
+2024-01-04 21:15:48,725 - databaseFunction.DatabaseConn - INFO - Database Connection Closed
+2024-01-04 21:15:48,726 - base.TestBase - INFO - Source database connection closed successfully.
+2024-01-04 21:15:48,726 - databaseFunction.DatabaseConn - INFO - Database Connection Closed
+2024-01-04 21:15:48,726 - base.TestBase - INFO - Target database connection closed successfully.
+2024-01-04 21:15:48,726 - base.TestBase - INFO - Thread pool shut down successfully.
+2024-01-04 21:15:48,726 - base.TestBase - INFO - ****************************************************    Teardown Completed     ********************************************
+2024-01-04 21:15:49,127 - util.Banner - INFO - *****     *****    ****    *   *    *      *****  
+2024-01-04 21:15:49,127 - util.Banner - INFO - *   *     *        *       *   *    *        *    
+2024-01-04 21:15:49,127 - util.Banner - INFO - *****     ****     ****    *   *    *        *    
+2024-01-04 21:15:49,127 - util.Banner - INFO - *  **     *           *    *   *    *        *    
+2024-01-04 21:15:49,128 - util.Banner - INFO - *   **    *****    ****     ***     *****    *    
+2024-01-04 21:15:49,135 - base.TestBase - INFO - Test Case 1 ITEMS_10L_Record_Validation: FAILED
+2024-01-04 21:15:49,135 - base.TestBase - INFO - Test Case 2 ITEMS_CountValidation: PASSED
+2024-01-04 21:15:49,136 - base.TestBase - INFO - Test Case 3 STUDENT_5L_Record_Validation: PASSED
+2024-01-04 21:15:49,137 - base.TestBase - INFO - Test Case 4 STUDENT_CountValidation: PASSED
+2024-01-04 21:15:49,138 - base.TestBase - INFO - Test Case 5 STUDENT_SMALL_db_to_file_validation: PASSED
+2024-01-04 21:15:49,139 - base.TestBase - INFO - Test Case 6 STUDENT_SMALL_db_to_JSONfile_validation: PASSED
+2024-01-04 21:15:49,139 - base.TestBase - INFO - Test Case 7 STUDENT_SMALL_db_to_XMLfile_validation: PASSED
+2024-01-04 21:15:49,140 - base.TestBase - INFO - Test Case 8 STUDENT_SMALL_file_to_db_validation: PASSED
+2024-01-04 21:15:49,141 - base.TestBase - INFO - Test Case 9 STUDENT_SMALL_file_to_file_validation: PASSED
+2024-01-04 21:15:49,142 - base.TestBase - INFO - Test Case 10 STUDENT_SMALL_JSONfile_to_db_validation: PASSED
+2024-01-04 21:15:49,143 - base.TestBase - INFO - Test Case 11 STUDENT_SMALL_JSONfile_to_JSONfile_validation: PASSED
+2024-01-04 21:15:49,143 - base.TestBase - INFO - Test Case 12 STUDENT_SMALL_XMLfile_to_db_validation: PASSED
+2024-01-04 21:15:49,144 - base.TestBase - INFO - Test Case 13 STUDENT_SMALL_XMLfile_to_XMLfile_validation: PASSED
+2024-01-04 21:15:49,144 - base.TestBase - INFO - Test Case 14 T_DEPT_CountValidation: PASSED
+2024-01-04 21:15:49,145 - base.TestBase - INFO - Test Case 15 T_DEPT_DataCompletenessValidation: PASSED
+2024-01-04 21:15:49,146 - base.TestBase - INFO - Test Case 16 T_EMP_CountValidation: PASSED
+2024-01-04 21:15:49,147 - base.TestBase - INFO - Test Case 17 T_EMP_DataCompletenessValidation: FAILED
+2024-01-04 21:15:49,148 - base.TestBase - INFO - Test Case 18 T_EMP_DuplicateValidation: PASSED
+2024-01-04 21:15:49,148 - base.TestBase - INFO - Test Case 19 T_EMP_PrimaryKey_Validation: PASSED
+2024-01-04 21:15:49,149 - base.TestBase - INFO - Test Case 20 T_EMP_SurrogateKey_Validation: PASSED
+2024-01-04 21:15:49,149 - base.TestBase - INFO - Test Case 21 Table Metadata Validation for T_EMP: FAILED
+2024-01-04 21:15:49,150 - base.TestBase - INFO - Test Case 22 Table Metadata Validation for T_DEPT: PASSED
+2024-01-04 21:15:49,282 - base.TestBase - INFO - Test results written to Excel file: ./Reports/Test-Results.xlsx
