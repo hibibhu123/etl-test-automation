@@ -155,6 +155,7 @@ public class TestBase {
 			username = prop.getProperty("username_oracle");
 			password = prop.getProperty("password_oracle");
 			try {
+				Class.forName("oracle.jdbc.OracleDriver");
 				targetConnection = DatabaseConn.createConnection(jdbcUrl, username, password);
 				l.info("Target database connection established successfully.");
 			} catch (Exception e) {
@@ -179,6 +180,7 @@ public class TestBase {
 			username = prop.getProperty("username_mysql");
 			password = prop.getProperty("password_mysql");
 			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
 				targetConnection = DatabaseConn.createConnection(jdbcUrl, username, password);
 				l.info("Target database connection established successfully.");
 
@@ -193,6 +195,7 @@ public class TestBase {
 			username = prop.getProperty("username_oracle");
 			password = prop.getProperty("password_oracle");
 			try {
+				Class.forName("oracle.jdbc.OracleDriver");
 				sourceConnection = DatabaseConn.createConnection(jdbcUrl, username, password);
 				l.info("Source database connection established successfully.");
 			} catch (Exception e) {
@@ -204,6 +207,7 @@ public class TestBase {
 			username = prop.getProperty("username_mysql");
 			password = prop.getProperty("password_mysql");
 			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
 				sourceConnection = DatabaseConn.createConnection(jdbcUrl, username, password);
 				l.info("Source database connection established successfully.");
 			} catch (Exception e) {

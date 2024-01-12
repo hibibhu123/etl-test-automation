@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="16" passed="14" failed="2" skipped="0">
+<testng-results ignored="0" total="22" passed="19" failed="3" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-29T14:01:41 IST" name="Suite" finished-at="2023-12-29T14:01:54 IST" duration-ms="12439">
+  <suite started-at="2024-01-12T12:20:37 IST" name="Suite" finished-at="2024-01-12T12:20:45 IST" duration-ms="8274">
     <groups>
     </groups>
-    <test started-at="2023-12-29T14:01:41 IST" name="Test" finished-at="2023-12-29T14:01:54 IST" duration-ms="12439">
+    <test started-at="2024-01-12T12:20:37 IST" name="Test" finished-at="2024-01-12T12:20:45 IST" duration-ms="8274">
       <class name="testCases.TableMetadataValidation">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.TableMetadataValidation@7c137fd5]" started-at="2023-12-29T14:01:53 IST" name="setUp" finished-at="2023-12-29T14:01:54 IST" duration-ms="193" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.TableMetadataValidation@247310d0]" started-at="2024-01-12T12:20:45 IST" name="setUp" finished-at="2024-01-12T12:20:45 IST" duration-ms="182" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="tableMetadataValidation(java.lang.String)[pri:0, instance:testCases.TableMetadataValidation@7c137fd5]" started-at="2023-12-29T14:01:54 IST" name="tableMetadataValidation" data-provider="tableSheetDataProvider" finished-at="2023-12-29T14:01:54 IST" duration-ms="9" status="FAIL">
+        <test-method signature="tableMetadataValidation(java.lang.String)[pri:0, instance:testCases.TableMetadataValidation@247310d0]" started-at="2024-01-12T12:20:45 IST" name="tableMetadataValidation" data-provider="tableSheetDataProvider" finished-at="2024-01-12T12:20:45 IST" duration-ms="14" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -25,7 +25,7 @@
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.AssertionError: Test failed: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME=EMP_ID}, {COLUMN_NAME=T_EMP_ID1212, TARGET_COLUMN_NAME=T_EMP_ID}] expected [true] but found [false]
-at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValidation.java:60)
+at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValidation.java:62)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -62,7 +62,7 @@ Caused by: java.lang.AssertionError: [{COLUMN_NAME=EMP_ID345, TARGET_COLUMN_NAME
 at org.testng.Assert.fail(Assert.java:111)
 at org.testng.Assert.failNotEquals(Assert.java:1578)
 at org.testng.Assert.assertTrue(Assert.java:57)
-at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValidation.java:56)
+at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValidation.java:58)
 ... 32 more
 ]]>
             </full-stacktrace>
@@ -70,7 +70,7 @@ at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValida
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tableMetadataValidation -->
-        <test-method signature="tableMetadataValidation(java.lang.String)[pri:0, instance:testCases.TableMetadataValidation@7c137fd5]" started-at="2023-12-29T14:01:54 IST" name="tableMetadataValidation" data-provider="tableSheetDataProvider" finished-at="2023-12-29T14:01:54 IST" duration-ms="5" status="PASS">
+        <test-method signature="tableMetadataValidation(java.lang.String)[pri:0, instance:testCases.TableMetadataValidation@247310d0]" started-at="2024-01-12T12:20:45 IST" name="tableMetadataValidation" data-provider="tableSheetDataProvider" finished-at="2024-01-12T12:20:45 IST" duration-ms="5" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -81,17 +81,21 @@ at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValida
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tableMetadataValidation -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.TableMetadataValidation@7c137fd5]" started-at="2023-12-29T14:01:54 IST" name="tearDown" finished-at="2023-12-29T14:01:54 IST" duration-ms="19" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.TableMetadataValidation@247310d0]" started-at="2024-01-12T12:20:45 IST" name="tearDown" finished-at="2024-01-12T12:20:45 IST" duration-ms="24" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- testCases.TableMetadataValidation -->
       <class name="testCases.DataCompletenessValidation">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.DataCompletenessValidation@5b247367]" started-at="2023-12-29T14:01:42 IST" name="setUp" finished-at="2023-12-29T14:01:43 IST" duration-ms="1944" status="PASS">
+        <test-method is-config="true" signature="setUpBeforeSuite()[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:37 IST" name="setUpBeforeSuite" finished-at="2024-01-12T12:20:37 IST" duration-ms="23" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpBeforeSuite -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:37 IST" name="setUp" finished-at="2024-01-12T12:20:39 IST" duration-ms="2029" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@5b247367]" started-at="2023-12-29T14:01:43 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2023-12-29T14:01:49 IST" duration-ms="5545" status="PASS">
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:39 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:39 IST" duration-ms="124" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -99,10 +103,92 @@ at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValida
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Test failed: java.lang.AssertionError: Test failed: ORA-00933: SQL command not properly ended
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Test failed: java.lang.AssertionError: Test failed: ORA-00933: SQL command not properly ended
+
+at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:146)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: java.util.concurrent.ExecutionException: java.lang.AssertionError: Test failed: ORA-00933: SQL command not properly ended
+
+at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:138)
+... 32 more
+Caused by: java.lang.AssertionError: Test failed: ORA-00933: SQL command not properly ended
+
+at databaseFunction.sqlFunction.executeQuery(sqlFunction.java:76)
+at testCases.DataCompletenessValidation.lambda$0(DataCompletenessValidation.java:79)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.sql.SQLSyntaxErrorException: ORA-00933: SQL command not properly ended
+
+at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:702)
+at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:608)
+at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1248)
+at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:1041)
+at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:443)
+at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:518)
+at oracle.jdbc.driver.T4CStatement.doOall8(T4CStatement.java:156)
+at oracle.jdbc.driver.T4CStatement.executeForDescribe(T4CStatement.java:963)
+at oracle.jdbc.driver.OracleStatement.prepareDefineBufferAndExecute(OracleStatement.java:1205)
+at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1135)
+at oracle.jdbc.driver.OracleStatement.executeSQLSelect(OracleStatement.java:1472)
+at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1343)
+at oracle.jdbc.driver.OracleStatement.executeQuery(OracleStatement.java:1727)
+at oracle.jdbc.driver.OracleStatementWrapper.executeQuery(OracleStatementWrapper.java:380)
+at databaseFunction.sqlFunction.executeQuery(sqlFunction.java:46)
+... 5 more
+Caused by: Error : 933, Position : 42, SQL = select ItemId, ItemName  from items  orde by itemid
+, Original SQL = select ItemId, ItemName  from items  orde by itemid
+, Error Message = ORA-00933: SQL command not properly ended
+
+at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:710)
+... 19 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataCompleteness -->
-        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@5b247367]" started-at="2023-12-29T14:01:49 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2023-12-29T14:01:49 IST" duration-ms="88" status="PASS">
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:39 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:39 IST" duration-ms="252" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -113,7 +199,7 @@ at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValida
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataCompleteness -->
-        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@5b247367]" started-at="2023-12-29T14:01:49 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2023-12-29T14:01:53 IST" duration-ms="4055" status="PASS">
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:39 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:44 IST" duration-ms="4794" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -124,7 +210,7 @@ at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValida
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataCompleteness -->
-        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@5b247367]" started-at="2023-12-29T14:01:53 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2023-12-29T14:01:53 IST" duration-ms="87" status="PASS">
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:44 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:44 IST" duration-ms="100" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -135,7 +221,7 @@ at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValida
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataCompleteness -->
-        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@5b247367]" started-at="2023-12-29T14:01:53 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2023-12-29T14:01:53 IST" duration-ms="43" status="PASS">
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:44 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:44 IST" duration-ms="31" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -146,7 +232,29 @@ at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValida
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataCompleteness -->
-        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@5b247367]" started-at="2023-12-29T14:01:53 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2023-12-29T14:01:53 IST" duration-ms="10" status="PASS">
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:44 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:44 IST" duration-ms="295" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[STUDENT_SMALL_db_to_JSONfile_validation]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dataCompleteness -->
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:44 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:45 IST" duration-ms="14" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[STUDENT_SMALL_db_to_XMLfile_validation]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dataCompleteness -->
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:45 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:45 IST" duration-ms="9" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -157,7 +265,7 @@ at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValida
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataCompleteness -->
-        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@5b247367]" started-at="2023-12-29T14:01:53 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2023-12-29T14:01:53 IST" duration-ms="8" status="PASS">
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:45 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:45 IST" duration-ms="7" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -168,7 +276,51 @@ at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValida
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataCompleteness -->
-        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@5b247367]" started-at="2023-12-29T14:01:53 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2023-12-29T14:01:53 IST" duration-ms="15" status="PASS">
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:45 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:45 IST" duration-ms="7" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[STUDENT_SMALL_JSONfile_to_db_validation]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dataCompleteness -->
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:45 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:45 IST" duration-ms="6" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[STUDENT_SMALL_JSONfile_to_JSONfile_validation]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dataCompleteness -->
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:45 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:45 IST" duration-ms="8" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[STUDENT_SMALL_XMLfile_to_db_validation]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dataCompleteness -->
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:45 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:45 IST" duration-ms="9" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[STUDENT_SMALL_XMLfile_to_XMLfile_validation]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dataCompleteness -->
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:45 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:45 IST" duration-ms="11" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -179,7 +331,7 @@ at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValida
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataCompleteness -->
-        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@5b247367]" started-at="2023-12-29T14:01:53 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2023-12-29T14:01:53 IST" duration-ms="11" status="PASS">
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:45 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:45 IST" duration-ms="8" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -190,7 +342,7 @@ at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValida
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataCompleteness -->
-        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@5b247367]" started-at="2023-12-29T14:01:53 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2023-12-29T14:01:53 IST" duration-ms="14" status="PASS">
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:45 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:45 IST" duration-ms="12" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -201,7 +353,7 @@ at testCases.TableMetadataValidation.tableMetadataValidation(TableMetadataValida
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataCompleteness -->
-        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@5b247367]" started-at="2023-12-29T14:01:53 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2023-12-29T14:01:53 IST" duration-ms="49" status="FAIL">
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:45 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:45 IST" duration-ms="21" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -221,9 +373,8 @@ Row 1:
 Row 1:
    Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
  expected [true] but found [false]
-at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:131)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:146)
+at jdk.internal.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
@@ -260,8 +411,8 @@ Row 1:
  expected [true] but found [false]
 at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
 at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
-at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:128)
-... 32 more
+at testCases.DataCompletenessValidation.dataCompleteness(DataCompletenessValidation.java:138)
+... 31 more
 Caused by: java.lang.AssertionError: Details of Differences:
 Row 1:
    Column 2: List1 = EMP_NAME: Sunil, List2 = EMP_NAME: Smith
@@ -269,7 +420,7 @@ Row 1:
 at org.testng.Assert.fail(Assert.java:111)
 at org.testng.Assert.failNotEquals(Assert.java:1578)
 at org.testng.Assert.assertTrue(Assert.java:57)
-at testCases.DataCompletenessValidation.lambda$dataCompleteness$2(DataCompletenessValidation.java:101)
+at testCases.DataCompletenessValidation.lambda$0(DataCompletenessValidation.java:126)
 at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
@@ -280,7 +431,7 @@ at java.base/java.lang.Thread.run(Thread.java:834)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataCompleteness -->
-        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@5b247367]" started-at="2023-12-29T14:01:53 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2023-12-29T14:01:53 IST" duration-ms="12" status="PASS">
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:45 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:45 IST" duration-ms="7" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -291,7 +442,7 @@ at java.base/java.lang.Thread.run(Thread.java:834)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataCompleteness -->
-        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@5b247367]" started-at="2023-12-29T14:01:53 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2023-12-29T14:01:53 IST" duration-ms="12" status="PASS">
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:45 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:45 IST" duration-ms="5" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -302,7 +453,7 @@ at java.base/java.lang.Thread.run(Thread.java:834)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataCompleteness -->
-        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@5b247367]" started-at="2023-12-29T14:01:53 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2023-12-29T14:01:53 IST" duration-ms="11" status="PASS">
+        <test-method signature="dataCompleteness(java.lang.String)[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:45 IST" name="dataCompleteness" data-provider="getFolderPath" finished-at="2024-01-12T12:20:45 IST" duration-ms="4" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -313,10 +464,14 @@ at java.base/java.lang.Thread.run(Thread.java:834)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataCompleteness -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.DataCompletenessValidation@5b247367]" started-at="2023-12-29T14:01:53 IST" name="tearDown" finished-at="2023-12-29T14:01:53 IST" duration-ms="9" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:45 IST" name="tearDown" finished-at="2024-01-12T12:20:45 IST" duration-ms="8" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="printTestResults()[pri:0, instance:testCases.DataCompletenessValidation@8462f31]" started-at="2024-01-12T12:20:45 IST" name="printTestResults" finished-at="2024-01-12T12:20:45 IST" duration-ms="211" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printTestResults -->
       </class> <!-- testCases.DataCompletenessValidation -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->

@@ -1,6 +1,7 @@
 package fileFunction;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
@@ -33,7 +34,20 @@ public class MetadataExcelGenerator {
         }
 
         try {
-            Workbook mappingWorkbook = WorkbookFactory.create(new File(mappingSheetPath));
+            Workbook mappingWorkbook;
+
+            try (FileInputStream fis = new FileInputStream(new File(mappingSheetPath))) {
+                if (mappingSheetPath.toLowerCase().endsWith(".xlsx")) {
+                    mappingWorkbook = new XSSFWorkbook(fis);
+                } else if (mappingSheetPath.toLowerCase().endsWith(".xls")) {
+                    // For older Excel formats (HSSF)
+                    mappingWorkbook = WorkbookFactory.create(fis);
+                } else {
+                    l.error("Unsupported Excel file format: " + mappingSheetPath);
+                    return;
+                }
+            }
+
             Workbook metadataWorkbook = new XSSFWorkbook();
 
             // Create the first sheet in the metadata workbook
